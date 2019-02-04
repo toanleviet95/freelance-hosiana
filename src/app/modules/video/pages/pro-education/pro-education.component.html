@@ -1,0 +1,54 @@
+<div class="content-video-list">
+	<div class="container">
+		<div class="video-list">
+			<div class="col-12">
+				<app-video-item [items]="listVideo" (change_modal)="changeDetect($event)"></app-video-item>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="review-area row m-0">
+		<div class="area-form col-12 col-sm-5 float-sm-right">
+			<div class="title-area">Receive new course from HOSIANA</div>
+			<div class="form-input">
+				<form [formGroup]="formContact" (ngSubmit)="submitFormContact($event)">
+					<div class="list-input">
+						<input type="text" class="form-control form-text form-email" formControlName="email" placeholder="Enter your email">
+						<input type="submit" class="submit-form-contact form-text" value="Sent">
+					</div>
+					<span class="text-danger" *ngIf="submitted || formContact.controls['email'].touched && formContact.controls['email'].invalid">
+						{{ 'Network.RequireEmail' | translate }}
+					</span>
+					<span class="text-danger" *ngIf="submitted || formContact.controls['email'].hasError('email')">
+						{{ 'Network.CorrectEmail' | translate }}
+					</span>
+				</form>
+			</div>	
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</div>
+<ng-template #content let-modal>
+	<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+		<img src="assets/images/close-modal.png" alt="Close">
+	</span>
+	<div class="modal-body">
+		<div class="container">
+			<div class="header-content">
+				<h3 class="title-video">
+					{{videoSource.content}}
+				</h3>
+				<p class="investor"><em>{{videoSource.name}}</em></p>
+				<div class="office">{{videoSource.office}}</div>
+			</div>
+			<div class="capture-padding"></div>
+			<div class="video">
+				<video controls (click)="toggleVideo()" id="videoPlayer" width="100%" height="100%">
+					<source src="{{videoSource.video}}" type="video/mp4" />
+					Browser not supported
+				</video>
+			</div>
+		</div>
+	</div>
+</ng-template>

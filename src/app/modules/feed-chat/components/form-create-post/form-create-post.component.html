@@ -1,0 +1,60 @@
+<span class="close" *ngIf="isAnimation" (click)="hideDrop()"><img src="/assets/images/close-modal.png" alt="Close"></span>
+<form class="post-everything w-100" [ngClass]="{'show': isAnimation}" [formGroup]="formPostAgencySide" enctype="multipart/form-data">
+	<div class="col-content">
+		<span class="avatar">
+			<img src="/assets/images/01x.png" alt="Thuy Nguyen">
+		</span>
+		<span class="content">
+				<textarea class="w-100" autosize (click)="showDrop()"  formControlName="content" cols="30"
+				rows="3" placeholder="Share an article, photo, video or idea">{{ formPostAgencySide.controls['content'].value }}</textarea>
+		</span>
+	</div>
+	
+	<div class="row m-0 reading-image">
+		<!-- <div class="set-image-default col-2" *ngFor="let media of formPostAgencySide.controls['image'].value; let i = index">
+			<img [src]="media.url" alt="{{ media.filename }}">
+			<span class="close" (click)="removeImage(i)">
+				<i class="fa fa-times" title="Remove"></i>
+			</span>
+		</div> -->
+		<app-upload [multi]="multiUpload"></app-upload>
+	</div>
+	<div class="action-sprite ">
+		<div class="col-12">
+			<label for="fileUpload">
+				<span class="pl-4 image sprite-agency-side">{{ 'Network.Video' | translate }}</span>
+				<span class="pl-4 video sprite-agency-side">{{ 'Network.Image' | translate }}</span>
+			</label>
+			
+			<!-- <input type="file" id="file" hidden (change)="onFileChange($event)" multiple> -->
+			<button type="submit" class="submit-agency-form" >
+				{{ 'Network.Post' | translate }}
+			</button>
+			<div class="type-post-right" *ngIf="postSetting" ngbDropdown>
+				<button class="btn" id="postSetting" ngbDropdownToggle> {{ 'FeedChat.PostSetting' | translate }} </button>
+				<div ngbDropdownMenu aria-labelledby="postSetting">
+					<div class="title-drop">{{ 'FeedChat.Privacy' | translate }}</div>
+					<button class="dropdown-item">
+						<div class="inline-block">
+							<img src="assets/images/earth.png" alt="Public">
+						</div>
+						<div class="inline-block">
+							<h3 class="title-privacy">{{ 'FeedChat.Public' | translate }}</h3>
+							<span class="des-privacy"> {{ 'FeedChat.AnyOne' | translate }} </span>
+						</div>
+					</button>
+					<button class="dropdown-item">
+						<div class="inline-block">
+							<img src="assets/images/person.png">
+						</div>
+						<div class="inline-block">
+							<h3 class="title-privacy">{{ 'Network.Connections' | translate }}</h3>
+							<span class="des-privacy">{{ 'FeedChat.YourConnections' | translate }}</span>
+						</div>
+					</button>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+</form>

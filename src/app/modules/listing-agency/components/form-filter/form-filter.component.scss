@@ -1,0 +1,59 @@
+form {
+    .form-control {
+        color: #555555;
+    }
+    .group-control {
+        margin: 0;
+        padding-top: 5px;
+        width: 150px;
+    }
+    .magnifying-glass {
+        display: inline-block;
+        background: url('/assets/sprites/sprite-listing-agency.png') no-repeat;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+    }
+    .magnifying-glass {
+        background-position: -0px -109px;
+        width: 24px;
+        height: 24px;
+    }
+    .search-icon {
+        position: relative;
+        float: right;
+        margin-top: -30px;
+        margin-right: 10px;
+    }
+    .more-filter {
+        line-height: 35px;
+    }
+    .divide {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    select {
+        background-position-x: 95%;
+    }
+    select.no-value{
+        color: rgba(151, 151, 151, 0.5);
+    }
+    select.no-value option {
+        color: #555555;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .left-none {
+        padding-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-w-100 {
+        width: 100% !important;
+    }
+    .mobile-w-50 {
+        width: 50% !important;
+    }
+}

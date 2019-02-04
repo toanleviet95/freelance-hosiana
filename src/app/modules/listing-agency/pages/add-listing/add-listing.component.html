@@ -1,0 +1,106 @@
+<main *ngIf="!showSuccessAddListing" class="py-5 mt-5">
+    <div class="container">
+        <div class="title">
+            <h1>{{ 'add_edit_listing.new_listing' | translate }}</h1>
+        </div>
+    </div>
+    <ngb-tabset #tabSet="ngbTabset" (tabChange)="handleChangeTab($event)">
+        <ngb-tab id="tab-details">
+            <ng-template ngbTabTitle>{{ 'add_edit_listing.details' | translate }}</ng-template>
+            <ng-template ngbTabContent>
+                <div class="container-fluid odd">
+                    <app-add-listing-detail [formValues]="formValues" [formComercial]="formComercial"
+                            [formFurnished]="formFurnished" [propertyTypeList]="categories" [facilityList]="facilities"
+                            [exchangeRates]="exchangeRates" [projects]="projects" [cities]="cities" [districts]="districts"
+                            [wards]="wards" [geoCode]="geoCode" [agencyStaffs]="agencyStaffs"></app-add-listing-detail>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab id="tab-promote">
+            <ng-template ngbTabTitle>{{ 'add_edit_listing.promote' | translate }}</ng-template>
+            <ng-template ngbTabContent>
+                <div class="container-fluid">
+                    <app-add-listing-promote [formValues]="formValues" [promotions]="promotions"></app-add-listing-promote>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+    <hr />
+    <div class="container">
+        <div *ngIf="step === 'tab-details'" class="buttons-segment">
+            <button (click)="handleSaveAsDraft($event)" class="save">{{ 'add_edit_listing.save_as_draft' | translate }}</button>
+            <button [disabled]="!formValues.valid" (click)="handleGoToStep($event, tabSet, 'tab-promote')" class="next">{{
+                'add_edit_listing.next' | translate }}</button>
+            <button (click)="handleCancel($event)" class="save">{{ 'add_edit_listing.cancel' | translate }}</button>
+            <!-- <button (click)="handleSaveAsDraft($event)" class="save">{{ 'add_edit_listing.save_as_draft' | translate }}</button> -->
+        </div>
+    </div>
+    <div class="container">
+        <div *ngIf="step === 'tab-promote'" class="buttons-segment">
+            <button (click)="handleGoToStep($event, tabSet, 'tab-details')" class="save">{{ 'Homepro.Back' | translate }}</button>
+            <button (click)="handlePublish(content)" class="next">{{ 'add_edit_listing.publish' | translate }}</button>
+            <button (click)="handleCancel(content)" class="save">{{ 'add_edit_listing.cancel' | translate }}</button>
+            <!-- <button (click)="handleSaveAsDraft($event)" class="save">{{ 'add_edit_listing.save_as_draft' | translate }}</button> -->
+        </div>
+    </div>
+    <ng-template #content let-modal>
+        <span class="close pull-right closeModal" aria-label="Close" (click)="handleCloseModal()">
+            <img src="assets/images/close-modal.png" alt="Close">
+        </span>
+        <div class="modal-body">
+            <div class="region-safe">
+                <span class="state-register">
+                    {{ 'Homepro.Confirm' | translate }}
+                </span>
+                <div *ngIf="progressAddListing" class="text-center">
+                    <img src="/assets/images/loading.gif" />
+                </div>
+                <div>
+                    <div *ngIf="typePopup === 'confirm'" class="text text-center">
+                        <p>{{ confirmMessage }}</p>
+                    </div>
+                    <div *ngIf="typePopup === 'cancel'" class="text text-center">
+                        <p class="">{{ 'add_edit_listing.promoted_listing_cancel' | translate }}</p>
+                        <p>{{ 'add_edit_listing.confirm_cancel' | translate }}</p>
+                    </div>
+                    <div class="check-submit text-center button-list">
+                        <div class="arrow">
+                            <button class="form-control button-submitb deny-invitation" (click)="handleCloseModal()">
+                                {{ 'App.No' | translate }}
+                            </button>
+                            <button class="form-control button-submitb accept-invitation" (click)="handleConfirm()">
+                                {{ 'App.Yes' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</main>
+<main *ngIf="showSuccessAddListing" class="py-5 mt-5">
+    <h1 class="text-center">{{ 'add_edit_listing.your_listing_is_ready' | translate }}</h1>
+    <div class="text-center">
+        <img src="assets/images/success.svg" />
+    </div>
+    <p style="margin-top: 30px;" class="text-center">{{ 'add_edit_listing.wait_until_approved' | translate }}</p>
+    <p class="text-center">{{ 'add_edit_listing.thankyou' | translate }}</p>
+    <div style="margin-top: 30px;" class="check-submit text-center button-list">
+        <div class="arrow">
+            <button style="width: 350px; margin-right: 10px;" class="form-control button-submitb accept-invitation" (click)="handlePromoteListing($event)">
+                {{ 'add_edit_listing.promote_this_listing' | translate }}
+            </button>
+            <button style="width: 350px; margin-left: 10px" class="form-control button-submitb accept-invitation" (click)="handleShareListing($event)">
+                {{ 'add_edit_listing.share_this_lsting_to_independent_agents' | translate }}
+            </button>
+        </div>
+    </div>
+    <p style="margin-top: 30px;" class="text-center">{{ 'add_edit_listing.or' | translate }}</p>
+    <div style="margin-top: 25px;" class="check-submit text-center button-list">
+        <div class="arrow">
+            <button class="form-control button-submitb deny-invitation" (click)="handleBackToLisitng()">
+                {{ 'add_edit_listing.back_to_lsting' | translate }}
+            </button>
+        </div>
+    </div>
+</main>

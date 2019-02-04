@@ -1,0 +1,35 @@
+<div>
+    <form>
+        <div class="row list-form-group m-0">
+            <div class="pl-0 py-2 mobile-w-100 col-sm-3">
+                <div>
+                    <input type="text" placeholder="Keyword, Property ID" class="form-control" id="keyword" name="keyword">
+                    <div class="search-icon">
+                        <div class="magnifying-glass"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2 mobile-w-100 col-sm-2">
+                <div>
+                    <select class="form-control">
+                        <option value="" disabled selected>{{ 'Network.Agent' | translate }}</option>
+                        <option *ngFor="let ag of listAgents" value="{{ ag }}">{{ ag }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="py-2 mobile-w-100 col-sm-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Location">
+                </div>
+            </div>
+            <div class="py-2 mobile-w-100 col-sm-2">
+                <div>
+                    <select class="form-control">
+                        <option value="" disabled selected>{{ 'Network.Sortby' | translate }}</option>
+                        <option *ngFor="let ag of listSorts" value="{{ ag.key }}">{{ ag.title }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

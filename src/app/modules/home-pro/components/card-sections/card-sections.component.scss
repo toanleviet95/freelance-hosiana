@@ -1,0 +1,56 @@
+@import '../../../../../assets/styles/variables';
+.section-heading {
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #555555;
+}
+
+.section-description {
+  font-size: 18px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #555555;
+  margin: 10px 0;
+}
+.become-dependient {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 11px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.btn-red {
+  background-color: #e4375c !important;
+  text-transform: none;
+  width: 300px;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  border-radius: 0;
+}
+@media screen and (max-width: 575px) {
+  .mobile-padding-0 {
+    padding: 0 !important;
+  }
+  .mobile-margin-0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

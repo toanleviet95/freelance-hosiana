@@ -1,0 +1,37 @@
+:host {
+  width: 100%;
+  img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+  .image-col {
+    position: relative;
+    display: inline-block;
+  }
+  .default-upload {
+    padding: 40px;
+    background: #d8d8d8;
+    display: inline-block;
+  }
+  .deleteUploaded {
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    img {
+      max-width: 20px;
+    }
+  }
+  .propertyDetailListing {
+    
+    vertical-align: text-top;
+    margin-right: 10px;
+    img {
+      max-width: 200px;
+      max-height: 120px;
+    }
+  }
+  .propertyDetailListing.default-upload {
+    display: none;
+  }
+}

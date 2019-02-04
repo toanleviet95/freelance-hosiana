@@ -1,0 +1,24 @@
+<div class="container-fluid" [formGroup]="formValues">
+    <div class="container">
+        <form class="form-facilities">
+            <h2>{{'add_edit_listing.facilities_amentilies' | translate}}</h2>
+            <div class="row form-content m-0">
+                <div class="col-md-6 p-0" *ngFor="let type of facilityList | async">
+                    <h3 *ngIf="type.id !== 2 && type.name === 'Facilities'" class="title-fa">{{'add_edit_listing.facilities' | translate}}</h3>
+                    <h3 *ngIf="type.id !== 2 && type.name === 'Amentities'" class="title-fa">{{'add_edit_listing.amenities' | translate}}</h3>
+                        <div class="row">
+                            <div class="col-6" *ngFor="let sub of type.sub">
+                                <div class="checkbox-section">
+                                    <label>
+                                        <input (click)="handleCheck($event)" type="checkbox" value="{{ sub.id }}">
+                                        <div class="animations"><i class="fa fa-check"></i></div>&nbsp;
+                                        {{ sub.name }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

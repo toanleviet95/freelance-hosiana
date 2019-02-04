@@ -1,0 +1,10 @@
+<div class="row m-0">
+    <section class="team-section text-center col-12">
+        <p class="section-heading mb-40">{{ 'home.testimonial' | translate }}</p>
+        <div class="row m-0">
+            <div class="col-lg-4 col-md-4 mb-lg-0 mb-5" *ngFor="let item of clients">
+                <app-card-client-item [item]="item" [type]="item.name"></app-card-client-item>
+            </div>
+        </div>
+    </section>
+</div>

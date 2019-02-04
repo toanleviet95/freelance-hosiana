@@ -1,0 +1,89 @@
+@import '../../../../../assets/styles/variables.scss';
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: initial;
+    border-bottom: 2px solid $red-color;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: $gray-color;
+}
+
+.nav {
+  background-color: $gray-blue-color;
+}
+
+
+.title-tab {
+  font-size: 21px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #555555;
+  margin-bottom: 0;
+  .count {
+    font-weight: normal;
+  }
+}
+.tab-section {
+  margin: 40px 0 20px;
+  .listing-tab {
+    width: 170px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    border: solid 1px #e4375c;
+    color: #e4375c !important;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  .listing-tab:hover {
+    background-color: #e4375c;
+    color: #fff !important;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .listing-tab.active {
+    background-color: #e4375c;
+    color: #fff !important;
+    text-decoration: none;
+    cursor: pointer;
+  }
+    background-color: $gray-blue-color;
+}
+
+:host ::ng-deep .title-tab {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #555555;
+    count {
+        font-weight: normal;
+    }
+}
+
+.tab-section {
+    margin: 20px 0 30px;
+    background: #fff;
+    .listing-tab {
+        padding: 10px 0;
+        border: solid 1px #e4375c;
+        color: #e4375c !important;
+        border-radius: 5px;
+        margin-right: 15px;
+    }
+    .listing-tab:hover {
+        background-color: #e4375c;
+        color: #fff !important;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

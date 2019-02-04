@@ -1,0 +1,69 @@
+<div class="container-fluid" [formGroup]="formValues">
+    <div class="container"> 
+        <form class="form-duration" formGroupName="promotions">
+            <h2>{{'promote_listing.duration' | translate}}</h2>
+            <div class="col-12">
+                <div class="row table-custom">
+                    <div class="row m-0 titleListAgents">
+                        <div class="col-6 p-0">
+                            <span class="title-contact">{{'promote_listing.renew_options' | translate}}</span>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="title-contact">{{'promote_listing.start_time' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="row m-0 titleListAgents-mobile">
+                        <div class="col-12 p-0">
+                            <span class="title-contact">>{{'promote_listing.renew_options' | translate}} & {{'promote_listing.start_time' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="listAllAgents">
+                        <div class="row engineer">
+                            <div class="col-12 col-lg-6 p-0 first">
+                                <div>
+                                    <label class="custom-radio">{{'promote_listing.renew_30days' | translate}} (đ 45,000)
+                                        <input formControlName="isRenew" type="radio" value="0">
+                                        <span class="radio-checkmark"></span>
+                                    </label>
+                                    <label style="margin-top: 20px" class="custom-radio"> {{'promote_listing.renew_good_til_cancelled' | translate}}
+                                        <input formControlName="isRenew" type="radio" value="1">
+                                        <span class="radio-checkmark"></span>
+                                    </label>
+                                    <div class="text-promote">
+                                        {{'promote_listing.renew_good_til_cancelled_desc' | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 p-0 commission">
+                                <div>
+                                    <label class="custom-radio"> {{'promote_listing.start_time_submit' | translate}}
+                                        <input type="radio" name="startTime" value="startWhenSubmit">
+                                        <span class="radio-checkmark"></span>
+                                    </label>
+                                    <div class="flex-display">
+                                        <label style="margin-top: 12px" class="custom-radio">
+                                            {{'promote_listing.start_time_schedule' | translate}}
+                                            <input type="radio" name="startTime" value="tilCanceled">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                        <div class="input-group">
+                                            <input (click)="d.toggle()" formControlName="publishedAt" class="form-control" placeholder="yyyy-mm-dd"
+                                                name="dp" ngbDatepicker #d="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                                    type="button">
+                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    

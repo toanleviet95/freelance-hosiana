@@ -1,0 +1,747 @@
+<main class="main mt-5 sprite-work">
+	<div class="header-info">
+		<div class="header-addfriend">
+			<div class="header-background">
+			</div>
+			<div class="put-header ">
+				<div class="container">
+					<div class="row m-0 flex-end">
+						<div class="col-xs-12 col-md-12 col-lg-8">
+							<div class="row">
+								<div class="info-friend">
+									<a href="/assets/images/friend-avatar.png">
+										<img src="/assets/images/friend-avatar.png" alt="Thuy Thuy">
+									</a>
+									<div class="name-and-connect">
+										<h3 class="title-user">{{ person.name }}</h3>
+										<span class="count-connections">56 {{ 'Network.Connections' | translate }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-4 mobile-mt-25">
+							<div class="w-100">
+								<span class="cancel-request">
+									<span class="close-or-cancel sprite-network"></span>
+									<span translate>Network.CancelConnectionRequest</span>
+								</span>
+							</div>
+							<div class="w-100 mt-2">
+								<div class="row m-0">
+									<div class="col-4 p-0">
+										<span class="action-with-friend">
+											<img src="/assets/images/pending.png" alt="pending">
+										</span>
+									</div>
+									<div class="col-4 pl-0">
+										<span class="action-with-friend message">
+											<i class="fa fa-comment-o"></i>
+											Message
+										</span>
+									</div>
+									<div class="col-4 pl-0 sprite-work" ngbDropdown>
+										<span class="action-with-friend at-more" ngbDropdownToggle id="dropdownConfig">
+											More ...
+										</span>
+										<div class="dropdown-menu menu-action-with-friend" ngbDropdownMenu aria-labelledby="dropdownConfig">
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Follow</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.AddToPool</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Recommend</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RequestARecommendation</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon close-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RemoveConnection</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon blog-icon sprite-network"></span>
+												<span class="title-action" translate>Network.BlogThisPerson</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon report-icon sprite-network"></span>
+												<span class="title-action" translate>Network.ReportOrBlog</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-info col-12 py-4 mobile-padding-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-lg-9 mobile-padding-0">
+					<div class="row">
+						<div class="col-profile arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Profile</h2>
+								<div class="listing-info">
+									<div class="col-12 mobile-padding-0">
+										<div class="row">
+											<div class="col-12 col-sm-8 col-lg-8 pl-0 mobile-padding-0">
+												<span class="label-profile">{{ 'App.Email' | translate }}:
+													<span class="content-profile">thuy.nguyen@gmail.com</span>
+												</span>
+											</div>
+											<div class="col-12 col-sm-4 col-lg-4 pr-0 mobile-padding-0">
+												<span class="label-profile">{{ 'App.Phone' | translate }}:
+													<span class="content-profile">0909123456</span>
+												</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12 col-sm-8 col-lg-8 pl-0 mobile-padding-0">
+												<span class="label-profile">{{ 'App.Address' | translate }}:
+													<span class="content-profile">{{ person.address }}, {{ person.district }}, {{ person.city }}</span>
+												</span>
+											</div>
+											<div class="col-12 col-sm-4 col-lg-4 pr-0 mobile-padding-0">
+												<span class="label-profile">{{ 'Network.Language' | translate }}:
+													<span class="content-profile">English, Vietnamese</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-experience arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Experience</h2>
+								<div class="listing-experience">
+									<div class="col-12 exp-col" *ngFor="let experience of person.exp; let i = index" [ngClass]="{'border-top': i != 0}">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 col-lg-2 rol-11 pl-0">
+												<div class="image-exp">
+													<img src="{{ experience.image }}" alt="{{ experience.title }}">
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-10 col-lg-10 rol-89">
+												<h3 class="title-experience">{{ experience.title }}</h3>
+												<span class="description-experience">{{ experience.description }}</span>
+												<span class="time-experience">{{ experience.time }}</span>
+												<span class="country-work">{{ experience.country }}</span>
+												<span class="link-company" *ngIf="experience.link !== ''">{{ experience.link }}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network" (click)="showPopup(experience)"></span>
+									<span class="action-edit sprite-network waves-light" (click)="showPopup(content)"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-experience arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum">{{ 'Network.Education' | translate }}</h2>
+								<div class="listing-education listing-experience">
+									<div class="col-12 exp-col" *ngFor="let edu of person.education; let i = index" [ngClass]="{'border-top': i != 0}">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 col-lg-2 rol-11 pl-0">
+												<div class="image-exp">
+													<img src="{{ edu.image }}" alt="{{ edu.title }}">
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-10 col-lg-10 rol-89">
+												<h3 class="title-experience">{{ edu.title }}</h3>
+												<span class="description-experience">{{ edu.description }}</span>
+												<span class="time-experience">{{ edu.time }}</span>
+												<span class="link-company" *ngIf="edu.position !== ''">{{ edu.position }}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<h2 class="title-colum" translate>Network.Recommendations</h2>
+								<div class="listing-recommendations">
+									<div class="header-tab-recommend">
+										<span class="tab-recomend" [ngClass]="{'active': activeTab == 0}" (click)="changeTabActive(0)">{{ 'Network.Received' | translate }} (1)</span>
+										<span class="tab-recomend" [ngClass]="{'active': activeTab == 1}" (click)="changeTabActive(1)">{{ 'Network.Given' | translate }} (5)</span>
+									</div>
+									<div class="main-tab-recommend" *ngIf="activeTab==0">
+										<div class="row m-0 py-3">
+											<div class="col-xs-12 col-md-12 col-lg-4">
+												<div class="row">
+													<div class="col-4 rol-25 p-0">
+														<a href="#">
+															<img src="/assets/images/01x.png" alt="Thuy Thuy">
+														</a>
+													</div>
+													<div class="col-4 rol-75 p-0">
+														<a href="#" class="title-person">Nghiem Tran Thuy Thuy </a>
+														<span class="current-job">CEO at FPT Asia Pacific March 29, 2009</span>
+														<span class="description-recommend">Dung worker with Thomas in the same group</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-12 col-lg-8 content-recommend">
+												<p>I have known Dung in a variety of capacities for many years. We has been working in FPT Software together.</p>
+												<br>
+												<p>I have known Dung in a variety of capacities for many years. We has been working in FPT Software together.I have
+													known Dung in a variety of apacities for many years. We has been working in FPT Software together
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="main-tab-recommend" *ngIf="activeTab==1">
+										<div class="row m-0 py-3" *ngFor="let recommend of person.recommend[0].given; let stt = index" [ngClass]="{'border-top': stt != 0}">
+											<div class="col-xs-12 col-md-12 col-lg-4">
+												<div class="row">
+													<div class="col-4 rol-25 p-0">
+														<a href="#">
+															<img src="{{ recommend.image }}" alt="{{ recommend.title }}">
+														</a>
+													</div>
+													<div class="col-4 rol-75 p-0">
+														<a href="#" class="title-person">{{ recommend.title }} </a>
+														<span class="current-job">{{ recommend.job }}</span>
+														<span class="description-recommend">{{ recommend.description }}</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-12 col-lg-8 content-recommend" [innerHTML]="recommend.content">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network" (click)="showPopup(education)"></span>
+									<span class="action-edit sprite-network waves-light" (click)="showPopup(content)"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-profile arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Accomplishments</h2>
+								<div class="listing-info">
+									<div class="col-12">
+										<div class="row">
+											<span class="label-profile" translate> Network.Language:
+												<span class="content-profile">English (IELTS 6.0)</span>
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 col-lg-3 mobile-padding-0">
+					<sidebar></sidebar>
+				</div>
+			</div>
+		</div>
+	</div>
+	<ng-template #content let-c="close" let-d="dismiss">
+		<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+			<img src="/assets/images/close-modal.png" alt="Close">
+		</span>
+		<div class="modal-body">
+			<h3 class="title-action">Edit Profile</h3>
+			
+			<form [formGroup]="formGroup">
+				<h5 class="title-group">
+					Information
+				</h5>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.FullName' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="name" data-error=" " data-success=" " id="defaultForm-name" class="form-control">
+						<app-show-errors [control]="formGroup.controls.name"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'App.Email' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="email" data-error=" " data-success=" " id="defaultForm-email" class="form-control" >
+						<app-show-errors [control]="formGroup.controls.email"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Phone' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="phone" data-error=" " data-success=" " id="defaultForm-phone" class="form-control" >
+						<app-show-errors [control]="formGroup.controls.phone"></app-show-errors>
+					</div>
+
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'App.Language' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle m-0">
+							<section class="checkbox-section">
+								<label *ngFor="let lang of listLang; let i = index" for="{{ i }}">
+									<input type="checkbox" id="{{ i }}" value="{{ lang }}" [checked]="listLangOfUser.indexOf(lang) > -1">
+									<div class="animations">
+										<i class="fa fa-check"></i>
+									</div>	
+									{{ lang }}
+								</label>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle m-0">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Avatar' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle col-form">
+							<div class="area-upload">
+								<app-upload [multi]="multiUpload"></app-upload>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h5 class="title-group">
+					Address
+				</h5>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.CityProvince' | translate }}
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle m-0">
+							<select formControlName="city" class="form-control">
+								<option *ngFor="let city of listCities" value="{{ city }}">{{ city }}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.District' | translate }}
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle m-0">
+							<select formControlName="district" class="form-control">
+								<option *ngFor="let d of listDistricts" value="{{ d }}">{{ d }}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'App.Address' | translate }}
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row m-0">
+							<input type="text" formControlName="address" id="defaultForm-name" class="form-control" >
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<input type="submit" class="button-submit waves-light" value="Save" (click)="submit()">
+				</div>
+			</form>
+		</div>
+	</ng-template>
+	<ng-template #experience let-c="close" let-d="dismiss">
+		<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+			<img src="/assets/images/close-modal.png" alt="Close">
+		</span>
+		<div class="modal-body">
+			<h3 class="title-experience">{{ 'Network.AddExperience' | translate }}</h3>
+			
+			<form [formGroup]="formExperience">
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Title' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="title" data-error=" " data-success=" " class="form-control">
+						<app-show-errors [control]="formGroup.controls.title"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Company' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="company" data-error=" " data-success=" " class="form-control" >
+						<app-show-errors [control]="formGroup.controls.company"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Location' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="location" data-error=" " data-success=" " class="form-control" >
+						<app-show-errors [control]="formGroup.controls.location"></app-show-errors>
+					</div>
+
+				</div>
+				<div class="row w-100 al-middle col-form mb-0">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.From' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row al-middle m-0">
+							<div class="col-6 p-0">
+								<div class="row m-0">
+									<div class="col-6 pl-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled" value="Month">Month</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+									</div>
+									<div class="col-6 pl-0 pr-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled">Year</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row al-middle m-0 pt-2">
+							<div class="col-6 p-0">
+								<div class="row m-0">
+									<div class="col-6 pl-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled" value="Month">Month</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+									</div>
+									<div class="col-6 pl-0 pr-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled">Year</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row al-middle m-0 pt-2">
+							<div class="checkbox-section">
+								<label for="working">
+									<input type="checkbox" id="working" value="1" formControlName="working">
+									<div class="animations">
+										<i class="fa fa-check"></i>
+									</div>
+									<span class="working-here">{{ 'Network.WorkingHere' | translate }}</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle m-0 border-b">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Description' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle col-form">
+							<textarea class="form-control" rows="5" formControlName="description"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form form-button">
+					<input type="submit" class="button-submit waves-light" value="Save" (click)="submit()">
+					<input type="button" class="button-delete" value="Delete" (click)="delete(formExperience)">
+				</div>
+			</form>
+		</div>
+	</ng-template>
+	<ng-template #education let-c="close" let-d="dismiss">
+		<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+			<img src="/assets/images/close-modal.png" alt="Close">
+		</span>
+		<div class="modal-body">
+			<h3 class="title-experience">{{ 'Network.AddEducation' | translate }}</h3>
+			
+			<form [formGroup]="formEducation">
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.School' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="school" data-error=" " data-success=" " class="form-control">
+						<app-show-errors [control]="formGroup.controls.school"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Degree' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="degree" data-error=" " data-success=" " class="form-control" >
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.FieldOfStudy' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<input type="text" formControlName="study" data-error=" " data-success=" " class="form-control" >
+					</div>
+
+				</div>
+				<div class="row w-100 al-middle col-form mb-0">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.FromYear' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row al-middle m-0">
+							<div class="col-6 p-0">
+								<div class="row m-0">
+									<div class="col-6 pl-0 pr-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled">Year</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form mb-0">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.ToYear' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row al-middle m-0">
+							<div class="col-6 p-0">
+								<div class="row m-0">
+									<div class="col-6 pl-0 pr-0">
+										<select class="form-control">
+											<option selected="true" disabled="disabled">Year</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle m-0 border-b">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Description' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<div class="row w-100 al-middle col-form">
+							<textarea class="form-control" rows="5" formControlName="description"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form form-button">
+					<input type="submit" class="button-submit waves-light" value="Save" (click)="submit()">
+					<input type="button" class="button-delete" value="Delete" (click)="delete(formEducation)">
+				</div>
+			</form>
+		</div>
+	</ng-template>
+	<ng-template #review let-c="close" let-d="dismiss">
+		<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+			<img src="/assets/images/close-modal.png" alt="Close">
+		</span>
+		<div class="modal-body">
+			<h3 class="title-experience">{{ 'Network.AddReview' | translate }} Nghiem</h3>
+			
+			<form [formGroup]="formReview">
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Relationship' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<select formControlName="relationship" class="form-control">
+							<option selected disabled value="">{{ 'Network.SelectRelation' | translate }}</option>
+							<option value="Father">Father</option>
+						</select>
+						<app-show-errors [control]="formGroup.controls.relationship"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Position' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<select formControlName="position" class="form-control">
+							<option selected disabled>{{ 'Network.SelectPosition' | translate }}</option>
+							<option value="Father">Father</option>
+						</select>
+						<app-show-errors [control]="formGroup.controls.position"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form">
+					<label class="col-xs-12 col-md-4 col-lg-3">
+						<div class="row">
+							{{ 'Network.Review' | translate }}
+							<span class="reddot">*</span>
+						</div>
+					</label>
+					<div class="col-xs-12 col-md-8 col-lg-9">
+						<textarea formControlName="review" class="form-control" rows="7" placeholder="Write your review here…"></textarea>
+						<app-show-errors [control]="formGroup.controls.review"></app-show-errors>
+					</div>
+				</div>
+				<div class="row w-100 al-middle col-form form-button">
+					<input type="submit" class="button-submit waves-light" value="Save" (click)="submit()">
+				</div>
+			</form>
+		</div>
+	</ng-template>
+</main>

@@ -1,0 +1,320 @@
+@import '../../../../assets/styles/variables.scss';
+main {
+  * {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #555555;
+  }
+
+  .list-connections {
+    padding: 5px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+    .col-connections {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #aaaaaa;
+      margin: 20px 0;
+      .block {
+        display: block;
+      }
+      .count {
+        font-size: 21px;
+        font-weight: bold;
+        color: #3acaaa;
+        text-align: center;
+      }
+      .title-connection {
+        letter-spacing: 0px;
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+      }
+      .see-all {
+        letter-spacing: 0px;
+        color: #3acaaa;
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+  .all-invitations {
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(89, 89, 89, 0.5);
+    padding: 15px;
+    .header-invitations {
+      .float-lg-left {
+        font-size: 15px;
+        font-weight: bold;
+        .count-it {
+          font-size: 15px;
+        }
+      }
+      .float-lg-right {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.1px;
+        text-align: left;
+        color: #555555;
+        color: #555555;
+        a {
+          color: #555555;
+        }
+        a:hover {
+          color: #ee005d;
+        }
+      }
+    }
+    .main-invitations {
+      margin-top: 15px;
+      img {
+        max-width: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .col-invitation {
+        border-bottom: solid 1px #cccccc;
+        box-sizing: border-box;
+        padding-bottom: 10px;
+        .col-lg-8 {
+          .rol-20 {
+            width: 20%;
+            max-width: 20%;
+            flex: 0 0 20%;
+          }
+          .rol-80 {
+            width: 78%;
+            max-width: 78%;
+            flex: 0 0 78%;
+            margin-left: 2%;
+          }
+          .row {
+            height: 100%;
+            .col-11 {
+              padding-top: 5px;
+              .span {
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        .button-list {
+          .arrow {
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-top: 10px;
+            button {
+              cursor: pointer;
+            }
+            .button-submit {
+              width: auto;
+              display: inline-block;
+
+              font-size: 14px;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: 0.1px;
+              outline: none;
+              text-align: center;
+            }
+            .button-submit.deny-invitation {
+              margin-right: 15px;
+            }
+            .button-submit.accept-invitation {
+              font-weight: bold;
+              color: #ffffff;
+              border: 0;
+              background: linear-gradient(to right, #ee005d, #fd3591);
+            }
+          }
+        }
+
+        .title-user {
+          font-size: 16px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.1px;
+          text-align: left;
+          color: #3acaaa;
+          .message {
+            font-size: 14px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #555555;
+          }
+        }
+        .user-description {
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          color: #aaaaaa;
+        }
+      }
+      .col-invitation.last {
+        border: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+  .suggestion-list {
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(89, 89, 89, 0.5);
+    .header-suggestion {
+      .title-suggest {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .list-category {
+        padding: 10px 0;
+        border-bottom: solid 1px #979797;
+        .category-sub {
+          letter-spacing: 0px;
+          margin-right: 20px;
+          padding-bottom: 9px;
+          cursor: pointer;
+        }
+        .category-sub.active {
+          color: #e4375c;
+          border-bottom: 2px solid #e4375c;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .main-suggestions {
+    margin: 20px 0;
+    .col-suggest::after {
+      content: '';
+      clear: both;
+    }
+    .col-suggest {
+      border: 1px solid #979797;
+      cursor: pointer;
+      box-sizing: border-box;
+      position: relative;
+      margin: -1px 0 0 -1px;
+      .avatar {
+        display: block;
+        margin: 20px auto 7px;
+      }
+      .title-person {
+        font-weight: bold;
+        letter-spacing: 0px;
+        text-align: center;
+        color: #555555;
+      }
+      .description {
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 0px;
+        text-align: center;
+        color: #aaaaaa;
+        display: block;
+      }
+      .connect {
+        background-color: #ffffff;
+        border: solid 1px #3acaaa;
+        padding: 5px 10px;
+        border-radius: 6px;
+        display: block;
+        margin: 10px auto;
+      }
+      .remove-suggestion {
+        position: absolute;
+        cursor: pointer;
+        right: 10px;
+        top: 10px;
+        display: none;
+        img {
+          max-width: 13px;
+        }
+      }
+    }
+    .col-suggest:hover {
+      box-shadow: 0 0 6px 0 rgba(89, 89, 89, 1);
+      box-sizing: border-box;
+      .remove-suggestion {
+        display: block;
+      }
+      .connect {
+        background: #00d7a8;
+        cursor: pointer;
+        color: #ffffff;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  main {
+    hr {
+      margin: 0;
+    }
+    .mobile-padding-0 {
+      padding: 0;
+    }
+    .arrow {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .suggestion-list {
+      padding: 0;
+      .header-suggestion {
+        padding: 15px;
+        .list-category {
+          .category-sub {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+      }
+      .col-suggest:nth-child(odd) {
+        border-left: 0;
+      }
+      .col-suggest:nth-child(even) {
+        border-right: 0;
+      }
+    }
+    .all-invitations {
+      .main-invitations {
+        .col-invitation {
+          .col-lg-8 {
+            .rol-20 {
+              width: 25% !important;
+              max-width: 25% !important;
+              flex: 0 0 25% !important;
+            }
+            .rol-80 {
+              width: 73% !important;
+              max-width: 73% !important;
+              flex: 0 0 73% !important;
+              margin-left: 2%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

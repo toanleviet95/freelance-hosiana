@@ -1,0 +1,265 @@
+
+<header id="container-become-member">
+    <div class="bg-black-become-member"></div>
+</header>
+
+<main class="become-member">
+    <div class="bg-top text-center">
+        <h3 [translate]="'Homepro.TitleBecomeMemberAgency'"></h3>
+    </div>
+    <div class="allInfoPartner">
+        <div class="container">
+            <form [formGroup]="formGroup" (ngSubmit)="submitSignup()" enctype="multipart/form-data">
+                <div class="pb-3 elem-border w-100">
+                    <div class="col-info" translate>Homepro.InfoCompanyOrPersonal</div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 py-4">
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <label class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.YouAre' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <!-- <div class="row">
+                                        <select formControlName="career" class="form-control" [class.has-error]="(submitted || formGroup.controls['career'].touched) && formGroup.controls['career'].invalid" required>
+                                            <option value="1" selected>Môi giới chuyên nghiệp</option>
+                                            <option value="1">Môi giới bán chuyên</option>
+                                            <option value="1">Môi giới mùa hè</option>
+                                        </select>
+                                    </div> -->
+                                    <!-- <span class="text-danger" *ngIf="(formGroup.controls['career'].touched || submitted) && formGroup.controls['career'].invalid">Ngành nghề là bắt buộc</span> -->
+                                    <div class="row">
+                                        <div class="line-radio">
+                                            <input id="radio-1" formControlName="career" class="radio-custom" name="career" type="radio" value="brokers">
+                                            <label for="radio-1" class="radio-custom-label">Brokers</label>
+                                        </div>
+                                        <div class="line-radio">
+                                            <input id="radio-2" formControlName="career" class="radio-custom" name="career" type="radio" value="real estate">
+                                            <label for="radio-2" class="radio-custom-label">Real Estate Agency</label>
+                                        </div>
+                                        <div class="line-radio">
+                                            <input id="radio-3" formControlName="career" class="radio-custom" name="career" type="radio" value="project">
+                                            <label for="radio-3" class="radio-custom-label">Project Developer</label>
+                                        </div>
+                                        <div class="line-radio">
+                                            <input id="radio-4" formControlName="career" class="radio-custom" name="career" type="radio" value="homeservice">
+                                            <label for="radio-4" class="radio-custom-label">Home Service</label>
+                                        </div>
+                                        <app-show-errors [control]="formGroup.controls.career"></app-show-errors>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-100 col-12 upload-box">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.Certificate' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <label class="label-upload" for="fileUpload">
+                                            {{ 'Homepro.UploadPhoto' | translate }}
+                                        </label>
+                                        <app-upload [multi]="multi"></app-upload>
+                                        <br>
+                                        <!-- <span class="text-danger w-100" *ngIf="submitted && formGroup.controls['file'].invalid">Hãy chọn hình ảnh của bạn !</span> -->
+                                        <app-show-errors [control]="formGroup.controls.file"></app-show-errors>
+                                        <span class="w-100">{{ 'Homepro.ValidatePhotosSignUp' | translate }}</span>
+                                        <span class="w-100">{{ 'Homepro.ValidatePhotosSize' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.TaxCode' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <input type="text" name="taxCode" [class.has-error]="(submitted || formGroup.controls['taxCode'].touched) && formGroup.controls['taxCode'].invalid" formControlName="taxCode" class="form-control">
+                                    </div>
+                                    <app-show-errors [control]="formGroup.controls.taxCode"></app-show-errors>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="col-info">{{ 'Homepro.Contact' | translate }}</div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 pt-4 pb-1">
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                       {{ 'Homepro.NameFull' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <!-- <div class="row">
+                                        <select formControlName="title" class="form-control" [class.has-error]="(submitted || formGroup.controls['title'].touched) && formGroup.controls['title'].invalid" required>
+                                            <option value="" disabled selected>{{ 'Homepro.PleaseSelect' | translate }}</option>
+                                            <option value="1">Mr</option>
+                                            <option value="1">Mrs</option>
+                                        </select>
+                                    </div> -->
+                                    <!-- <span class="text-danger" *ngIf="(submitted || formGroup.controls['title'].touched) && formGroup.controls['title'].invalid">Danh xưng là bắt buộc</span> -->
+                                    <div class="row">
+                                        <div class="line-radio">
+                                            <input id="name-1" formControlName="title" class="radio-custom" name="title" type="radio" value="Mr">
+                                            <label for="name-1" class="radio-custom-label">Mr</label>
+                                        </div>
+                                        <div class="line-radio">
+                                            <input id="name-2" formControlName="title" class="radio-custom" name="title" type="radio" value="Ms">
+                                            <label for="name-2" class="radio-custom-label">Ms</label>
+                                        </div>
+                                        <div class="line-radio">
+                                            <input id="name-3" formControlName="title" class="radio-custom" name="title" type="radio" value="Mrs">
+                                            <label for="name-3" class="radio-custom-label">Mrs</label>
+                                        </div>
+                                    </div>
+                                    <app-show-errors [control]="formGroup.controls.title"></app-show-errors>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.Name' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-6 ">
+                                            <div class="row mr-0 mr-mobile mgt-10-mobile">
+                                                <input type="text" name="firstName" [class.has-error]="(submitted || formGroup.controls['firstNameCustomer'].touched) && formGroup.controls['firstNameCustomer'].invalid" formControlName="firstNameCustomer" class="form-control" placeholder="{{ 'Homepro.Name' | translate }}">
+                                            </div>
+                                            <app-show-errors [control]="formGroup.controls.firstNameCustomer"></app-show-errors>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 ">
+                                            <div class="row ml-0 ml-mobile">
+                                                <input type="text" name="lastName" [class.has-error]="(submitted || formGroup.controls['lastNameCustomer'].touched) && formGroup.controls['lastNameCustomer'].invalid" formControlName="lastNameCustomer" class="form-control" placeholder="{{ 'Homepro.FirstName' | translate }}">
+                                            </div>
+                                            <app-show-errors [control]="formGroup.controls.lastNameCustomer"></app-show-errors>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.PhoneNumber' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <input type="text" name="phone" formControlName="phoneCustomer" [class.has-error]="(submitted || formGroup.controls['phoneCustomer'].touched) && formGroup.controls['phoneCustomer'].invalid" class="form-control" placeholder="{{ 'Homepro.PleaseEnter' | translate }}">
+                                    </div>
+                                    <app-show-errors [control]="formGroup.controls.phoneCustomer"></app-show-errors>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-100 col-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'App.Email' | translate }} <span class="reddot">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <input type="text" formControlName="emailCustomer" [class.has-error]="((submitted || formGroup.controls['emailCustomer'].touched) && formGroup.controls['emailCustomer'].invalid) || formGroup.hasError('emailCustomer',['email'])" class="form-control" placeholder="{{ 'Homepro.PleaseEnter' | translate }}" >
+                                    </div>
+                                    <app-show-errors [control]="formGroup.controls.emailCustomer"></app-show-errors>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-100 col-12 ">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                    <div class="row left-signal">
+                                        {{ 'Homepro.Message' | translate }}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <div class="row">
+                                        <textarea name="message" id="message" rows="5" formControlName="messageCustomer"  class="form-control w-100" placeholder="{{ 'Homepro.PleaseEnter' | translate }}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="captcha-and-submit w-100">
+                    <div class="form-group w-100 col-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-9 pt-4">
+                                <div class="row captcha-row-mobei">
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="row left-signal">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="row captch">
+                                            <ngx-recaptcha2 [size]="size" [hl]="lang" [theme]="theme" [type]="type"(load)="handleLoad()" (success)="handleSuccess($event)"></ngx-recaptcha2>
+                                        </div>
+                                        <span class="text-danger" *ngIf="submitted && !captchaSuccess">{{ 'Network.CaptchaRequired' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group w-100 col-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-9">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="row left-signal">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                        <div class="row">
+                                            <button type="submit" class="submit-button">{{ 'Homepro.Submit' | translate }}</button>
+                                            <button type="button" (click)="goToPrevious()" class="back-button">{{ 'Homepro.Back' | translate }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="submitted">
+                        <div *ngIf="formGroup.valid; else showError" class="register-success">
+                            <div class="overlay"></div>
+                            <div class="region-safe">
+                                <span style="color: #4CAF50">{{ 'Homepro.RegisterSuccessful' | translate }}</span>
+                                <div class="check_mark">
+                                    <div class="sa-icon sa-success animate">
+                                        <span class="sa-line sa-tip animateSuccessTip"></span>
+                                        <span class="sa-line sa-long animateSuccessLong"></span>
+                                        <div class="sa-placeholder"></div>
+                                        <div class="sa-fix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-template #showError>
+                            <span class="text-danger">{{ errorMessage  }}</span>
+                        </ng-template>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

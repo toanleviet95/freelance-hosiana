@@ -1,0 +1,10 @@
+<div class="row m-0">
+    <section class="team-section text-center">
+        <p class="section-heading mb-40">{{ 'Homepro.WhyChoose' | translate }}</p>
+        <div class="row m-0">
+            <div class="col-lg-3 col-md-3 mb-lg-0 mb-5" *ngFor="let item of differences; let i = index">
+                <app-card-section-item [item]="item" [index]="i" title="why"></app-card-section-item>
+            </div>
+        </div>
+    </section>
+</div>

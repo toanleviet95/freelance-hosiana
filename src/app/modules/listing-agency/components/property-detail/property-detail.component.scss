@@ -1,0 +1,103 @@
+@import "../../../../../assets/styles/variables";
+$path-images: "../../../../../assets/images";
+form.form-property {
+    padding: 5% 0;
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+    }
+    .row {
+        padding-top: 20px;
+    }
+    .row-upload {
+        padding-top: 0;
+    }
+    .required {
+        color: red;
+        font-style: italic;
+    }
+    .form-content {
+        margin-left: -30px;
+        p {
+            padding-top: 15px;
+        }
+        p:first-child {
+            padding-top: 0px;
+        }
+        .list-project {
+            color: #3acaaa;
+            font-size: 14px;
+        }
+        .form-control {
+            margin-top: 10px;
+        }
+    }
+    .label-upload {
+        border-radius: 5px;
+        background-color: $red-color;
+        display: block;
+        padding: 11px 46px;
+
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.1px;
+        text-align: left;
+        color: $white-color;
+        margin-bottom: 0;
+        input[type=file] {
+            display: none;
+        }
+    }
+    .upload-note {
+        padding-top: 11px;
+        margin-left: 20px;
+    }
+    .col-md-8 {
+        span {
+            display: block;
+        }
+    }
+    .auto-translate {
+        float: right;
+        text-decoration: underline;
+        color: #3acaaa;
+        letter-spacing: 0;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .btn-upload .img-ul-upload {
+        background-color: #e4375c;
+        text-transform: capitalize;
+        font-size: 16px;
+        padding: 10px 20px 10px 20px;
+    }
+    .btn-upload .img-ul-drag-box-msg {
+        font-size: 14px;
+        font-weight: unset;
+    }
+    .text-upload {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #555555;
+        display: block;
+        width: 100%;
+    }
+    .upload-box {
+        margin-bottom: 5px;
+    }
+}
+

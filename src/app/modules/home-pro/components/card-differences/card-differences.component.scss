@@ -1,0 +1,31 @@
+.section-heading {
+    font-size: 36px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #555555;
+}
+.team-section {
+    .row {
+        .col-lg-3:first-child {
+            padding-left: 0;
+        }
+        .col-lg-3:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.section-description {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #555555;
+}

@@ -1,0 +1,23 @@
+<div  class="banner-page">
+	<div class="container">
+		<div class="content-header">
+			<div class="title-header">
+				{{ content.title }}
+			</div>
+			<div class="description-header" *ngIf="content.description != ''">
+				{{ content.description }}
+			</div>
+            <!-- <img src="assets/images/start-learning.png" alt="Start learning" class="button-learning text-center"> -->
+            <div class="text-center">
+                <button class="button-start-learn">{{ 'faq.start_learning' | translate }}</button>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="contact-inner">
+	<div class="container">
+		<div class="contact-button text-right" [routerLink]="['/contact']">
+			<button type="button" [routerLink]="['/contact']">{{ 'home.contact_us' | translate }}</button>
+		</div>
+	</div>
+</div>

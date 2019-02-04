@@ -1,0 +1,24 @@
+<div class="odd">
+    <app-information-detail [formValues]="formValues" [formComercial]="formComercial" [formFurnished]="formFurnished"
+        [propertyTypeList]="propertyTypeList"></app-information-detail>
+</div>
+<div class="even">
+    <app-price-detail [formValues]="formValues" [exchangeRates]="exchangeRates"></app-price-detail>
+</div>
+<div class="odd">
+    <app-location-detail [formValues]="formValues" [projects]="projects" [cities]="cities" [districts]="districts"
+        [wards]="wards" [geoCode]="geoCode"></app-location-detail>
+</div>
+<div class="even">
+    <app-facilities-detail [formValues]="formValues" [facilityList]="facilityList"></app-facilities-detail>
+</div>
+<div class="odd">
+    <app-property-detail [formValues]="formValues"></app-property-detail>
+</div>
+<div class="even" *ngIf="formValues.controls['listingType'].value * 1 === 1 && formValues.controls['serviceId'].value * 1 === 3">
+    <app-swap-listing [formValues]="formValues"></app-swap-listing>
+</div>
+<div
+    [ngClass]="{'odd': formValues.controls['listingType'].value * 1 === 1 && formValues.controls['serviceId'].value * 1 === 3, 'even': formValues.controls['listingType'].value * 1 !== 1 || formValues.controls['serviceId'].value * 1 !== 3}">
+    <app-contact-detail [formValues]="formValues" [agencyStaffs]="agencyStaffs"></app-contact-detail>
+</div>

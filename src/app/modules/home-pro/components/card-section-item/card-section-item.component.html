@@ -1,0 +1,13 @@
+<div class="oval avatar mx-auto">
+    <div class="text-center">
+        <img src="{{ item.image }}" alt="{{ item.header }}">
+    </div>
+</div>
+<div class="divide"></div>
+<p class="font-weight-bold mt-3 mb-3 header-section" *ngIf="title == 'broker'">{{ 'home.broker_work'+(index + 1) | translate }}</p>
+<p class="header-content" *ngIf="title == 'broker'; else headerContent" [ngClass]="{'text-center': title == 'broker'}">{{ 'home.broker_work'+(index + 1)+'_des' | translate }}</p>
+<ng-template #headerContent> 
+    <p class="header-content">
+        {{ 'home.whydifferent_des'+(index + 1) | translate }}
+    </p>
+</ng-template>

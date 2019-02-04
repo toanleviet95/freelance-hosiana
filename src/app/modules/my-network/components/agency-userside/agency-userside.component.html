@@ -1,0 +1,221 @@
+<main class="main mt-5 sprite-work">
+	<div class="header-info">
+		<div class="header-addfriend">
+			<div class="header-background">
+			</div>
+			<div class="put-header ">
+				<div class="container">
+					<div class="row m-0 flex-end">
+						<div class="col-xs-12 col-md-12 col-lg-8">
+							<div class="row">
+								<div class="info-friend">
+									<a href="/assets/images/coca-logo.jpg">
+										<img src="/assets/images/coca-logo.jpg" alt="Thuy Thuy">
+									</a>
+									<div class="name-and-connect">
+										<h3 class="title-user">Coca Cola</h3>
+										<span class="count-connections">56 {{ 'Network.Connections' | translate }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-4 p-0">
+							<div class="w-100 mt-2">
+								<div class="m-0 align-center">
+
+									<div class="sprite-work float-right action-friend " ngbDropdown>
+
+										<span class="action-with-friend more" ngbDropdownToggle id="dropdownConfig">
+											<span class="hav-icon add-icon-red sprite-network">
+												<!-- <img src="/assets/images/plus-red.png" alt="Plus"> -->
+											</span>
+											<span class="title-action">More</span>
+										</span>
+										<div class="dropdown-menu menu-action-with-friend" ngbDropdownMenu aria-labelledby="dropdownConfig">
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Follow</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.AddToPool</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Recommend</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RequestARecommendation</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon close-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RemoveConnection</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon blog-icon sprite-network"></span>
+												<span class="title-action" translate>Network.BlogThisPerson</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon report-icon sprite-network"></span>
+												<span class="title-action" translate>Network.ReportOrBlog</span>
+											</span>
+										</div>
+									</div>
+									<div class="sprite-work follow-mr float-right ">
+										<span class="follow-page">
+											<span class="hav-icon add-icon-red">
+												<img src="/assets/images/plus-red.png" alt="Plus">
+											</span>
+											<span class="title-action">{{ 'Network.Follow' | translate }}</span>
+										</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-info col-12 py-4 mobile-padding-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-lg-12 mobile-padding-0">
+					<div class="header-tab">
+						<span class="ini-tab" (click)="changeActive('page')" [ngClass]="{'active': activeTab == 'page'}">{{ 'Network.Page' | translate }}</span>
+						<span class="ini-tab" (click)="changeActive('notification')" [ngClass]="{'active': activeTab == 'notification'}">{{ 'Network.Notification' | translate }}
+							<span class="count-notifications">10</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-lg-9 mobile-padding-0">
+					<div class="row">
+						<div class="col-xs-12 col-md-4 col-lg-4 fixed mobile-padding-0">
+							<div class="row">
+								<div class="listing-page w-100">
+									<span class="page-office active">
+										<a href="javascript:void(0);">{{ 'Network.Feeds' | translate }}</a>
+									</span>
+									<span class="page-office">
+										<a href="javascript:void(0);">{{ 'Network.Photos' | translate }}</a>
+									</span>
+									<span class="page-office">
+										<a href="javascript:void(0);">{{ 'Network.About' | translate }}</a>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-md-8 col-lg-8 ">
+							<div class="row row-except m-0">
+								<div class="list-post">
+									<div class="col-post" *ngFor="let post of listPostOfCurrentAgency; let i = index">
+										<div class="header-post col-12">
+											<div class="info-user">
+												<div class="col-12">
+													<div class="row">
+														<div class="col-xs-12 col-md-12 col-lg-8">
+															<div class="row">
+																<div class="col-4 rol-11 p-0">
+																	<a href="#">
+																		<img src="/assets/images/01x.png" alt="Thuy Thuy">
+																	</a>
+																</div>
+																<div class="col-4 rol-89 p-0">
+																	<a href="#" class="title-person">Nghiem Tran Thuy Thuy </a>
+																	<span class="current-job">Sale excutive</span>
+																	<span class="description-recommend">{{ post.time }}</span>
+																</div>
+															</div>
+														</div>
+														<div class="more-options" ngbDropdown>
+															<button ngbDropdownToggle id="dropdownConfig" type="button">
+																<img src="/assets/images/more-three-dot.png" alt="More">
+															</button>
+
+															<div class="dropdown-menu dropdown-primary mmenu-post" ngbDropdownMenu aria-labelledby="dropdownConfig">
+																<span class="dropdown-item">
+																	<span class="hav-icon add-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.Follow</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon add-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.AddToPool</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon comment-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.Recommend</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon comment-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.RequestARecommendation</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon close-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.RemoveConnection</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon blog-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.BlogThisPerson</span>
+																</span>
+																<span class="dropdown-item">
+																	<span class="hav-icon report-icon sprite-network"></span>
+																	<span class="title-action" translate>Network.ReportOrBlog</span>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="main-post">
+											<div class="col-12">
+												<div class="content-post">
+													<div class="minimize-post">
+														<div [innerHTML]="post.content"></div>
+														<span class="read-more">...{{ 'Network.SeeMore' | translate }}</span>
+													</div>
+												</div>
+												<div class="list-image row">
+													<img src="{{ post.image }}" alt="{{ post.image }}">
+												</div>
+												<div class="all-action">
+													<div class="count-on-post">
+														<span>{{ post.like }} {{ 'Network.Likes' | translate }}</span>
+														<span>{{ post.comment }} {{ 'Network.Comments' | translate }} </span>
+														<span>{{ post.share }} {{ 'Network.Shares' | translate }}</span>
+													</div>
+													<div class="action-posts action-sprite">
+														<span class="group-action">
+															<span class="like sprite-agency-side"></span>
+															<span>{{ 'Network.Like' | translate }}</span>
+														</span>
+														<span class="group-action">
+															<span class="comment sprite-agency-side"></span>
+															<span>{{ 'Network.Comment' | translate }}</span>
+														</span>
+														<span class="group-action">
+															<span class="share sprite-agency-side"></span>
+															<span>{{ 'Network.Share' | translate }}</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 col-lg-3 mobile-padding-0">
+					<sidebar></sidebar>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,32 @@
+<main class="py-5 mt-4">
+    <app-header-listing active="relist" [listingTotal]="listingTotal | async"></app-header-listing>
+    <div class="container mobile-padding-0">
+        <app-form-filter></app-form-filter>
+    </div>
+    <hr />
+    <div class="container">
+        <div class="main">
+            <div class="title-relist">
+                To Relist <span class="count">(50)</span>
+            </div>
+            <div class="list-action">
+                <span class="button-action active-bem">
+                    <img src="assets/images/check.png" alt="Check">
+                    Relist
+                </span>
+                <span class="button-action">
+                    <img src="assets/images/reload.png" alt="Check">
+                    Relist All
+                </span>
+            </div>
+            <div class="col-12">
+                <div class="pt-5 pb-5 border-bottom">
+                    <app-relist-item *ngFor="let item of relists | async" [item]="item"></app-relist-item>
+                </div>
+            </div>
+            <!-- <div class="col-12"> -->
+            <app-pagination active="relist"></app-pagination>
+            <!-- </div> -->
+        </div>
+    </div>
+</main>

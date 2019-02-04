@@ -1,0 +1,264 @@
+<main class="main mt-5 sprite-work">
+	<div class="header-info">
+		<div class="header-addfriend">
+			<div class="header-background">
+			</div>
+			<div class="put-header ">
+				<div class="container">
+					<div class="row m-0 flex-end">
+						<div class="col-xs-12 col-md-12 col-lg-8">
+							<div class="row">
+								<div class="info-friend">
+									<a href="/assets/images/friend-avatar.png">
+										<img src="/assets/images/friend-avatar.png" alt="Thuy Thuy">
+									</a>
+									<div class="name-and-connect">
+										<h3 class="title-user">Nghiêm Trần Mai Thúy Thúy</h3>
+										<span class="count-connections">56 {{ 'Network.Connections' | translate }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-4 mobile-mt-25">
+							<div class="w-100">
+								<span class="cancel-request">
+									<span class="close-or-cancel sprite-network"></span>
+									<span translate>Network.CancelConnectionRequest</span>
+								</span>
+							</div>
+							<div class="w-100 mt-2">
+								<div class="row m-0">
+									<div class="col-4 p-0">
+										<span class="action-with-friend">
+											<img src="/assets/images/pending.png" alt="pending">
+										</span>
+									</div>
+									<div class="col-4 pl-0">
+										<span class="action-with-friend message">
+											<i class="fa fa-comment-o"></i>
+											Message
+										</span>
+									</div>
+									<div class="col-4 pl-0 sprite-work" ngbDropdown>
+										<span class="action-with-friend at-more" ngbDropdownToggle id="dropdownConfig">
+											More ...
+										</span>
+										<div class="dropdown-menu menu-action-with-friend" ngbDropdownMenu aria-labelledby="dropdownConfig">
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Follow</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon add-icon sprite-network"></span>
+												<span class="title-action" translate>Network.AddToPool</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.Recommend</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon comment-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RequestARecommendation</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon close-icon sprite-network"></span>
+												<span class="title-action" translate>Network.RemoveConnection</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon blog-icon sprite-network"></span>
+												<span class="title-action" translate>Network.BlogThisPerson</span>
+											</span>
+											<span class="dropdown-item">
+												<span class="hav-icon report-icon sprite-network"></span>
+												<span class="title-action" translate>Network.ReportOrBlog</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-info col-12 py-4 mobile-padding-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 col-lg-9 mobile-padding-0">
+					<div class="row">
+						<div class="col-profile arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Profile</h2>
+								<div class="listing-info">
+									<div class="col-12 mobile-padding-0">
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 col-lg-8 pl-0 mobile-padding-0">
+												<span class="label-profile" >{{ 'App.Email' | translate }}:
+													<span class="content-profile">thuy.nguyen@gmail.com</span>
+												</span>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-lg-4 pr-0 mobile-padding-0">
+												<span class="label-profile" >{{ 'App.Phone' | translate }}:
+													<span class="content-profile">0909123456</span>
+												</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-8 col-lg-8 pl-0 mobile-padding-0">
+												<span class="label-profile" >{{ 'App.Address' | translate }}:
+													<span class="content-profile">Vinhomes Central Park, 208 Nguyen Huu Canh, Quan 1, Ho Chi Minh</span>
+												</span>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-lg-4 pr-0 mobile-padding-0">
+												<span class="label-profile" >{{ 'Network.Language' | translate }}:
+													<span class="content-profile">English, Vietnamese</span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-experience arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Experience</h2>
+								<div class="listing-experience">
+									<div class="col-12 exp-col mobile-padding-0" *ngFor="let experience of listExperiences; let i = index" [ngClass]="{'border-top': i != 0}">
+										<div class="row">
+											<div class="col-12 col-sm-2 col-lg-2 rol-11 pl-0 mobile-padding-0">
+												<div class="image-exp">
+													<img src="{{ experience.image }}" alt="{{ experience.title }}">
+												</div>
+											</div>
+											<div class="col-12 col-sm-10 col-lg-10 rol-89 mobile-padding-0">
+												<h3 class="title-experience">{{ experience.title }}</h3>
+												<span class="description-experience">{{ experience.description }}</span>
+												<span class="time-experience">{{ experience.time }}</span>
+												<span class="country-work">{{ experience.country }}</span>
+												<span class="link-company" *ngIf="experience.link !== ''">{{ experience.link }}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-experience arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Education</h2>
+								<div class="listing-education listing-experience">
+									<div class="col-12 exp-col mobile-padding-0" *ngFor="let education of listEducations; let i = index" [ngClass]="{'border-top': i != 0}">
+										<div class="row">
+											<div class="col-xs-12 col-sm-2 col-lg-2 rol-11 pl-0 mobile-padding-0">
+												<div class="image-exp">
+													<img src="{{ education.image }}" alt="{{ education.title }}">
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-10 col-lg-10 rol-89 mobile-padding-0">
+												<h3 class="title-experience">{{ education.title }}</h3>
+												<span class="description-experience">{{ education.description }}</span>
+												<span class="time-experience">{{ education.time }}</span>
+												<span class="link-company" *ngIf="education.position !== ''">{{ education.position }}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<h2 class="title-colum" translate>Network.Recommendations</h2>
+								<div class="listing-recommendations">
+									<div class="header-tab-recommend">
+										<span class="tab-recomend" [ngClass]="{'active': activeTab == 0}" (click)="changeTabActive(0)">{{ 'Network.Received' | translate }} (1)</span>
+										<span class="tab-recomend" [ngClass]="{'active': activeTab == 1}" (click)="changeTabActive(1)">{{ 'Network.Given' | translate }} (5)</span>
+									</div>
+									<div class="main-tab-recommend" *ngIf="activeTab==0">
+										<div class="row m-0 py-3">
+											<div class="col-12 col-md-12 col-lg-4 mobile-padding-0">
+												<div class="row">
+													<div class="col-4 rol-25 p-0 mobile-padding-0">
+														<a href="#">
+															<img src="/assets/images/01x.png" alt="Thuy Thuy">
+														</a>
+													</div>
+													<div class="col-4 rol-75 p-0 mobile-padding-0">
+														<a href="#" class="title-person">Nghiem Tran Thuy Thuy </a>
+														<span class="current-job">CEO at FPT Asia Pacific March 29, 2009</span>
+														<span class="description-recommend">Dung worker with Thomas in the same group</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-12 col-lg-8 content-recommend mobile-padding-0">
+												<p>I have known Dung in a variety of capacities for many years. We has been working in FPT Software together.</p>
+												<br>
+												<p>I have known Dung in a variety of capacities for many years. We has been working in FPT Software together.I have
+													known Dung in a variety of apacities for many years. We has been working in FPT Software together
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="main-tab-recommend" *ngIf="activeTab==1">
+										<div class="row m-0 py-3" *ngFor="let recommend of listRecommendations; let stt = index" [ngClass]="{'border-top': stt != 0}">
+											<div class="col-xs-12 col-md-12 col-lg-4">
+												<div class="row">
+													<div class="col-4 rol-25 p-0">
+														<a href="#">
+															<img src="{{ recommend.image }}" alt="{{ recommend.title }}">
+														</a>
+													</div>
+													<div class="col-4 rol-75 p-0">
+														<a href="#" class="title-person">{{ recommend.title }} </a>
+														<span class="current-job">{{ recommend.job }}</span>
+														<span class="description-recommend">{{ recommend.description }}</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-md-12 col-lg-8 content-recommend" [innerHTML]="recommend.content">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network" ></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-profile arrow-col">
+							<div class="col-12 mobile-padding-0">
+								<h2 class="title-colum" translate>Network.Accomplishments</h2>
+								<div class="listing-info">
+									<div class="col-12 mobile-padding-0">
+										<div class="row">
+											<span class="label-profile" translate> Network.Language:
+												<span class="content-profile">English (IELTS 6.0)</span>
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="action-issue sprite-work">
+									<span class="action-plus sprite-network"></span>
+									<span class="action-edit sprite-network"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 col-lg-3 mobile-padding-0">
+					<sidebar></sidebar>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</main>

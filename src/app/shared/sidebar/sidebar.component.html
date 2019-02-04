@@ -1,0 +1,112 @@
+<div *ngIf="tab == 'follow'; else connect">
+  <div class="fanpage-connect list-border">
+    <h3 class="title-sidebar pb-2" translate>Network.SuggestFollow</h3>
+    <div class="main-list-agency">
+      <div class="row m-0">
+        <div class="col-list col-xs-12 col-lg-12 col-sm-6 list-binding-page" *ngFor="let page of listAllFanpageAgency; let  i = index" [ngClass]="{'bg-even': i%2!=0}">
+          <div class="row m-0">
+            <div class="col-3 col-sm-4 col-lg-4">
+              <div class="row">
+                <a href="javascript:void(0);" routerLink="add-friend"><img class="avatar" src="{{ page.image }}" alt="{{ page.title }}"></a>
+              </div>
+            </div>
+            <div class="col-9 col-sm-8 col-lg-8">
+              <div class="row">
+                  <a href="javascript:void(0);" class="title-page" routerLink="add-friend">
+                    {{ page.title }}
+                  </a>
+                  <button class="follow" *ngIf="page.statusFollow === 0" (click)="openDialog()" translate>Network.Follow</button>
+                  <button class="follow followed" *ngIf="page.statusFollow === 1" (click)="unfollow(page.id)" translate>Network.Following</button>
+
+                  <span class="remove-agency" (click)="removeAgency(page.id)"><img src="/assets/images/close.png" alt="{{ 'Network.Remove' | translate }}"></span>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="fanpage-connect list-border mt-4">
+    <h3 class="title-sidebar pb-2" translate>Network.AgentToFollow</h3>
+    <div class="main-list-agency">
+      <div *ngFor="let page of listAllFriendAgency; let  i = index" class="list-binding-page" [ngClass]="{'bg-even': i%2!=0}">
+        <div class="col-list col-12" >
+          <div class="row">
+            <div class="col-4">
+              <div class="row">
+                <a href="javascript:void(0);" routerLink="add-friend"><img class="avatar" src="{{ page.image }}" alt="{{ page.title }}"></a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="row">
+                  <a href="javascript:void(0);" class="title-page" routerLink="add-friend">
+                    {{ page.title }}
+                  </a>
+                  <button class="follow" *ngIf="page.statusFollow === 0" (click)="follow(page.id)" translate>Network.Follow</button>
+                  <button class="follow followed" *ngIf="page.statusFollow === 1" (click)="unfollow(page.id)" translate>Network.Following</button>
+
+                  <span class="remove-agency" (click)="removeAgency(page.id)"><img src="/assets/images/close.png" alt="{{ 'Network.Remove' | translate }}"></span>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+<ng-template #connect>
+    <div class="fanpage-connect list-border">
+      <h3 class="title-sidebar pb-2" translate>Network.AgencyToConnect</h3>
+      <div class="main-list-agency">
+        <div class="row m-0">
+          <div class="col-list col-xs-12 col-lg-12 col-sm-6 list-binding-page" *ngFor="let page of listAllFanpageAgency; let  i = index" [ngClass]="{'bg-even': i%2!=0}">
+            <div class="row m-0">
+              <div class="col-3 col-sm-4 col-lg-4">
+                <div class="row">
+                  <a href="javascript:void(0);" routerLink="add-friend"><img class="avatar" src="{{ page.image }}" alt="{{ page.title }}"></a>
+                </div>
+              </div>
+              <div class="col-9 col-sm-8 col-lg-8">
+                <div class="row">
+                    <a href="javascript:void(0);" class="title-page" routerLink="add-friend">
+                      {{ page.title }}
+                    </a>
+                    <button class="follow" *ngIf="page.statusFollow === 0" (click)="openDialog()" translate>Network.Follow</button>
+                    <button class="follow followed" *ngIf="page.statusFollow === 1" (click)="unfollow(page.id)" translate>Network.Following</button>
+  
+                    <span class="remove-agency" (click)="removeAgency(page.id)"><img src="/assets/images/close.png" alt="{{ 'Network.Remove' | translate }}"></span>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="fanpage-connect list-border mt-4">
+      <h3 class="title-sidebar pb-2" translate>Network.AgentToConnect</h3>
+      <div class="main-list-agency">
+        <div *ngFor="let page of listAllFriendAgency; let  i = index" class="list-binding-page" [ngClass]="{'bg-even': i%2!=0}">
+          <div class="col-list col-12" >
+            <div class="row">
+              <div class="col-4">
+                <div class="row">
+                  <a href="javascript:void(0);" routerLink="add-friend"><img class="avatar" src="{{ page.image }}" alt="{{ page.title }}"></a>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="row">
+                    <a href="javascript:void(0);" class="title-page" routerLink="add-friend">
+                      {{ page.title }}
+                    </a>
+                    <button class="follow" *ngIf="page.statusFollow === 0" (click)="follow(page.id)" translate>Network.Follow</button>
+                    <button class="follow followed" *ngIf="page.statusFollow === 1" (click)="unfollow(page.id)" translate>Network.Following</button>
+  
+                    <span class="remove-agency" (click)="removeAgency(page.id)"><img src="/assets/images/close.png" alt="{{ 'Network.Remove' | translate }}"></span>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+</ng-template>

@@ -1,0 +1,212 @@
+// .sale {
+//   display: inline-block;
+//   background: url('/assets/sprites/sprite-home-pro.png') no-repeat;
+//   overflow: hidden;
+//   text-indent: -9999px;
+//   text-align: left;
+// }
+.sale {
+    position: absolute;
+}
+
+.card-body {
+    position: relative;
+}
+
+.card {
+    text-align: left !important;
+
+    .divide {
+        height: 7px;
+    }
+
+    .service-title {
+        font-size: 24px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: left;
+        color: #555555;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.4px;
+        padding-top: 6px;
+        display: block;
+    }
+
+    .old-price {
+        font-size: 14px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.4px;
+        color: #aaaaaa;
+        margin-left: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        position: relative;
+        padding-left: 0;
+        min-height: 238px;
+
+        li {
+            position: relative;
+            padding-left: 15px;
+
+            span {
+                font-size: 16px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 2.14;
+                text-align: left;
+                color: #555555;
+            }
+
+            span.opacity {
+                color: #ccc !important;
+            }
+        }
+
+        li::before {
+            content: '•';
+            color: #3acaaa;
+            position: absolute;
+            left: 0;
+            vertical-align: middle;
+            font-size: 20px;
+            top: 6px;
+        }
+
+        li.disable {
+            cursor: not-allowed;
+
+            span {
+                color: #ccc !important;
+            }
+        }
+    }
+
+    ul.orange {
+        li::before {
+            content: '•';
+            color: #f5a623;
+            position: absolute;
+            left: 0;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+    }
+
+    ul.blue {
+        li::before {
+            content: '•';
+            color: #3791b6;
+            position: absolute;
+            left: 0;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+    }
+
+    ul.red {
+        li::before {
+            content: '•';
+            color: #e4375c;
+            position: absolute;
+            left: 0;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+    }
+
+    .sale {
+        position: absolute;
+        right: -5px;
+        top: 5px;
+        background: unset;
+        width: auto;
+        height: auto;
+    }
+
+    .master-sale {
+        position: relative;
+
+        .item-sale {
+            position: absolute;
+            top: 52%;
+            left: 10px;
+            font-size: 19px;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+
+    .btn-dark {
+        background-color: #e4375c !important;
+        text-transform: none;
+        width: 300px;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        border-radius: 0;
+        -webkit-appearance: none;
+        border: 0;
+        padding: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        .price {
+            font-size: 11px;
+        }
+
+        .old-price {
+            font-size: 8px;
+        }
+
+        .btn-dark {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .card {
+        .sale {
+            right: 0;
+        }
+    }
+}
+
+@media (max-width: 460px) {
+    .card {
+        margin-bottom: 25px;
+
+        .price {
+            font-size: 20px;
+        }
+
+        .old-price {
+            font-size: 9px;
+        }
+
+        .btn-dark {
+            font-size: 16px;
+        }
+    }
+}

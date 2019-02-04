@@ -1,0 +1,112 @@
+<main class="text-center py-5 mt-5">
+	<div class="container">
+		<network-form-filter></network-form-filter>
+	</div>
+	<hr/>
+	<div class="container">
+		<div class="row m-0 py-3 mobile-padding-0">
+			<div class="col-xs-12 col-md-12 col-lg-9 mobile-padding-0">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-lg-4 mobile-padding-0">
+						<div class="list-connections">
+							<div class="col-connections">
+								<span class="count block">190</span>
+								<span class="title-connection">{{ 'Network.YourConnections' | translate }}</span>
+								<a href="javasript:void(0);" routerLink="connections" class="see-all" translate>Network.SeeAll</a>
+							</div>
+							<div class="col-connections">
+								<span class="count block">80</span>
+								<span class="title-connection" translate>Network.Following</span>
+								<a href="javasript:void(0);" class="see-all" translate>Network.SeeAll</a>
+							</div>
+							<div class="col-connections">
+								<span class="count block">200</span>
+								<span class="title-connection" translate>Network.Followers</span>
+								<a href="javasript:void(0);" class="see-all" translate>Network.SeeAll</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-lg-8 mobile-padding-0">
+						<div class="all-invitations">
+							<div class="header-invitations">
+								<span class="float-lg-left float-sm-left xs-100" translate>
+									Network.Invitations
+									<span class="count-it">(2)</span>
+								</span>
+								<span class="float-lg-right float-sm-right xs-100">
+									<a href="javascript:void(0);" routerLink="invitations" translate>Network.ManageAll</a>
+								</span>
+								<div style="clear: both;"></div>
+							</div>
+							<div class="main-invitations">
+								<div class="col-invitation" *ngFor="let invitation of listInvitations; let i = index" [ngClass]="{'last': i == listInvitations.length-1}">
+									<div class="p-2">
+										<div class="row m-0">
+											<div class="col-xs-12 col-sm-8 col-lg-8">
+												<div class="row">
+													<div class="col-1 rol-20 mobile-padding-0">
+														<div class="row">
+															<img src="{{ invitation.image }}" alt="{{ invitation.name }}">
+														</div>
+													</div>
+													<div class="col-11 rol-80 mobile-padding-0">
+														<div class="row">
+															<span class="title-user">
+																{{ invitation.name }}
+															</span>
+															<span class="user-description w-100">
+																{{ invitation.count_mutual }} mutual friends
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-lg-4 button-list">
+												<div class="arrow">
+													<button class="form-control button-submit deny-invitation" (click)="denyInvitation(invitation.id)" translate>Network.Deny</button>
+													<button class="form-control button-submit accept-invitation" (click)="acceptInvitation(invitation.id)" translate>Network.Accept</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="suggestion-list">
+							<div class="header-suggestion">
+								<h3 class="title-suggest" translate>
+									Network.YouMightKnow
+								</h3>
+								<div class="list-category">
+									<span class="category-sub" [ngClass]="{'active': activeTab == 0}" (click)="changeTab(0)">Agents</span>
+									<span class="category-sub" [ngClass]="{'active': activeTab == 1}" (click)="changeTab(1)">Agencies</span>
+									<span class="category-sub" [ngClass]="{'active': activeTab == 2}" (click)="changeTab(2)">Project Developers</span>
+									<span class="category-sub" [ngClass]="{'active': activeTab == 3}" (click)="changeTab(3)">Home Sevices</span>
+								</div>
+							</div>
+							<div class="main-suggestions">
+								<div class="row m-0" *ngIf="activeTab==0">
+									<div class="col-suggest col-6 col-md-6 col-lg-4" *ngFor="let suggestion of listSuggestions;">
+										<img src="{{ suggestion.image }}" class="avatar" alt="{{ suggestion.name }}">
+										<h4 class="title-person">{{ suggestion.name }}</h4>
+										<span class="description">
+											{{ suggestion.job }}
+										</span>
+										<button class="connect" translate>Network.Connect</button>
+										<span class="remove-suggestion">
+											<img src="/assets/images/close.png" alt="{{ 'Network.Remove' | translate }}">
+										</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-12 col-lg-3 mobile-padding-0">
+				<sidebar tab="follow"></sidebar>
+			</div>
+		</div>
+	</div>
+</main>

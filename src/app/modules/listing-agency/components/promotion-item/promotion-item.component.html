@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-12 col-xl-6 pb-3 content-list">
+		<div class="row">
+			<div class="col-12 col-sm-4 col-lg-4 image-feature mobile-padding-right-0">
+				<img src="{{ item.thumb }}" alt="{{ item.title }}">
+			</div>
+			<div class="col-12 col-sm-8 col-lg-8 detail-list">
+				<p class="breadcrum">{{ item.fileFolder }}</p>
+				<h3 class="title-project">
+					{{ item.title }}
+				</h3>
+				<h4 class="title-date">Promoted by {{ item.promoteBy.firstName }} {{ item.promoteBy.lastName }} on {{
+					item.publishedAt | date:'dd/MM/yyyy' }}</h4>
+				<span class="btn-action-promote">
+					<span class="promote"></span>&nbsp;
+					Promote Again
+				</span>
+				<span class="btn-action-promote">
+					View Result
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-xl-6 float-lg-right">
+		<div class="row pt-3">
+			<div class="col-2 text-center">
+				<p class="mi-date">{{ item.impressions }}</p>
+				<span class="title-date">Impressions</span>
+			</div>
+			<div class="col-1 text-center">
+				<p class="mi-date">{{ item.statistics.views }}</p>
+				<span class="title-date">Views</span>
+			</div>
+			<div class="col-3 text-center">
+				<p class="mi-date">{{ item.seeContact }}</p>
+				<span class="title-date">See contact</span>
+			</div>
+			<div class="col-3 text-center border-right">
+				<p class="mi-date">{{ item.messageToAgent }}</p>
+				<span class="title-date">Message to Agent</span>
+			</div>
+			<div class="col-3 text-center pr-0">
+				<!-- TODO: WAITTING API PRICE VND NUMBER -->
+				<p class="mi-date spent">{{ item.spentCreadits }}</p>
+				<span class="title-date">Spent Creadits</span>
+			</div>
+		</div>
+	</div>
+</div>

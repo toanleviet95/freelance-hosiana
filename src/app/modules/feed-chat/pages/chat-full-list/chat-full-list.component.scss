@@ -1,0 +1,271 @@
+
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+    img {
+        max-width: 38px;
+    }
+    .title-person {
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.1px;
+        text-align: left;
+        color: #555555;
+        margin-bottom: 0;
+    }
+    .des-message {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #aaaaaa;
+    }
+}
+.inline-block:nth-child(even) {
+    padding-left: 10px;
+}
+.inline-block.dropdown {
+    padding-left: 2px;
+    .dropdown-toggle::after {
+        content: none;
+    }
+    .dropdown-menu {
+        top: 20px !important;
+        left: -70px !important;
+    }
+}
+
+.inner-message {
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+    .header-message {
+        background-color: #f2f2f2;
+        text-shadow: 0 0 black;
+        padding: 15px;
+        .title-header {
+            font-size: 16px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0.1px;
+            text-align: center;
+            color: #555555;
+        }
+        .info-user {
+            display: inline-block;
+            float: left;
+            .title-message {
+                font-size: 16px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0.1px;
+                text-align: left;
+                margin-bottom: 0;
+                color: #555555;
+            }
+            .status-online {
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                color: #555555;
+            }
+        }
+        .setting-user-message {
+            float: right;
+            img {
+                max-width: 24px;
+            }
+        }
+    }
+    .search {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        font-size: 13px;
+    }
+    .autocomplete {
+        position: relative;
+    }
+    .autocomplete-items {
+        height: 110px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        top: 100%;
+        left: 0;
+        right: 0;
+        div {
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+            img {
+                max-width: 25px;
+            }
+        }
+        div:hover {
+            background: #3acaaa;
+            color: #fff;
+        }
+    }
+}
+.content-product {
+    padding: 7px 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(193, 193, 193, 0.5);
+    .inner-content {
+        float: left;
+        display: inline-block;
+        .inline-block {
+            .title-product {
+                font-size: 14px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                color: #555555;
+                margin-bottom: 2px;
+            }
+            .des-product {
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                color: #555555;
+                display: block;
+            }
+            .price-product {
+                font-size: 14px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                color: #e4375c;
+            }
+        }
+        .inline-block:nth-child(even) {
+            padding-left: 10px !important;
+        }
+    }
+    .more-action {
+        float:right;
+        display: inline-block;
+    }
+}
+.content-message {
+    padding: 15px;
+    min-height: 227px;
+    .inline-block {
+        vertical-align: text-bottom;
+        .avatar {
+            padding-bottom: 12px;
+        }
+    }
+    .time-start-chat {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0px;
+        color: #aaaaaa;
+        display: block;
+        margin: 10px 0;
+    }
+    .message-content {
+        span {
+            font-size: 12px;
+            font-weight: normal;
+            display: inline-block;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #555555;
+            padding: 5px 10px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+    }
+    .status-message {
+        font-size: 10px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0px;
+        color: #aaaaaa;
+        img {
+            max-width: 12px;
+        }
+    }
+    .right {
+        float: right;
+        text-align: right;
+        width: 100%;
+    }
+}
+.input-message {
+    margin-top: 10px;
+    position: relative;
+    padding-top: 5px;
+    border-top: 1px solid #aaaaaa;
+    textarea {
+        border: 0;
+        resize: none;
+        outline: none;
+        padding-right: 75px;
+    }
+
+}
+.action-media {
+    position: absolute;
+    top: 37%;
+    right: 15px;
+    label {
+        margin-left: 10px;
+        img.image {
+            max-width: 21px;
+        }
+        img.link {
+            max-width: 19px;
+        }
+    }
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+.main  {
+    position: relative;
+    .relative {
+        position: relative;
+    }
+}
+
+

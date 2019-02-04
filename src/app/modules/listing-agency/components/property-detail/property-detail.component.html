@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="container">
+        <form class="form-property" [formGroup]="formValues">
+            <h2>{{'add_edit_listing.property_description' | translate}}</h2>
+            <div formGroupName="desc" class="row form-content m-0">
+                <div class="col-md-6 p-0">
+                    <div formGroupName="title" class="p-0 mb-4">
+                        <p>{{'add_edit_listing.title_vi' | translate}}
+                            <span class="required">*</span>
+                        </p>
+                        <input formControlName="vi" class="form-control" type="text" placeholder="{{'add_edit_listing.title_vi_placeholder' | translate}}" />
+                        <div class="required" *ngIf="formValues['controls'].desc['controls'].title['controls'].vi.invalid && (formValues['controls'].desc['controls'].title['controls'].vi.touched || formValues['controls'].desc['controls'].title['controls'].vi.dirty)">Tile is required</div>
+                    </div>
+                    <div formGroupName="description" class="p-0 mb-3">
+                        <p>{{'add_edit_listing.description_vi' | translate}}
+                            <span class="required">*</span>
+                        </p>
+                        <textarea style="overflow:auto;resize:none" formControlName="vi" rows="5" placeholder="{{'add_edit_listing.description_vi_placeholder' | translate}}" matInput
+                            class="form-control"></textarea>
+                        <div class="required" *ngIf="formValues['controls'].desc['controls'].description['controls'].vi.invalid && (formValues['controls'].desc['controls'].description['controls'].vi.touched || formValues['controls'].desc['controls'].description['controls'].vi.dirty)">Desciption is required</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div formGroupName="title" class="p-0 mb-4">
+                        <p>{{'add_edit_listing.title_en' | translate}}
+                            <span class="required">*</span>
+                            <span class="auto-translate">{{'add_edit_listing.auto_translate' | translate}}</span>
+                        </p>
+                        <input formControlName="en" class="form-control" type="text" placeholder="{{'add_edit_listing.title_en_placeholder' | translate}}" />
+                        <div class="required" *ngIf="formValues['controls'].desc['controls'].title['controls'].en.invalid && (formValues['controls'].desc['controls'].title['controls'].en.touched || formValues['controls'].desc['controls'].title['controls'].en.dirty)">Tile is required</div>
+                    </div>
+                    <div formGroupName="description" class="p-0 mb-3">
+                        <p>{{'add_edit_listing.description_en' | translate}}
+                            <span class="required">*</span>
+                            <span class="auto-translate">{{'add_edit_listing.auto_translate' | translate}}</span>
+                        </p>
+                        <textarea style="overflow:auto;resize:none" formControlName="en" rows="5" placeholder="{{'add_edit_listing.description_en_placeholder' | translate}}" matInput
+                            class="form-control"></textarea>
+                        <div class="required" *ngIf="formValues['controls'].desc['controls'].description['controls'].en.invalid && (formValues['controls'].desc['controls'].description['controls'].en.touched || formValues['controls'].desc['controls'].description['controls'].en.dirty)">Desciption is required</div>
+                    </div>
+                </div>
+            </div>
+            <div formGroupName="medias" class="row form-content m-0">
+                <div class="col-md-12 p-0">
+                    <p>{{'add_edit_listing.photos_videos' | translate}}
+                        <span class="required">*</span>
+                    </p>
+                    <div class="form-group w-100 col-12 upload-box">
+                        <div class="row">
+                            <div class="" style="display: inline-block;">
+                                <label class="label-upload" for="fileUpload">
+                                    {{'add_edit_listing.upload_photos' | translate}}
+                                </label>
+                                <br>
+                                <app-show-errors></app-show-errors>
+                            </div>
+                            <span class="upload-note">
+                                {{'add_edit_listing.upload_photos_des1' | translate}} </span> <span class="text-upload">{{'add_edit_listing.upload_photos_des2' | translate}}</span></div> <div class="row row-upload">
+                                    <app-upload [multi]="multi" (fileUploaded)='handleUploadSuccess($event)' classStyle="propertyDetailListing"></app-upload>
+                                    <div class="required" *ngIf="isDoneProgress && formValues['controls'].medias['controls'].photos.value.length === 0">{{'add_edit_listing.photos_required' | translate}}</div>
+                        </div>
+
+                    </div>
+                    <p>{{'add_edit_listing.video_url' | translate}}</p>
+                    <input formControlName="link" class="form-control" type="text" placeholder="{{'add_edit_listing.video_url_placeholder' | translate}}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    

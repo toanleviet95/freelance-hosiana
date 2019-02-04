@@ -1,0 +1,85 @@
+form.form-location {
+    padding: 5% 0;
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+    }
+    .row {
+        padding-top: 20px;
+    }
+    .required {
+        color: red;
+        font-style: italic;
+    }
+    .form-content {
+        margin-left: -30px;
+        p {
+            padding-top: 20px;
+        }
+        p:first-child {
+            padding-top: 0px;
+        }
+        .list-project {
+            color: #3acaaa;
+            display: block;
+            text-decoration: underline;
+            font-size: 13px;
+            padding: 15px 0;
+        }
+        .first {
+            padding-left: 0;
+        }
+        .relative {
+            position: relative;
+            .list-project-render {
+                display: none;
+                position: absolute;
+                background: #f9f9f9;
+                width: 100%;
+                max-height: 315px;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                z-index: 500;
+                .project-item {
+                    padding: 5px 10px;
+                    cursor: pointer;
+                }
+                .project-item:hover {
+                    background: #3acaaa;
+                    color: #fff;
+                }
+            }
+            .list-project-render.show {display: block;}
+            
+        }
+    }
+    agm-map {
+        height: 335px;
+    }
+    .form-control {
+        margin-top: 7px;
+    }
+    .ggMap {
+        padding-top: 5px;
+    }
+    .no-value{
+        color: rgba(151, 151, 151, 0.5);
+    }
+    .no-value option {
+        color: #555555;
+    }
+    .form-control[readonly] {
+        background: #fff;
+        cursor: not-allowed;
+    }
+    .form-control[disabled] {
+        background: #fff;
+        cursor: not-allowed;
+    }
+}

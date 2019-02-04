@@ -1,0 +1,57 @@
+.house,
+.service,
+.service-02,
+.project {
+  display: inline-block;
+  background: url('/assets/sprites/sprite-home-pro.png') no-repeat;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+}
+
+.oval {
+  width: 90px;
+  height: 90px;
+  .card-item {
+    margin-top: 18px;
+  }
+  .house {
+    background-position: -170px -2695px;
+    width: 50px;
+    height: 50px;
+  }
+  .service {
+    background-position: -200px -2745px;
+    width: 50px;
+    height: 50px;
+  }
+  .service-02 {
+    background-position: -150px -2745px;
+    width: 50px;
+    height: 50px;
+  }
+  .project {
+    background-position: -100px -2740px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+.card {
+  border-radius: 0;
+  border:0;box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 14px;
+  }
+}

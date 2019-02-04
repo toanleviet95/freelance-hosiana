@@ -1,0 +1,22 @@
+<main class="py-4 mt-5">
+    <app-header-listing active="all" [listingTotal]="listingTotal | async"></app-header-listing>
+    <div class="container">
+        <app-form-filter></app-form-filter>
+    </div>
+    <hr />
+    <div class="container">
+        <!-- <app-agency-extra></app-agency-extra> -->
+        <h3 class="title-tab">{{ 'listings_all.all_listings' | translate }} <span class="count">({{ (pages | async)?.listing?.totalElements }})</span></h3>
+        <div class="tab-section">
+            <a [routerLink]="['/listing-agency/add-listing']" (click)="handleChangeTab($event)" class="listing-tab"
+                [ngClass]="{'active': activeTabID == 'all-listing'}">{{ 'listings_all.add_listing' | translate }}</a>
+            <a [routerLink]="['/listing-agency']" (click)="handleChangeTab($event)" class="listing-tab" [ngClass]="{'active': activeTabID == 'relist'}">{{ 'listings_all.offer_agent' | translate }}</a>
+            <a [routerLink]="['/listing-agency']" (click)="handleChangeTab($event)" class="listing-tab" [ngClass]="{'active': activeTabID == 'promotion'}">{{ 'listings_all.promote' | translate }}</a>
+        </div>
+        <section class="text-center text-lg-left">
+            <app-agency-item *ngFor="let item of listings | async" [item]="item"></app-agency-item>
+        </section>
+
+        <app-pagination active="listing"></app-pagination>
+    </div>
+</main>

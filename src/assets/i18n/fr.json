@@ -1,0 +1,50 @@
+{
+  "Network": {
+    "mutual": "mutual friends",
+    "yourConnections": "your connections",
+    "seeAll": "See all",
+    "following": "Following",
+    "followers": "Followers",
+    "invitations": "Invitations",
+    "manageAll": "Manage all",
+    "deny": "Deny",
+    "accept": "Accept",
+    "suggestConnect": "AGENCY TO CONNECT",
+    "youMightKnow": "You might know",
+    "connect": "Connect",
+    "follow": "Follow",
+    "remove": "Remove",
+    "connections": "Connections",
+    "cancelConnectionRequest": "Cancel connection request",
+    "addToPool": "Add to Pool",
+    "recommend": "Recommend",
+    "requestARecommendation": "Request a Recommendation",
+    "removeConnection": "Remove Connection",
+    "blogThisPerson": "Blog This Person",
+    "reportOrBlog": "Report / Blog",
+    "profile": "Profile",
+    "address": "Address",
+    "language": "Language",
+    "experience": "Experience",
+    "education": "EDUCATION",
+    "recommendations": "RECOMMENDATIONS",
+    "received": "Received",
+    "given": "Given",
+    "accomplishments": "ACCOMPLISHMENTS"
+  },
+  "App": {
+    "Email": "",
+    "Error": {
+      "FormEmail": "",
+      "FormMaxLength": "",
+      "FormMinLength": "",
+      "FormRequired": ""
+    },
+    "Login": "",
+    "Password": ""
+  },
+  "Homepro": {
+    "TitleBecomeMemberAgency": "",
+    "WelcomeTitle": ""
+  }
+}

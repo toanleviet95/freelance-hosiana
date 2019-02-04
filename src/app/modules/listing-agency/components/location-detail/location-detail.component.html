@@ -1,0 +1,82 @@
+<div class="container-fluid" [formGroup]="formValues">
+    <div class="container">
+        <form class="form-location" formGroupName="location">
+            <h2>{{'add_edit_listing.location' | translate}}</h2>
+            <div class="row form-content m-0">
+                <div class="col-md-6 p-0">
+                    <div class="relative">
+                        <p>{{'add_edit_listing.project' | translate}}</p>
+                        <input type="text" class="form-control" (focus)="changeProject($event)" (keyup)="changeProject($event)"  placeholder="{{'add_edit_listing.project_placeholder' | translate}}" #projectValue>
+                        <!-- <input type="text" hidden formControlName="projectId" value="" #projectValue> -->
+                        <div class="list-project-render" [ngClass]="{'show': typingProject}">
+                            <div class="w-100 project-item">{{'add_edit_listing.project_placeholder' | translate}}</div>
+                            <div class="w-100 project-item" *ngFor="let project of listRenderProject" >
+                                <div (click)="chooseProject(project.id)">
+                                    {{ project.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <select formControlName="projectId" (change)="onProjectChange($event.target.value)" class="form-control">
+                        <option value="null">{{'add_edit_listing.project_placeholder' | translate}}</option>
+                        <option *ngFor="let project of projects | async" value="{{ project.id }}">{{ project.name }}</option>
+                    </select> -->
+                    <p>{{'add_edit_listing.project_not_listed' | translate}}</p>
+                    <input class="form-control" type="text" formControlName="projectName" />
+                    <a href="" class="list-project">{{'add_edit_listing.project_not_listed' | translate}}</a>
+                    <div formGroupName="address">
+                        <p>{{'add_edit_listing.city' | translate}}<span class="required">*</span></p>
+                        <select formControlName="cityId" #cityAddress (change)="onCityChange($event.target.value, cityAddress.options[cityAddress.selectedIndex].text)" class="form-control" [ngClass]="{'no-value': cityAddress && cityAddress.options && cityAddress.options[cityAddress.value] && !cityAddress.options[cityAddress.value].text ? true : false}">
+                            <option value="null">{{'add_edit_listing.city_placeholder' | translate}}</option>
+                            <option *ngFor="let city of cities | async" value="{{ city.id }}">{{ city.name }}</option>
+                        </select>
+                    </div>
+                    <div formGroupName="address" class="row">
+                        <div class="col-md-6">
+                            <p>{{'add_edit_listing.district' | translate}} <span class="required">*</span></p>
+                            <select formControlName="districtId" #districtAddress (change)="onDistrictChange($event.target.value, districtAddress.options[districtAddress.selectedIndex].text)" class="form-control" [ngClass]="{'no-value': districtAddress && districtAddress.options && districtAddress.options[districtAddress.value] && !districtAddress.options[districtAddress.value].text ? true : false}">
+                                <option value="null">{{'add_edit_listing.district_placeholder' | translate}}</option>
+                                <option *ngFor="let district of districts | async" value="{{ district.id }}">{{
+                                    district.name }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{'add_edit_listing.ward' | translate}} <span class="required">*</span></p>
+                            <select formControlName="wardId" #wardAddress (change)="onWardChange($event.target.value, wardAddress.options[wardAddress.selectedIndex].text)" class="form-control" [ngClass]="{'no-value': wardAddress && wardAddress.options && wardAddress.options[wardAddress.value] && !wardAddress.options[wardAddress.value].text ? true : false}">
+                                <option value="null">{{'add_edit_listing.ward_placeholder' | translate}}</option>
+                                <option *ngFor="let ward of wards | async" value="{{ ward.id }}">{{ ward.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div formGroupName="address" class="row">
+                        <div class="col-md-12">
+                            <p>{{'add_edit_listing.address' | translate}} <span class="required">*</span></p>
+                            <input formControlName="address" class="form-control" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="onAddressChange($event)"/>
+                        </div>
+                    </div>
+                    <!-- <div class="row" style="float: right">
+                        <div class="col-md-12">
+                            <button [disabled]="!this.formValues['controls'].location['controls'].address.value.address || !this.formValues['controls'].location['controls'].address.value.cityId || !this.formValues['controls'].location['controls'].address.value.districtId || !this.formValues['controls'].location['controls'].address.value.wardId"
+                            class="next gps-btn" (click)="setGeographyCode()">Get GPS from address&nbsp;<i class="fa fa-map-marker"></i></button>
+                        </div>
+                    </div> -->
+                </div>
+                <div formGroupName="address" class="col-md-6 ggMap">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                    <div class="row location">
+                        <div class="col-md-6">
+                            <p>{{'add_edit_listing.gps_latitude' | translate}} <span class="required">*</span></p>
+                            <input readonly class="form-control" type="text" formControlName="latitude" />
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{'add_edit_listing.gps_longitude' | translate}} <span class="required">*</span></p>
+                            <input readonly matInput class="form-control" type="text" formControlName="longitude" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

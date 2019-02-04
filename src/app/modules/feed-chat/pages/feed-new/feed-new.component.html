@@ -1,0 +1,71 @@
+<main class="main mt-5 sprite-work">
+	<div class="main-info col-12 py-4 mobile-padding-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-12 col-lg-9 ">
+					<div class="row">
+						<div class="col-xs-12 col-md-4 col-lg-4  fixed">
+							<div class="row">
+								<feedchat-sidebar-info-user></feedchat-sidebar-info-user>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-8 col-lg-8 ">
+							<div class="row row-except m-0">
+								<feed-chat-form-create-post [isAnimation]="showPopup" [postSetting]="postSetting" (change)="changeIsAnimation($event)"></feed-chat-form-create-post>
+								<div class="list-post" [ngClass]="{'show': showPopup}">
+									<div class="col-post" *ngFor="let post of listPostOfCurrentAgency; let i = index">
+										<h3 class="title-post">
+											{{ post.title }}
+										</h3>
+										<div class="content-post">
+											{{ post.content }}
+										</div>
+										<div class="list-media">
+											<img src="assets/images/coca-c.png" style="max-width: 100%;">
+											<span class="close"><img src="assets/images/close-modal.png" alt="{{ 'Network.Remove' | translate }}"></span>
+										</div>
+										<div class="action-post">
+											<div class="type" ngbDropdown>
+												<button class="btn" id="postSetting{{ post.id }}" ngbDropdownToggle> {{ 'FeedChat.PostSetting' | translate }} </button>
+												<div ngbDropdownMenu attr.aria-labelledby="postSetting{{ post.id }}">
+													<div class="title-drop">{{ 'FeedChat.Privacy' | translate }}</div>
+													<button class="dropdown-item">
+														<div class="inline-block">
+															<img src="assets/images/earth.png" alt="{{ 'FeedChat.Public' | translate }}">
+														</div>
+														<div class="inline-block">
+															<h3 class="title-privacy">{{ 'FeedChat.Public' | translate }}</h3>
+															<span class="des-privacy">{{ 'FeedChat.AnyOne' | translate }}</span>
+														</div>
+													</button>
+													<button class="dropdown-item">
+														<div class="inline-block">
+															<img src="assets/images/person.png" alt="Private">
+														</div>
+														<div class="inline-block">
+															<h3 class="title-privacy">{{ 'Network.Connections' | translate }}</h3>
+															<span class="des-privacy">{{ 'Network.YourConnections' | translate }}</span>
+														</div>
+													</button>
+												</div>
+											</div>
+											<button type="submit" class="submit-agency-form" >
+												{{ 'Network.Post' | translate }}
+											</button>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-12 col-lg-3 ">
+					<sidebar></sidebar>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<div class="overlay" *ngIf="showPopup" (click)="hideDrop()"></div>

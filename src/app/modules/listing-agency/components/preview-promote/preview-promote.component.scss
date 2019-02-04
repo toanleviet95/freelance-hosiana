@@ -1,0 +1,424 @@
+@import '../../../../../assets/styles/variables.scss';
+
+.form-promote {
+    padding: 5% 0;
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-bottom: 7px;
+    }
+
+    .promote-attach-text {
+        font-size: 16px;
+        margin-bottom: 30px
+    }
+
+    .promote-duration-text {
+        font-size: 16px;
+        font-weight: bold
+    }
+
+    .group-swap {
+        margin-top: 15px;
+
+        .title-gr-swap {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .currency {
+            position: relative;
+            float: right;
+            bottom: 28px;
+            right: 10px;
+            background-color: #ffffff;
+            padding-left: 10px;
+        }
+
+        .checkbox-section {
+            margin-right: 10px;
+            margin-top: 15px;
+
+            label {
+                margin-right: 10px;
+
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                .animations {
+                    border-radius: 3px;
+                    border-color: #aaaaaa;
+                    color: #fff;
+                    display: inline-block;
+                    background-color: transparent;
+                    transition: border-color 90ms cubic-bezier(0, 0, .2, .1);
+                    border-width: 1px;
+                    border-style: solid;
+
+
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    color: #555555;
+                }
+
+                .animations>i {
+                    padding: 1px 2px;
+                    color: #fff;
+                    opacity: 0;
+                }
+
+                input[type="checkbox"]:checked+.animations {
+                    border-color: #E4375C;
+                    background: #E4375C;
+                }
+
+                input[type="checkbox"]:checked+.animations>i {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .check-swap {
+            padding: 7px 30px;
+            border: solid 1px #aaaaaa;
+            &.active {
+                background: $green-color;
+                color: #fff;
+                border-color: $green-color;
+            }
+        }
+    }
+
+    .table-custom {
+        display: block;
+
+        .titleListAgents {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #aaaaaa;
+
+            .title-contact {
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 9px;
+                border-bottom: 2px solid #3acaaa;
+            }
+
+            @media only screen and (max-width: 990px) {
+                display: none;
+            }
+        }
+
+        .titleListAgents-mobile {
+            display: none;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #aaaaaa;
+
+            .title-contact {
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 9px;
+                border-bottom: 2px solid #3acaaa;
+            }
+
+            @media only screen and (max-width: 990px) {
+                display: block;
+            }
+        }
+
+        .listAllAgents {
+            .row {
+                padding: 15px !important;
+
+                &.divide {
+                    border-bottom: 1px solid $gray-color;
+                }
+
+                .flex-display {
+                    display: flex;
+                }
+
+                .check {
+                    display: inline-block;
+
+                    .checkbox-section {
+                        margin-right: 10px;
+                        label {
+                            margin-right: 10px;
+                            line-height: 22px;
+
+                            input[type="checkbox"] {
+                                display: none;
+                            }
+
+                            .animations {
+                                border-radius: 3px;
+                                border-color: #aaaaaa;
+                                color: #fff;
+                                display: inline-block;
+                                background-color: transparent;
+                                transition: border-color 90ms cubic-bezier(0, 0, .2, .1);
+                                border-width: 1px;
+                                border-style: solid;
+
+
+                                font-size: 14px;
+                                font-weight: normal;
+                                font-style: normal;
+                                font-stretch: normal;
+                                line-height: normal;
+                                letter-spacing: 0px;
+                                text-align: left;
+                                color: #555555;
+                            }
+
+                            .animations>i {
+                                padding: 1px 2px;
+                                color: #fff;
+                                opacity: 0;
+                            }
+
+                            input[type="checkbox"]:checked+.animations {
+                                border-color: #E4375C;
+                                background: #E4375C;
+                            }
+
+                            input[type="checkbox"]:checked+.animations>i {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                .info-agents {
+                    display: flex;
+                    vertical-align: middle;
+
+                    .image-avatar {
+                        display: inline-block;
+
+                        .group-image-avatar {
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                    }
+
+                    .list-info {
+                        margin-left: 5px;
+                        vertical-align: middle;
+
+                        .discount-input {
+                            width: 100px;
+                        }
+
+                        .name-agents {
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+
+                        .contact-agents {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+
+                .commission {
+                    font-weight: bold;
+
+                    .fee-content {
+                        color: $green-color;
+                    }
+                }
+
+            }
+        }
+
+        .add-contact {
+            width: auto;
+            font-weight: bold;
+            border: solid 1px #3acaaa;
+            color: #3acaaa;
+
+            i {
+                padding: 5px 7px;
+                margin-right: 5px;
+                border-radius: 50%;
+                color: #fff;
+                background: #3acaaa;
+            }
+        }
+
+        .own-contact {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .trash-mobile {
+            display: none;
+
+            @media only screen and (max-width: 990px) {
+                display: block;
+            }
+        }
+
+        .trash {
+            display: block;
+
+            @media only screen and (max-width: 990px) {
+                display: none;
+            }
+        }
+    }
+
+    .input-group {
+        width: inherit;
+        margin-left: 10px;
+    }
+
+    .preview-card {
+        .note {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .z-depth-2 {
+            position: relative;
+            z-index: -99;
+        }
+
+        .location,
+        .gift {
+            display: inline-block;
+            background: url('/assets/sprites/sprite-listing-agency.png') no-repeat;
+            overflow: hidden;
+            text-indent: -9999px;
+            text-align: left;
+            margin-top: -8px;
+        }
+
+        .new-02 {
+            background: url(/assets/images/new.png) no-repeat;
+        }
+        .location {
+            background-position: -40px -195px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .gift {
+            background-position: -0px -41px;
+            width: 34px;
+            height: 38px;
+        }
+
+        .new-02 {
+            // background-position: -0px -0px;
+            // width: 72px;
+            // height: 41px;
+            // position: absolute;
+            // z-index: 1;
+            // top: 45px;
+            // left: 10px;
+        }
+
+        .view .mask {
+            position: absolute;
+            overflow: hidden;
+            background-attachment: fixed;
+            bottom: 0px;
+            top: unset;
+            color: #fff;
+            display: block;
+            width: 100%;
+            padding: 5px 10px;
+            background: rgba(32, 38, 22, 0.7);
+        }
+
+        .gift-section {
+            position: absolute;
+            bottom: 200px;
+            left: 10px;
+        }
+
+        .type-section {
+            position: absolute;
+            bottom: 200px;
+            right: 10px;
+
+            button {
+                height: 30px;
+                line-height: 0px;
+                margin-right: 15px;
+                background: white;
+                display: flex;
+                align-items: center;
+                border: 1px solid #555555;
+                color: #555555;
+                text-transform: none;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                &.btn-sale {
+                    background: orange;
+                    color: white;
+                }
+
+                &.btn-rent {
+                    background: #4a90e2;
+                    color: white;
+                }
+
+                &.btn-swap {
+                    background: #3acaaa;
+                    color: white;
+                }
+            }
+        }
+
+        .card-body {
+            .card-title {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 1.5;
+            }
+
+            .card-location {
+                // line-height: 25px;
+                padding-bottom: 10px;
+                .location {
+                    vertical-align: bottom;
+                }
+            }
+
+            .card-price {
+                font-size: 20px;
+                font-weight: bold;
+                color: $red-color;
+            }
+
+            .card-slogan {
+                font-size: 13px;
+                color: $blue-color;
+                margin-top: 10px;
+            }
+
+            .card-discount-price {
+                font-size: 20px;
+                font-weight: bold;
+                float: right;
+            }
+        }
+
+        .card-img-border {
+            border: 2px $red-color solid;
+        }
+    }
+}

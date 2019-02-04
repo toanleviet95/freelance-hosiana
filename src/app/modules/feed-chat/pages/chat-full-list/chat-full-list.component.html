@@ -1,0 +1,141 @@
+<main class="main mt-5 sprite-work">
+	<div class="main-info col-12 py-5 mobile-padding-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-12 col-lg-9 ">
+					<div class="row">
+						<div class="col-xs-12 col-md-4 col-lg-4 p-0">
+							<app-sidebar-message [newMessage]="newMessage" (createNewMessage)="changeHandlerNewMessage($event)"></app-sidebar-message>	
+						</div>
+						<div class="col-xs-12 col-md-8 col-lg-8 ">
+							<div class="inner-message">
+								<div *ngIf="!newMessage; else contentNewMessage">
+									<div class="header-message">
+										<div class="info-user">
+											<div class="inline-block">
+												<img src="assets/images/01x.png" alt="Thuy Thuy">
+											</div>
+											<div class="inline-block">
+												<h3 class="title-message">
+													[VN-HCM-00479] Bán nhà quận 2
+												</h3>
+												<span class="status-online">23m ago </span>
+											</div>
+										</div>
+										<div class="setting-user-message">
+											<img src="assets/images/setting.png" alt="Setting">
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+									<div class="content-product">
+										<div class="inner-content">
+											<div class="inline-block">
+												<img src="assets/images/coca-c.png" style="max-width: 80px;">
+											</div>
+											<div class="inline-block">
+												<h3 class="title-product">VN-HCM-000479</h3>
+												<span class="des-product">Vinhomes Central Park bán căn hộ 3 phòng ngủ 1002 cần…</span>
+												<span class="price-product">$50,000</span>
+											</div>
+										</div>
+										<div class="more-action">
+											<img src="assets/images/more-notifi.png" alt="More">
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+									<div class="content-message">
+										<span class="text-center time-start-chat">JULY 2, 2018 AT 11:40 AM</span>
+										<div class="list-message">
+											<div class="col-message">
+												<div class="to-user inline-block">
+													<img src="assets/images/01x.png" alt="Thanh Truc" class="avatar">
+												</div>
+												<div class="inline-block from-user">
+													<div class="message-content">
+														<span>
+															đang kiểm stress đọc tin nhắn bà Y mắc cười
+														</span>
+													</div>
+													<div class="message-content">
+														<span>=))))))))</span>
+													</div>
+													<div class="status-message">
+														<div class="inline-block">
+															10:20 <img src="assets/images/seen.png">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-message right">
+												<div class="inline-block">
+													<div class="message-content">
+														<span>Cười gì</span>
+													</div>
+													<div class="message-content">
+														<span>=))))))))))))))))))))))))))))</span>
+													</div>
+													<div class="status-message">
+														<div class="inline-block">
+															10:20 <img src="assets/images/seen.png">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div style="clear: both;"></div>
+										</div>
+									</div>
+								</div>
+								<ng-template #contentNewMessage>
+									<div class="header-message">
+										<h5 class="title-header">
+											{{ 'FeedChat.NewMessage' | translate }}
+										</h5>
+									</div>
+									<div class="autocomplete w-100">
+										<ng-select
+											[items]="listConnection"
+											[multiple]="true"
+											bindLabel="name" placeholder="Type a name or multiple name…">
+											<ng-template ng-label-tmp let-item="item" let-clear="clear">
+												<span class="ng-value-label"><img [src]="item.image" width="20px" height="20px"> {{item.name}}</span>
+												<span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+											</ng-template>
+										
+											<ng-template ng-option-tmp let-item="item">
+												<img [src]="item.image" width="20px" height="20px"> {{item.name}}
+											</ng-template>
+										</ng-select>
+									</div>
+									<div class="content-message">
+										
+									</div>
+								</ng-template>
+								<div class="input-message">
+									<textarea cols="3" class="form-control" autosize></textarea>
+									<div class="action-media">
+										<label for="#">
+											<span>
+												<img src="assets/images/image.png" alt="Image or Video" class="image">
+											</span>
+										</label>
+										<label for="#">
+											<span >
+												<img src="assets/images/link.png" alt="Link" class="link">
+											</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-12 col-lg-3 ">
+					<sidebar></sidebar>
+				</div>
+			</div>
+			<app-window-message [showSidebar]="showSidebar"></app-window-message>
+		</div>
+	</div>
+</main>
+

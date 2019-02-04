@@ -1,0 +1,252 @@
+<div class="container-fluid">
+    <div class="container">
+        <form class="form-info" [formGroup]="formValues">
+            <h2>{{ 'add_edit_listing.infomation' | translate }}</h2>
+            <div class="row m-0 checkbox-info">
+                <div>
+                    <p>{{ 'add_edit_listing.type' | translate }}
+                        <span class="required">*</span>
+                    </p>
+                    <div class="btn-group btn-group-toggle" ngbRadioGroup formControlName="listingType">
+                        <label *ngFor="let type of listingType" ngbButtonLabel class="btn-default">
+                            <input ngbButton type="radio" value="{{ type.id }}"> {{ type.name }}
+                        </label>
+                    </div>
+                </div>
+                <div class="distance-left">
+                    <p>{{ 'add_edit_listing.service_type' | translate }}
+                        <span class="required">*</span>
+                    </p>
+                    <div class="btn-group btn-group-toggle" ngbRadioGroup formControlName="serviceId">
+                        <div *ngFor="let type of serviceType">
+                            <label ngbButtonLabel class="btn-default" [ngClass]="{'hidden': type.id == 3 && formValues.controls['listingType'].value == '2'}">
+                                <input hidden ngbButton type="radio" value="{{ type.id }}"> {{ type.name }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row m-0 checkbox-info">
+                <div class="w-100">
+                    <p>{{ 'add_edit_listing.property_type' | translate }}
+                        <span class="required">*</span>
+                    </p>
+                    <div class="btn-group btn-group-toggle" ngbRadioGroup formControlName="cateId" *ngIf="formValues.controls['listingType'].value != 2">
+                        <!-- <label *ngFor="let item of propertyTypeList | async; let i = index; let first = first" -->
+                        <label *ngFor="let item of residentals" ngbButtonLabel class="btn-default">
+                            <input ngbButton type="radio" value="{{ item.id }}"> {{ item.name }}
+                        </label>
+                    </div>
+                    <div class="attractive-commerical col-12 col-lg-10" *ngIf="formValues.controls['listingType'].value == 2">
+                        <div class="row radio-property">
+                            <div *ngFor="let item of commercials" class="col-3 dkt-pl-0">
+                                <div>
+                                    <input id="radio-{{item.id}}" class="radio-custom" value="{{item.id}}" name="cateId" formControlName="cateId" type="radio">
+                                    <label for="radio-{{item.id}}" class="radio-custom-label">{{item.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="formComercial" class="col-12 col-lg-6" *ngIf="formValues.controls['listingType'].value == 2">
+                    <div class="row infoRooms">
+                        <div class="col-12 col-lg-6">
+                            <div class="checkbox-section">
+                                <label for="commercicalFloors">
+                                    {{ 'add_edit_listing.floors' | translate }}
+                                </label>
+                            </div>
+                            <input class="form-control" type="number" min="0" formControlName="floor" (keyup)="checkForm()" />
+                            <!-- <div class="required" *ngIf="formComercial.controls.floor.invalid && (formComercial.controls.floor.touched || formComercial.controls.floor.dirty)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div> -->
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="checkbox-section">
+                                <label for="commercicalBathrooms">
+                                    {{ 'add_edit_listing.bathrooms' | translate }}
+                                </label>
+                            </div>
+                            <input class="form-control" type="number" min="0" formControlName="bathroom" (keyup)="checkForm()" />
+                            <!-- <div class="required" *ngIf="formComercial.controls.bathroom.invalid && (formComercial.controls.bathroom.touched || formComercial.controls.bathroom.dirty)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="row infoRooms">
+                        <div class="col-12 col-lg-6">
+                            <div class="checkbox-section">
+                                <label for="commercicalgrossFloorArea">
+                                    {{ 'add_edit_listing.gross_floor_area' | translate }}
+                                </label>
+                            </div>
+                            <input class="form-control" type="text" formControlName="floorArea" placeholder="{{ 'add_edit_listing.gross_floor_area_placeholder' | translate }}" (keyup)="checkForm()" />
+                            <span class="currency">m
+                                <sup>2</sup>
+                            </span>
+                            <div class="required" *ngIf="formComercial.controls.floorArea.invalid && (formComercial.controls.floorArea.touched || formComercial.controls.floorArea.dirty)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="checkbox-section">
+                                <label for="commercicallandArea">
+                                    {{ 'add_edit_listing.land_area' | translate }}
+                                </label>
+                            </div>
+                            <input class="form-control" type="text" formControlName="landArea" (keyup)="checkForm()" placeholder="{{ 'add_edit_listing.land_area_placeholder' | translate }}" />
+                            <span class="currency">m
+                                <sup>2</sup>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="formComercial" class="col-12 col-lg-10" *ngIf="formValues.controls['listingType'].value == 1  && formValues.controls['cateId'].value != 4">
+                    <div class="row infoRooms">
+                        <div class="col-12 col-lg-4">
+                            <p>{{ 'add_edit_listing.bedrooms' | translate }}
+                                <span class="required">*</span>
+                            </p>
+                            <input class="form-control" type="number" min="0" formControlName="bedroom" (keyup)="checkForm()" />
+                            <div class="required" *ngIf="(formComercial.controls.bedroom.invalid && (formComercial.controls.bedroom.touched || formComercial.controls.bedroom.dirty)) || (formComercial.controls.bedroom.errors && formComercial.controls.bedroom.errors.invalid)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4" *ngIf="formValues.controls['cateId'].value != 2">
+                            <p>{{ 'add_edit_listing.floors' | translate }}
+                                <span class="required">*</span>
+                            </p>
+                            <input class="form-control" type="number" min="0" formControlName="floor" (keyup)="checkForm()" />
+                            <div class="required" *ngIf="(formComercial.controls.floor.invalid && (formComercial.controls.floor.touched || formComercial.controls.floor.dirty)) || (formComercial.controls.floor.errors && formComercial.controls.floor.errors.invalid)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <p>{{ 'add_edit_listing.bathrooms' | translate }}
+                                <span class="required">*</span>
+                            </p>
+                            <input class="form-control" type="number" min="0" formControlName="bathroom" (keyup)="checkForm()" />
+                            <div class="required" *ngIf="(formComercial.controls.bathroom.invalid && (formComercial.controls.bathroom.touched || formComercial.controls.bathroom.dirty)) || (formComercial.controls.bathroom.errors && formComercial.controls.bathroom.errors.invalid)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="formComercial" class="col-12 col-lg-10" *ngIf="formValues.controls['listingType'].value == 1  && formValues.controls['cateId'].value != 4">
+                    <div class="row infoRooms">
+                        <div class="col-12 col-lg-4">
+                            <p>{{ 'add_edit_listing.gross_floor_area' | translate }}
+                                <span class="required">*</span>
+                            </p>
+                            <input class="form-control" type="text" placeholder="{{ 'add_edit_listing.gross_floor_area_placeholder' | translate }}" formControlName="floorArea" />
+                            <span class="currency">m
+                                <sup>2</sup>
+                            </span>
+                            <div class="required" *ngIf="formComercial.controls.floorArea.invalid && (formComercial.controls.floorArea.touched || formComercial.controls.floorArea.dirty)">
+                                {{ 'App.FormNumber'  | translate }}
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4" *ngIf="formValues.controls['cateId'].value != 2">
+                            <p>{{ 'add_edit_listing.land_area' | translate }}
+                                <span class="required">*</span>
+                            </p>
+                            <input class="form-control" type="text" placeholder="{{ 'add_edit_listing.land_area_placeholder' | translate }}" (keyup)="checkForm()" formControlName="landArea" />
+                            <span class="currency">m
+                                <sup>2</sup>
+                            </span>
+                            <div class="required" *ngIf="(formComercial.controls.landArea.invalid && (formComercial.controls.landArea.touched || formComercial.controls.landArea.dirty)) || (formComercial.controls.landArea.errors && formComercial.controls.landArea.errors.invalid)">
+                                {{ 'App.FormNumber' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [formGroup]="formComercial" class="row m-0" *ngIf="formValues.controls['listingType'].value == 1  && formValues.controls['cateId'].value == 4">
+                <div class="w-100">
+                    <div class="col-12 col-lg-8 landtype">
+                        <div class="row">
+                            <div class="col-12 col-lg-8">
+                                <div class="row pt-0">
+                                    <p>{{ 'add_edit_listing.land_type'  | translate }}
+                                        <span class="required">* </span>
+                                        <span>({{ 'add_edit_listing.select_one_more' | translate }})</span>
+                                    </p>
+                                    <ng-select [items]="landtypes" [addTag]="addTag" [hideSelected]="true" multiple="true"
+                                        bindValue="id" bindLabel="title" formControlName="landType">
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <p>{{ 'add_edit_listing.land_area' | translate }}
+                                    <span class="required">*</span>
+                                </p>
+                                <input class="form-control" type="number" min="0" formControlName="landArea" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [formGroup]="formFurnished" class="row m-0" *ngIf="formValues.controls['listingType'].value == 1 && (formValues.controls['serviceId'].value == 3 || formValues.controls['serviceId'].value == 1) && formValues.controls['cateId'].value != 4">
+                <div class="checkbox-section">
+                    <label for="furnished">
+                        <input type="checkbox" id="furnished" value="Furnished" formControlName="furnished">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.furnished'  | translate }}
+                    </label>
+                </div>
+                <div class="checkbox-section">
+                    <label for="parking">
+                        <input type="checkbox" id="parking" value="Parking" formControlName="parking">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.parking' | translate }}
+                    </label>
+                </div>
+                <div class="checkbox-section">
+                    <label for="petallowed">
+                        <input type="checkbox" id="petallowed" value="Pet allowed" formControlName="petAllowed">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.pet_allowed' | translate }}
+                    </label>
+                </div>
+            </div>
+            <div [formGroup]="formFurnished" class="row m-0" *ngIf="formValues.controls['listingType'].value ==  2">
+                <div class="checkbox-section">
+                    <label for="parking">
+                        <input type="checkbox" id="parking" value="Parking" formControlName="parking">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.parking' |  translate }}
+                    </label>
+                </div>
+            </div>
+            <div [formGroup]="formFurnished" class="row m-0" *ngIf="formValues.controls['listingType'].value == 1  && formValues.controls['cateId'].value == 4">
+                <div class="checkbox-section">
+                    <label for="dirctRoad">
+                        <input type="checkbox" id="dirctRoad" value="Direct road access for car" formControlName="accessForCar">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.direct_road' | translate }}
+                    </label>
+                </div>
+                <div class="checkbox-section">
+                    <label for="landSharing">
+                        <input type="checkbox" id="landSharing" value="Land sharing accepted" formControlName="landSharing">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{ 'add_edit_listing.flat_sharing' | translate }}
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

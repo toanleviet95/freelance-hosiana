@@ -1,0 +1,49 @@
+@import '../../../../../assets/styles/variables';
+$path-images: '../../../../../assets/images';
+
+.nav-left {
+    background-color: #ffffff;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+    .cover-photo {
+        height: 100px;
+    }
+    .content-info {
+        margin-top: -29px;
+        padding: 0 15px 15px 15px;
+        .avatar {
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+            .add-photo {
+                color: #3ACAAA;
+                display: block;
+                text-align: center;
+            }
+        }
+        .title {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555555;
+            text-align: center;
+            margin: 10px 0 15px 0;
+        }
+        .list-parameter {
+            .par-count {
+                display: inline-block;
+                text-align: center;
+                padding: 0 7px;
+                font-weight: normal;
+                font-size: 13px;
+                span {
+                    margin-top: 5px;
+                    font-weight: bolder;
+                    display: block;
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@import '../../../../../assets/styles/variables';
+$path-images: '../../../../../assets/images';
+.modalEdit.in.show {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-dialog {
+  .modal-content {
+    .al-middle {
+      align-items: center;
+    }
+    .col-form {
+      margin: 25px 0;
+    }
+    .inputVal {
+      display: none !important;
+    }
+    .radio-margin {
+      margin-right: 20px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: left;
+      color: #555555;
+      span {
+        color: #e44459;
+      }
+    }
+    .button-submit {
+      font-size: 16px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.1px;
+      text-align: center;
+      color: $white-color;
+      background-image: linear-gradient(to left, #f36895, #e4375c);
+      border: 0;
+      outline: none;
+      padding: 7px 17px;
+      border-radius: 3px;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .area-upload {
+      position: relative;
+      .labelUpload {
+        cursor: pointer;
+        .default-upload {
+          padding: 40px;
+          background: #d8d8d8;
+        }
+      }
+      .deleteUploaded {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 123123;
+        img {
+          max-width: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.modalEdit {
+  overflow-y: initial !important;
+  .modal-dialog {
+    overflow-y: initial !important;
+    top: 100px;
+    .modal-content {
+      border-top: 5px solid #e4375c;
+      .modal-body {
+        overflow-y: auto;
+        .title-group {
+          font-size: 16px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.1px;
+          text-align: left;
+          color: #555555;
+        }
+      }
+      .closeModal {
+        position: absolute;
+        top: -34px;
+        right: 0;
+      }
+    }
+    .title-action {
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      margin: 15px 0;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.1px;
+      text-align: left;
+      text-transform: uppercase;
+      color: #555555;
+    }
+    .title-col-edit {
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.1px;
+      text-align: left;
+      color: #555555;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .modalEdit {
+    .modal-dialog {
+      max-width: 600px;
+    }
+  }
+}

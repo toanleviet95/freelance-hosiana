@@ -1,0 +1,259 @@
+<div class="container-fluid">
+    <div class="container">
+        <form class="form-contact">
+            <h2>{{'add_edit_listing.contact' | translate}}</h2>
+            <div class="col-12">
+                <div class="row">
+                    <ngb-tabset type="pills" class="w-100">
+                        <ngb-tab title="{{'add_edit_listing.agents' | translate}}">
+                            <ng-template ngbTabContent>
+                                <div class="row m-0">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 distance-left-input">
+                                        <input (keydown)="handleSearch($event)" type="text" placeholder="{{'add_edit_listing.search_agent_placeholder' | translate}}" class="form-control"
+                                            id="keyword" name="keyword">
+                                        <div class="search-icon">
+                                            <div class="magnifying-glass"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0 titleListAgents">
+                                    <div class="col-6 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.agents' | translate}}</span>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.commission' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 titleListAgents-mobile">
+                                    <div class="col-12 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.agents' | translate}} & {{'add_edit_listing.commission' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="listAllAgents">
+                                    <div class="row engineer" *ngFor="let staff of listContact">
+                                        <div class="col-12 col-lg-6 p-0">
+                                            <div class="check">
+                                                <div class="checkbox-section">
+                                                    <label>
+                                                        <input (click)="handleChooseAgent($event, 'agent')" type="checkbox"
+                                                            [value]="staff.id || ''">
+                                                        <div class="animations">
+                                                            <i class="fa fa-check"></i>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="info-agents">
+                                                <div *ngIf="staff.avatar" class="image-avatar">
+                                                    <img src="{{ staff.avatar || '' }}" alt="{{ staff.email || '' }}" style="max-width: 50px;">
+                                                </div>
+                                                <div class="list-info">
+                                                    <p class="name-agents">{{ staff.firstName || '' }} {{ staff.lastName || '' }}</p>
+                                                    <p class="contact-agents">{{ staff.phone }} - {{ staff.email }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 p-0 commission">
+                                            <div class="row p-0">
+                                                <div class="col-12 col-lg-6 p-0">
+                                                    <div class="input-group">
+                                                        <select [(ngModel)]="staff.commissionCurency"
+                                                            class="form-control group-control" name="commission_currency_{{staff.id}}">
+                                                            <option value="%">%</option>
+                                                            <option value="number">{{'add_edit_listing.commission_vnd' | translate}}</option>
+                                                        </select>
+                                                        <input [(ngModel)]="staff.commission"
+                                                            type="text" class="form-control group-control" name="commission_{{staff.id}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 p-0 text-center">
+                                                    <span class="apply">{{'add_edit_listing.apply_all' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <button (click)="handleShowFormAddContactManual()" class="form-control add-contact"><i
+                                            class="fa fa-plus"></i>{{'add_edit_listing.contact_manual' | translate}}</button>
+                                </div>
+                                <div *ngIf="showFormAddContactmanual" [formGroup]="formValues" class="row m-0">
+                                    <div class="col-12" formGroupName="contacts">
+                                        <div class="row" formGroupName="contact">
+                                            <div class="col-lg-6 col-md-12 col-sm-12 distance-left-input p-0">
+                                                <label>{{'add_edit_listing.contact_name' | translate}}</label>
+                                                <input formControlName="name" type="text" placeholder="{{'add_edit_listing.contact_name_placeholder' | translate}}" class="form-control">
+                                                <label>{{'add_edit_listing.contact_phone' | translate}}</label>
+                                                <input formControlName="phone" type="text" placeholder="{{'add_edit_listing.contact_phone_placeholder' | translate}}"
+                                                    class="form-control">
+                                                <label>{{'add_edit_listing.contact_email' | translate}}</label>
+                                                <input formControlName="email" type="text" placeholder="{{'add_edit_listing.contact_email_placeholder' | translate}}" class="form-control">
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-12 cms">
+                                                <label>{{'add_edit_listing.commission' | translate}}</label>
+                                                <div class="input-group">
+                                                    <select #comCurrency class="form-control group-control" id="">
+                                                        <option value="%">%</option>
+                                                        <option value="number" selected>{{'add_edit_listing.commission_vnd' | translate}}</option>
+                                                    </select>
+                                                    <input *ngIf="comCurrency.value === 'number'" formControlName="comNumber"
+                                                        type="text" class="form-control group-control" />
+                                                    <input *ngIf="comCurrency.value === '%'" formControlName="comPercent"
+                                                        type="text" class="form-control group-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="{{'add_edit_listing.team' | translate}}" [disabled]="true">
+                            <ng-template ngbTabContent>
+                                <div class="row m-0">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 distance-left-input">
+                                        <input type="text" placeholder="{{'add_edit_listing.search_agent_placeholder' | translate}}" class="form-control"
+                                            id="keyword" name="keyword">
+                                        <div class="search-icon">
+                                            <div class="magnifying-glass"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0 titleListAgents">
+                                    <div class="col-6 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.team' | translate}}</span>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.commission' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 titleListAgents-mobile">
+                                    <div class="col-12 p-0">
+                                        <span class="title-contact">{{'add_edit_listing.team' | translate}} & {{'add_edit_listing.commission' | translate}}</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="listAllAgents">
+                                    <div class="row engineer" *ngFor="let contact of listTeamContact;">
+                                        <div class="col-12 col-lg-6 p-0">
+                                            <div class="check">
+                                                <div class="checkbox-section">
+                                                    <label for="contact{{ contact.id }}">
+                                                        <input (click)="handleChooseAgent($event, 'team')" type="checkbox"
+                                                            id="contact{{ contact.id }}" value="{{ contact.id }}">
+                                                        <div class="animations">
+                                                            <i class="fa fa-check"></i>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="info-agents">
+                                                <div class="image-avatar">
+                                                    <div class="group-image-avatar">
+                                                        <img src="assets/images/01x.png">
+                                                        <img src="assets/images/01x.png">
+                                                        <img src="assets/images/01x.png">
+                                                        <img src="assets/images/01x.png">
+                                                    </div>
+                                                </div>
+                                                <div class="list-info">
+                                                    <p class="name-agents">{{ contact.title }}</p>
+                                                    <p class="contact-agents">{{ contact.total }} members - Phuong Nguyen,
+                                                        Hoang Nguyen, Phuong Le and 2 others</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 p-0 commission">
+                                            <div class="row p-0">
+                                                <div class="col-12 col-lg-6 p-0">
+                                                    <div class="input-group">
+                                                        <select class="form-control group-control" id="">
+                                                            <option value="%">%</option>
+                                                            <option value="Milion VNĐ">Milion VNĐ</option>
+                                                        </select>
+                                                        <input type="text" class="form-control group-control" value="2,222">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-3 p-0 text-center">
+                                                    <span class="apply">Apply All</span>
+                                                </div>
+                                                <div class="col-12 col-lg-3 p-0 text-center">
+                                                    <span placement="bottom" ngbTooltip="Remove" title class="trash">
+                                                        <i class="fa fa-trash"></i>
+                                                    </span>
+                                                    <span class="trash-mobile"><i class="fa fa-trash"></i>&nbsp;Remove</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="listAllAgents">
+                                    <div class="row engineer" *ngFor="let staff of listContact">
+                                        <div class="col-12 col-lg-6 p-0">
+                                            <div class="check">
+                                                <div class="checkbox-section">
+                                                    <label>
+                                                        <input (click)="handleChooseAgent($event, 'agent')" type="checkbox"
+                                                            [value]="staff.id || ''">
+                                                        <div class="animations">
+                                                            <i class="fa fa-check"></i>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="info-agents">
+                                                <div class="image-avatar">
+                                                    <img src="{{ staff.avatar || '' }}" alt="{{ staff.email || '' }}" style="max-width: 50px;">
+                                                </div>
+                                                <div class="list-info">
+                                                    <p class="name-agents">{{ staff.firstName || '' }} {{ staff.lastName || '' }}</p>
+                                                    <p class="contact-agents">{{ staff.phone }} - {{ staff.email }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 p-0 commission">
+                                            <div class="row p-0">
+                                                <div class="col-12 col-lg-6 p-0">
+                                                    <div class="input-group">
+                                                        <select [(ngModel)]="staff.commissionCurency"
+                                                            class="form-control group-control" name="commission_currency_{{staff.id}}">
+                                                            <option value="%">%</option>
+                                                            <option value="number">{{'add_edit_listing.commission_vnd' | translate}}</option>
+                                                        </select>
+                                                        <input [(ngModel)]="staff.commission"
+                                                            type="text" class="form-control group-control" name="commission_{{staff.id}}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-6 p-0 text-center">
+                                                    <span class="apply">{{'add_edit_listing.apply_all' | translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+    
+                <div [formGroup]="formValues" class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 distance-left-input p-0">
+                        <p class="own-contact">{{'add_edit_listing.owner_contact' | translate}}</p>
+                        <label>{{'add_edit_listing.contact_email' | translate}}</label>
+                        <input formControlName="emailContact" type="text" placeholder="{{'add_edit_listing.contact_email_placeholder' | translate}}" class="form-control" id="emailContact"
+                            name="emailContact">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 distance-left-input">
+                        {{'add_edit_listing.owner_contact_des1' | translate}}
+                        <ul>
+                            <li>{{'add_edit_listing.owner_contact_des2' | translate}}</li>
+                            <li>{{'add_edit_listing.owner_contact_des3' | translate}}</li>
+                            <li>{{'add_edit_listing.owner_contact_des4' | translate}}</li>
+                            <li>{{'add_edit_listing.owner_contact_des5' | translate}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

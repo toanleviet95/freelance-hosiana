@@ -1,0 +1,110 @@
+<main class="main mt-5 sprite-work">
+    <div class="main-info col-12 py-5 mobile-padding-0 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3 col-lg-3  fixed">
+                            <div class="row">
+                                <feed-sidebar-notifications></feed-sidebar-notifications>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9 col-lg-9 ">
+                            <div class="list-all-notifications">
+								<div class="header-list">
+									<span class="title-header" [ngClass]="{'active': active == 'feed'}" (click)="changeTypeNotifi('feed')">
+										{{ 'FeedChat.Feeds' | translate }} ({{ countListNotifications }})
+									</span>
+									<span class="title-header" [ngClass]="{'active': active == 'listing'}" (click)="changeTypeNotifi('listing')">
+										{{ 'FeedChat.Listing' | translate }} ({{ countListingNotifications }})
+									</span>
+								</div>
+								<div class="list-content">
+									<div *ngIf="active == 'feed'; else listingNotifi">
+										<div class="san-notification" *ngFor="let notification of listNotifications" [ngClass]="{'unread': notification.read == false}">
+											<div class="inline-block">
+												<img src="assets/images/02x.png" alt="Thuy Thuy">
+											</div>
+											<div class="inline-block">
+												<div class="title-notifi">
+													<span class="person">{{ notification.person }}</span> <span class="action"> {{ notification.action }}</span>
+												</div>
+												<div class="timer-ago">
+													{{ notification.time }}
+												</div>
+											</div>
+											<div class="inline-block right">
+												<div class="image-more-action" ngbDropdown>
+													<span class="action-with-friend more" ngbDropdownToggle id="dropdownConfig{{ notification.id }}">
+														<img src="assets/images/more-notifi.png" alt="">
+													</span>
+													<div class="dropdown-menu menu-action-with-friend" ngbDropdownMenu attr.aria-labelledby="dropdownConfig{{ notification.id }}">
+														<span class="dropdown-item">
+															<span class="hav-icon add-icon sprite-network"></span>
+															<span class="title-action" translate>Network.Follow</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon add-icon sprite-network"></span>
+															<span class="title-action" translate>Network.AddToPool</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon comment-icon sprite-network"></span>
+															<span class="title-action" translate>Network.Recommend</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon comment-icon sprite-network"></span>
+															<span class="title-action" translate>Network.RequestARecommendation</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon close-icon sprite-network"></span>
+															<span class="title-action" translate>Network.RemoveConnection</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon blog-icon sprite-network"></span>
+															<span class="title-action" translate>Network.BlogThisPerson</span>
+														</span>
+														<span class="dropdown-item">
+															<span class="hav-icon report-icon sprite-network"></span>
+															<span class="title-action" translate>Network.ReportOrBlog</span>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div style="clear: both"></div>
+										</div>
+									</div>
+									<ng-template #listingNotifi>
+										<div class="san-notification" *ngFor="let notification of listNotificationListing" [ngClass]="{'unread': notification.read == false}">
+												<div class="inline-block">
+													<img src="assets/images/02x.png" alt="Thuy Thuy">
+												</div>
+												<div class="inline-block">
+													<div class="title-notifi">
+														<span class="person">{{ notification.person }}</span> <span class="action"> {{ notification.action }}</span>
+													</div>
+													<div class="timer-ago">
+														{{ notification.time }}
+													</div>
+												</div>
+												<div class="inline-block right">
+													<div class="button-list">
+														<button class="form-control button-submit deny-invitation" (click)="denyInvitation(invitation.id)" translate>Network.Deny</button>
+														<button class="form-control button-submit accept-invitation" (click)="acceptInvitation(invitation.id)" translate>Network.Accept</button>
+													</div>
+												</div>
+												<div style="clear: both"></div>
+											</div>
+									</ng-template>
+								</div>
+								<div class="load-more">
+									{{ 'FeedChat.LoadMore' | translate }}
+								</div>
+							</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

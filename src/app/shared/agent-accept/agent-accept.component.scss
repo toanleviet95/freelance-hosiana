@@ -1,0 +1,51 @@
+@import '../../../assets/styles/variables';
+$path-images: '../../../assets/images';
+.shadow-content {
+  position: relative;
+  .close {
+    top: -30px;
+    position: absolute;
+    z-index: 12;
+    right: 0;
+    cursor: pointer;
+  }
+}
+.shadow-content {
+  padding: 0 !important;
+  overflow: unset;
+  .button-user {
+    width: auto;
+    display: inline-block;
+
+    font-size: 16px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    outline: none;
+    text-align: center;
+    margin-right: 15px;
+  }
+  .button-user.accept {
+    font-weight: bold;
+    color: #ffffff;
+    border: 0;
+    background: linear-gradient(to right, #ee005d, #fd3591);
+  }
+  .main-accept {
+    padding: 40px;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    .title-invite {
+      font-size: 15px;
+      text-align: center;
+      margin: 20px 0px;
+    }
+    .button-group {
+      display: block;
+      text-align: center;
+    }
+  }
+}

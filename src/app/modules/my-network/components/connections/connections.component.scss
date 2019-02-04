@@ -1,0 +1,185 @@
+@import '../../../../../assets/styles/variables';
+$path-images: '../../../../../assets/images';
+.main-connections {
+  padding: 20px;
+  background-color: #ffffff;
+  .aling-item-center {
+    align-items: center;
+  }
+  box-shadow: 0 0 4px 0 rgba(89, 89, 89, 0.5);
+  * {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #555555;
+  }
+  .header-main-connections {
+    display: block;
+    width: 100%;
+    .block {
+      display: block;
+    }
+    .search-input {
+      border: 1px solid #555555;
+      padding: 0.5rem 1rem;
+      width: 275px;
+    }
+    .search-icon {
+      position: relative;
+      float: right;
+      margin-top: -30px;
+      margin-right: 10px;
+      .magnifying-glass {
+        display: inline-block;
+        background: url('/assets/sprites/sprite-listing-agency.png') no-repeat;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+      }
+      .magnifying-glass {
+        background-position: -0px -109px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .count-connections {
+      font-size: 18px;
+      font-weight: bold;
+      color: #555555;
+      display: block;
+    }
+    .sort {
+      display: block;
+      select {
+        border: 0;
+        outline: none;
+        padding: 0 20px 0 10px;
+      }
+    }
+  }
+  .dropdown-menu {
+    top: 35px !important;
+    left: unset !important;
+    right: 20px;
+  }
+  .list-main-connections {
+    margin-top: 30px;
+    .conections-content {
+      background: #fff;
+      .col-lg-9 {
+        .rol-11 {
+          width: 11%;
+          max-width: 11%;
+          flex: 0 0 11%;
+        }
+        .rol-89 {
+          width: 87%;
+          max-width: 87%;
+          flex: 0 0 87%;
+          margin-left: 2%;
+        }
+        .row {
+          height: 100%;
+          .col-11 {
+            padding-top: 5px;
+            .span {
+              vertical-align: middle;
+            }
+          }
+        }
+        .title-user {
+          font-size: 16px;
+          font-weight: bold;
+          color: #3acaaa;
+          .message {
+            letter-spacing: 0px;
+          }
+        }
+        .user-description {
+          letter-spacing: 0px;
+          color: #aaaaaa;
+        }
+      }
+      .button-list {
+        button {
+          display: inline-block;
+          width: auto;
+          cursor: pointer;
+        }
+        span {
+          display: inline-block;
+          width: auto;
+          cursor: pointer;
+        }
+        .more {
+          max-width: 100%;
+          background: url(/assets/images/more-three-dot.png) no-repeat;
+          width: 50px;
+          padding: 15px;
+          vertical-align: middle;
+          border: 0;
+          margin-left: 15px;
+          position: relative;
+        }
+      }
+    }
+    .conections-content.even {
+      background: #f5f5f5;
+    }
+  }
+  .show-more {
+    display: block;
+    text-align: center;
+    color: #3acaaa;
+    margin: 15px 0;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 768px) {
+  hr {
+    margin: 0;
+  }
+  .mobile-padding-0 {
+    padding: 0 !important;
+  }
+  .main-connections {
+    padding: 0;
+    .header-main-connections {
+      padding: 0.5rem;
+      .xs-100 {
+        width: 100%;
+        display: block;
+        margin: 7px 0;
+        input {
+          width: 100% !important;
+        }
+      }
+    }
+    .list-main-connections {
+      margin-top: 0;
+      .conections-content {
+        .col-lg-9 {
+          .rol-11 {
+            width: 25% !important;
+            max-width: 25% !important;
+            flex: 0 0 25% !important;
+          }
+          .rol-89 {
+            width: 73% !important;
+            max-width: 73% !important;
+            flex: 0 0 73% !important;
+          }
+        }
+        .button-list {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+}

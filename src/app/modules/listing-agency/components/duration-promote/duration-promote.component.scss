@@ -1,0 +1,276 @@
+form.form-duration {
+    padding: 5% 0;
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.1px;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.1px;
+    }
+    .text-promote {
+        margin-top: 15px;
+    }
+    table {
+        thead {
+            th {
+                padding-left: 0;
+                div {
+                    position: absolute;
+                    border-bottom: 2px solid #3acaaa;
+                    margin-top: -9px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    letter-spacing: 0.1px;
+                }
+            }
+            th:nth-child(2) {
+                width: 30%;
+            }
+        }
+        tbody {
+            td {
+                vertical-align: middle;
+                .transform-currency {
+                    width: 100%;
+                    text-align: right;
+                    font-size: 12px;
+                    letter-spacing: 0px;
+                    color: #3acaaa;
+                }
+                .apply-btn {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .info {
+            position: relative;
+            float: right;
+            padding-top: 10px;
+            .username {
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 0px;
+            }
+            .contact {
+                font-size: 14px;
+                letter-spacing: 0px;
+            }
+        }
+        .group-control {
+            margin: 0;
+            padding-top: 5px;
+            width: 150px;
+        }
+    }
+    .row {
+        padding-top: 20px;
+    }
+    .nav-pills .nav-link {
+        border-radius: 0;
+    }
+    .nav-link {
+        padding: 10px 25px;
+        background: #fff;
+        border: 1px solid #aaaaaa;
+    }
+    .nav-link:hover {
+        color: #555555;
+    }
+
+    .checkbox-section {
+        margin-right: 10px;
+        label {
+            margin-right: 10px;
+            input[type="checkbox"] {
+                display: none;
+            }
+            .animations {
+                border-radius: 3px;
+                border-color: #aaaaaa;
+                color: #fff;
+                display:inline-block;
+                background-color: transparent;
+                transition: border-color 90ms cubic-bezier(0,0,.2,.1);
+                border-width: 1px;
+                border-style: solid;
+
+
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                color: #555555;
+            }
+            .animations > i {
+                padding: 1px 2px;
+                color: #fff;
+                opacity: 0;
+            }
+            input[type="checkbox"]:checked + .animations {
+                border-color: #E4375C;
+                background: #E4375C;
+            }
+            input[type="checkbox"]:checked + .animations > i {
+                opacity: 1;
+            }
+        }
+    }
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        background: #e4375c;
+        border-color: #e4375c;
+    }
+    .required {
+        color: red;
+        font-style: italic;
+    }
+    .distance-left {
+        margin-left: 90px;
+    }
+    .distance-left-input {
+        padding-left: 0;
+    }
+    .form-control {
+        font-size: 14px;
+    }
+    .magnifying-glass {
+        display: inline-block;
+        background: url('/assets/sprites/sprite-listing-agency.png') no-repeat;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+    }
+    .magnifying-glass {
+        background-position: -0px -109px;
+        width: 24px;
+        height: 24px;
+    }
+    .search-icon {
+        position: relative;
+        float: right;
+        margin-top: -30px;
+        margin-right: 10px;
+    }
+    .table-custom {
+        display: block;
+        .titleListAgents {
+            padding-top:0;
+            padding-bottom: 10px;
+            border-bottom:  1px solid #aaaaaa;
+            .title-contact {
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 9px;
+                border-bottom: 2px solid #3acaaa;
+            }
+            @media only screen and (max-width: 990px) {
+                display: none;
+            }
+        }
+        .titleListAgents-mobile {
+            display: none;
+            padding-bottom: 10px;
+            border-bottom:  1px solid #aaaaaa;
+            .title-contact {
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 9px;
+                border-bottom: 2px solid #3acaaa;
+            }
+            @media only screen and (max-width: 990px) {
+                display: block;
+            }
+        }
+        .listAllAgents {
+            .row {
+                padding: 15px !important;
+                align-items: center;
+            }
+            .engineer:nth-child(even) {
+                background: #f9f9f9;
+            }
+            .engineer {
+                align-items: inherit;
+                .first {
+                    padding-right: 30px !important;
+                }
+            }
+
+            .check {
+                display: inline-block;
+                .checkbox-section {
+                    margin-right: 10px;
+                }
+            }
+            .info-agents {
+                display: inline-block;
+                vertical-align: middle;
+                .image-avatar {
+                    display: inline-block;
+                    .group-image-avatar {
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 120px;
+                        img {
+                            flex: 0 0 50%;
+                        }
+                    }
+                }
+                .list-info {
+                    display: inline-block;
+                    vertical-align: middle;
+                    .name-agents {
+                        font-weight: bold;
+                    }
+                    .contact-agents {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .commission {
+                .row {
+                    align-items: center;
+                }
+            }
+        }
+        .add-contact {
+            width: auto;
+            font-weight: bold;
+            border: solid 1px #3acaaa;
+            color: #3acaaa;
+            i {
+                padding: 5px 7px;
+                margin-right: 5px;
+                border-radius: 50%;
+                color: #fff;
+                background: #3acaaa;
+            }
+        }
+        .own-contact {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .trash-mobile {
+            display: none;
+            @media only screen and (max-width: 990px) {
+                display: block;
+            }
+        }
+        .trash {
+            display: block;
+            @media only screen and (max-width: 990px) {
+                display: none;
+            }
+        }
+        .input-group {
+            width: inherit;
+            margin-left: 10px;
+        }
+    }
+}

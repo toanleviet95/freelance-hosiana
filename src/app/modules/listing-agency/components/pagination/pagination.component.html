@@ -1,0 +1,22 @@
+<div class="row m-0 my-4 footer">
+	<div class="col-12 col-sm-4 text-left pl-0">
+		<span class="show-more">{{ 'listings_all.show_more' | translate }}</span>
+		<select class="select-show">
+			<option value="20" selected>20</option>
+			<option value="50">50</option>
+			<option value="100">100</option>
+		</select>
+		<span class="per-page"> {{ 'listings_all.listing_per_page' | translate }}</span>
+	</div>
+	<div class="col-12 col-sm-4 text-center">
+		<nav *ngIf="pages">
+			<!-- <ngb-pagination [collectionSize]="(pages | async)?.listing?.totalElements" [page]="(pages | async)?.listing?.activePage"
+			 [pageSize]="(pages | async)?.listing?.size" [maxSize]="(pages | async)?.listing?.displayPage" (pageChange)="OnPageChange($event)"></ngb-pagination> -->
+			<ngb-pagination (pageChange)="OnPageChange($event)" [collectionSize]="pages.totalElements" [page]="pages.activePage"
+			 [pageSize]="pages.size" [maxSize]="pages.displayPage"></ngb-pagination>
+		</nav>
+	</div>
+	<div class="col-12 col-sm-4 text-right pr-0">
+		<span class="list-listing"><span class="bold">1 - 20 </span> {{ 'listings_all.of' | translate }} <span class="bold">120</span> {{ 'listings_all.listings' | translate }}</span>
+	</div>
+</div>

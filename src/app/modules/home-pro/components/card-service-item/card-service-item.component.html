@@ -1,0 +1,59 @@
+<div class="card">
+    <div [ngStyle]="{'background-color': bindColor}" class="divide"></div>
+    <!--Card content-->
+    <div class="card-body">
+        <div *ngIf="type == 'plus'" class="sale">
+            <div class="master-sale">
+                <img src="assets/images/discount.png" alt="Discount">
+                <div class="item-sale">50%</div>
+            </div>
+        </div>
+        <!--Title-->
+        <p class="service-title" [ngStyle]="{'color': bindColor}">{{ 'home.package_'+type |  translate }}</p>
+        <div>
+            <span [ngStyle]="{'color': '#444444', 'font-weight': '600'}" class="price">{{ 'home.pt_'+title+'_'+type+'_price' | translate }}</span>
+            <!-- <span *ngIf="item.oldPrice" class="old-price"><del>{{ item.oldPrice }}</del></span> -->
+        </div>
+        <hr />
+        <!--Text-->
+        <ul [ngClass]="{'orange': color == '#444444', 'blue': color == '#444444', 'red': color == '#444444'}">
+            <!-- <li style="{'color':color}" *ngFor="let element of item.listContent">
+                <span [ngClass]="{'opacity': element.show == 0}">{{ element.value ? element.value : '' }}</span>
+            </li> -->
+            <li style="{'color':color}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line1' | translate}}</span>
+            </li>
+            <li style="{'color':color}" [ngClass]="{'disable': title == 'hs' && type == 'basic'}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line2' | translate}}</span>
+            </li>
+            <li style="{'color':color}" [ngClass]="{'disable': (title == 'hs' || title == 'agency' || title == 'proj' || title == 'broker') && type == 'basic'}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line3' | translate}}</span>
+            </li>
+            <li style="{'color':color}" [ngClass]="{'disable': ((title == 'agency' || title == 'proj') && type == 'basic') || (title == 'hs' && (type == 'basic' || type == 'plus'))}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line4' | translate}}</span>
+            </li>
+            <li style="{'color':color}" [ngClass]="{'disable': (title == 'hs' || title == 'proj') && type == 'basic'}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line5' | translate}}</span>
+            </li>
+            <li style="{'color':color}" [ngClass]="{'disable': (type == 'basic' && title != 'hs' ) || ((title == 'agency' || title == 'proj') && type == 'plus')}">
+                <span >{{ 'home.pt_'+title+'_'+type+'_line6' | translate}}</span>
+            </li>
+        </ul>
+        <div class="text-center pt-4 mt-3 pb-0">
+            <!-- <a href="#" class="btn btn-primary waves-light btn-dark" mdbWavesEffect>Use this package</a> -->
+            <div class="text-center">
+                <!-- <img src="assets/images/use-this-package.png" alt="" style="max-width:100%;"> -->
+                <a href="#" class="btn btn-primary waves-light btn-dark" mdbWavesEffect *ngIf="type == 'basic'">
+                    {{ 'Package.StartFreeTrial' | translate }}
+                </a>
+                <a href="#" class="btn btn-primary waves-light btn-dark" mdbWavesEffect *ngIf="type == 'plus'">
+                    {{ 'Package.BuyNow' | translate }}
+                </a>
+                <a href="#" class="btn btn-primary waves-light btn-dark" mdbWavesEffect *ngIf="type == 'pro'">
+                    {{ 'Package.ContactUs' | translate }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

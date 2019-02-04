@@ -1,0 +1,80 @@
+.view {
+    background: url('/assets/images/home-pro-bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 600px;
+    margin-top: -70px;
+
+    .fadeInUp {
+        text-align: center;
+    }
+
+    .center-item {
+        align-items: center;
+    }
+
+    .title {
+        font-size: 38px;
+        font-weight: 300;
+        font-style: inherit;
+        font-stretch: normal;
+        line-height: 1.46;
+        letter-spacing: 1px;
+        color: #ffffff;
+        margin-bottom: 31px;
+    }
+
+    .btn-member {
+        background-color: #e4375c !important;
+        text-transform: none;
+        width: 300px;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        border-radius: 0;
+        padding: 11px;
+        color: #fff;
+        border: 0;
+        -webkit-appearance : none;
+    }
+}
+
+.desktop-h-600 {
+    height: 600px;
+}
+
+@media screen and (max-width: 575px) {
+    .full-bg-img {
+        padding-top: 70px;
+    }
+
+    .view {
+        height: auto !important;
+    }
+
+    .desktop-h-600 {
+        height: 450px;
+    }
+}
+
+@media (max-width: 460px) {
+    .view {
+        .title {
+            font-size: 22px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .view {
+        .title {
+            font-size: 22px;
+        }
+
+        .btn-member {
+            width: 250px;
+        }
+    }
+}

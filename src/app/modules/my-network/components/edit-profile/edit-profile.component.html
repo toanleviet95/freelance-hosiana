@@ -1,0 +1,143 @@
+<!-- <div mdbModal #basicModal="mdb-modal" class="modal fade modalEdit" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <span class="close pull-right closeModal" aria-label="Close" (click)="basicModal.hide()">
+                <img src="/assets/images/close-modal.png" alt="Close">
+            </span>
+            <div class="modal-body">
+                <h3 class="title-action">{{ 'Network.EditProfile' | translate }}</h3>
+                <form [formGroup]="formGroup">
+                    <h5 class="title-group">
+                        {{ 'Network.Information'| translate }}
+                    </h5>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'Network.FullName' | translate }}
+                                <span class="reddot">*</span>
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <input type="text" formControlName="name" data-error=" " data-success=" " id="defaultForm-name" class="form-control" >
+                            <app-show-errors [control]="formGroup.controls.name"></app-show-errors>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'App.Email' | translate }}
+                                <span class="reddot">*</span>
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <input type="text" formControlName="email" data-error=" " data-success=" " id="defaultForm-email" class="form-control" >
+                            <app-show-errors [control]="formGroup.controls.email"></app-show-errors>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'Network.Phone' | translate }}
+                                <span class="reddot">*</span>
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <input type="text" formControlName="phone" data-error=" " data-success=" " id="defaultForm-phone" class="form-control" >
+                            <app-show-errors [control]="formGroup.controls.phone"></app-show-errors>
+                        </div>
+
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'App.Language' | translate }}
+                                <span class="reddot">*</span>
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <div class="row w-100 al-middle m-0">
+                                <section class="example-section">
+                                    <mat-checkbox *ngFor="let lang of listLang;let i = index" class="example-margin" [checked]="listLangOfUser.indexOf(lang) > -1 ? 'true' : null">{{ lang }}</mat-checkbox>
+
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle m-0">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'Network.Avatar' | translate }}
+                                <span class="reddot">*</span>
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <div class="row w-100 al-middle col-form">
+                                <div class="area-upload">
+                                    <label class="labelUpload" for="uploadImage">
+                                        <div class="default-upload" *ngIf="formGroup.controls['file'].value == null">
+                                            <img src="/assets/images/avatar-defalt.png" alt="{{ 'Network.Avatar' | translate }}">
+                                        </div>
+                                        <div class="" *ngIf="formGroup.controls['file'].value != null">
+                                            <img [src]="url">
+                                        </div>
+                                    </label>
+                                    <span class="deleteUploaded" (click)="deleteAvatarValue()">
+                                        <img src="/assets/images/delete-image-uploaded.png" alt="Delete">
+                                    </span>
+                                </div>
+                                <input class="hidden" id="uploadImage" type="file" formControlName="file" (change)="onFileChange($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="title-group">
+                        Address
+                    </h5>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'Network.CityProvince' | translate }}
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <div class="row w-100 al-middle m-0">
+                                <select formControlName="city" class="form-control">
+                                    <option *ngFor="let c of listCities" value="{{ c }}">{{ c }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'Network.District' | translate }}
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <div class="row w-100 al-middle m-0">
+                                <select formControlName="district" class="form-control">
+                                        <option *ngFor="let d of listDistricts" value="{{ d }}">{{ d }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <label class="col-xs-12 col-md-4 col-lg-3">
+                            <div class="row">
+                                {{ 'App.Address' | translate }}
+                            </div>
+                        </label>
+                        <div class="col-xs-12 col-md-8 col-lg-9">
+                            <div class="row m-0">
+                                <input type="text" formControlName="address" id="defaultForm-name" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row w-100 al-middle col-form">
+                        <input type="submit" class="button-submit waves-light" mdbWavesEffect value="Save" (click)="submit()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

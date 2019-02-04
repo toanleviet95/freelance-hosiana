@@ -1,0 +1,6 @@
+<div class="oval avatar mx-auto text-center">
+    <img src="{{ item.image }}" alt="{{ 'home.help'+(index+1) | translate }}">
+</div>
+<div class="divide"></div>
+<p *ngIf="item.header" class="font-weight-bold mt-4 mb-3 header-section">{{ 'home.help'+(index+1) | translate }}</p>
+<p class="header-content">{{ 'home.help'+(index+1)+'_des' | translate }}</p>

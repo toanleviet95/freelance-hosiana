@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="divide-red"></div>
+    <div class="card-body">
+        <div *ngIf="errorMessage">
+            <div class="alert alert-danger" role="alert">
+                {{errorMessage}}
+            </div>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <p class="h5 text-center py-3">{{ 'home.welcome' | translate }}</p>
+            <div class="group-form">
+                <input class="form-control" formControlName="email" type="text" placeholder="{{'App.Email' | translate}}" autofocus>
+                <app-show-errors [control]="loginForm.controls.email"></app-show-errors>
+            </div>
+            <div class="group-form">
+                <input class="form-control" formControlName="password" type="password" placeholder="{{'App.Password' | translate}}" >
+                <app-show-errors [control]="loginForm.controls.password"></app-show-errors>
+            </div>
+            <div *ngIf="isLoginProgress" class="login-progress">
+                <img src="/assets/images/loading.gif" />
+            </div>
+            <div *ngIf="!isLoginProgress">
+                <div class="group-form" *ngIf="windowDefined">
+                    <div class="checkbox-section">
+                        <label for="checkbox-login">
+                            <input type="checkbox" id="checkbox-login" value="1" (change)="remmemberPassword($event)" [checked]="remember_password">
+                            <div class="animations">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                        <span class="remember-password">{{ 'home.remember_password' | translate }}</span>
+                    </div>
+                </div>
+                <div class="group-form" *ngIf="windowDefined">
+                    <div style="width: 200px;height: 50px;">
+                        <ngx-recaptcha2 [size]="size" [hl]="lang" [theme]="theme" [type]="type"(load)="handleLoad()" (success)="handleSuccess($event)" style="transform: scale(0.77);
+                        transform-origin: 0 0;
+                        margin: 0 auto;
+                        display: block;
+                        position: absolute;
+                        left: 5%;"></ngx-recaptcha2>
+                    </div>
+                </div>
+                <div class="text-center py-2">
+                    <button class="btn btn-cyan waves-light btn-red" [disabled]="loginForm.invalid" translate>App.Login</button>
+                    <span class="forgot-password">
+                        {{ 'home.forgot' | translate }}
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

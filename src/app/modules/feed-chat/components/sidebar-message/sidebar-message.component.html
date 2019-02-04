@@ -1,0 +1,58 @@
+<div class="{{ customClass }}">
+	<div class="sidebar-left">
+		<div class="row header-message m-0" >
+			<div class="col-8 title-col" (click)="toggleStateOfSidebar(stateSidebarShow);">
+				{{ 'Network.Message' | translate }}
+			</div>
+			<div class="col-4 text-right">
+				<span class="action-message" (click)="addNewMessage()" *ngIf="customClass == ''; else sidebarNewMessage">
+					<img src="assets/images/edit.png" alt="Edit">
+				</span>
+				<ng-template #sidebarNewMessage>
+					<span class="action-message" (click)="createWindowMessage()" >
+						<img src="assets/images/edit.png" alt="Edit">
+					</span>
+				</ng-template>
+				<span class="action-message action-dropdown" ngbDropdown>
+					<img src="assets/images/setting.png" alt="Setting" id="action-sidebar-message" ngbDropdownToggle>
+					<div ngbDropdownMenu aria-labelledby="action-sidebar-message">
+						<button class="dropdown-item">{{ 'FeedChat.CreateNewGroup' | translate }}</button>
+						<button class="dropdown-item">{{ 'FeedChat.OpenFullPageOfConversations' | translate }}</button>
+					</div>
+				</span>
+			</div>
+		</div>
+		<div class="col-12" *ngIf="stateSidebarShow">
+			<div class="list-connect">
+				<span class="list-connect-title" [ngClass]="{'active': activeSidebarListConnector == 'agents'}" (click)="changeActiveListConnector('agents')">{{ 'FeedChat.Agents' | translate }}</span>
+				<span class="list-connect-title" [ngClass]="{'active': activeSidebarListConnector == 'clients'}" (click)="changeActiveListConnector('clients')">{{ 'FeedChat.Clients' | translate }}</span>
+			</div>
+		</div>
+		<div class="search-connect" *ngIf="stateSidebarShow">
+			<div class="col-12">
+				<input type="text" class="form-control input-search" placeholder="{{ 'FeedChat.SearchMessages' | translate }}">
+				<div class="search-icon">
+					<div class="magnifying-glass"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row list-all-connector m-0" *ngIf="stateSidebarShow">
+			<div class="inner">
+				<div class="connector w-100" *ngFor="let connector of listConnectorInMessage" [ngClass]="{'unread': connector.read == false}">
+					<div class="col-12 p-0" (click)="showMessagePeople(connector.id)">
+						<div class="inline-block">
+							<img src="{{ connector.image }}" alt="{{ connector.name }}">
+						</div>
+						<div class="inline-block">
+							<h3 class="title-person">{{ connector.name }}</h3>
+							<span class="des-message">{{ connector.message }}</span>
+						</div>
+						<span class="online" *ngIf="connector.active">
+							<i class="fa fa-circle"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

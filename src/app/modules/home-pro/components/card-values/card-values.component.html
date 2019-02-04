@@ -1,0 +1,12 @@
+<div class="row">
+    <section class="team-section text-center col-12">
+        <div class="row m-0">
+            <div class="col-lg-3 col-md-3 mb-lg-0 mb-5" *ngFor="let item of values; let i = index">
+                <app-card-value-item [item]="item" [index]="i"></app-card-value-item>
+            </div>
+        </div>
+        <div class="text-center pt-4">
+            <button type="button" class="become-member">{{ 'home.become_a_member' | translate }}</button>
+        </div>
+    </section>
+</div>

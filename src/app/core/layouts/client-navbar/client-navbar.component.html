@@ -1,0 +1,82 @@
+<div class="topnav navbar{{propertyNavbar}}">
+    <a routerLink="/" class="brand">
+        <img src="/assets/images/home-pro-logo.svg" />
+    </a>
+    <a *ngFor="let item of menu.menu" routerLink="{{item.link}}" routerLinkActive="active">
+        <span>{{item.name | translate}}</span>
+    </a>
+
+    <div class="topnav-right">
+        <div class="setting">
+            <div *ngIf="menu.havingInformation" class="d-inline-block user-setting">
+                <!-- <span>
+                    <img src="assets/images/bell.svg" />
+                </span> -->
+                <span>
+                    <img src="assets/images/star.svg" />
+                </span>
+                <!-- <span>
+                    <img src="assets/images/cart.svg" />
+                </span> -->
+                <span class="divide"></span>
+            </div>
+            <div class="list-choose">
+                <div ngbDropdown placement="bottom-right" class="d-inline-block choose">
+                    <div class="user-info" ngbDropdownToggle>
+                        <img src="/assets/images/earth.svg" />
+                        <div class="info">{{languageChosen.name}}</div>
+                    </div>
+                    <div ngbDropdownMenu>
+                        <span class="title-header">{{ languageChosen.name == 'VN' ? 'Ngôn ngữ' : 'Language' }}</span>
+                        <button *ngFor="let item of languages" class="dropdown-item" (click)="changeLanguage(item.locale)">{{item.translate[languageChosen.name.toLowerCase()]}}</button>
+                    </div>
+                </div>
+                <div ngbDropdown placement="bottom-right" class="d-inline-block choose">
+                    <div class="user-info" ngbDropdownToggle>
+                        <div class="info">{{currencyChoosen.name}}</div>
+                    </div>
+                    <div ngbDropdownMenu>
+                        <span class="title-header">{{ currencyChoosen.name == 'VN' ? 'Tiền tệ' : 'Currency' }}</span>
+                        <button *ngFor="let item of listCurrency" class="dropdown-item" (click)="changeCurrency(item.name)">{{item.translate[currencyChoosen.name.toLowerCase()]}}</button>
+                    </div>
+                </div>
+                <span class="divide"></span>
+            </div>
+            <div ngbDropdown placement="bottom-right" *ngIf="linkActive != '/home'" class="d-inline-block info-user">
+                <div class="user-info" ngbDropdownToggle>
+                    <img src="/assets/images/avatar.png" class="avatar" />
+                    <div class="info">
+                        <div class="username">{{(user | async)?.email}}</div>
+                        <div class="credit-section">20.000.000 Credits</div>
+                    </div>
+                </div>
+                <div ngbDropdownMenu>
+                    <button class="dropdown-item" [routerLink]="['/my-network/profile/1']">
+                        <span><img src="assets/images/account.svg" alt="Account"></span>
+                        <span>My profile</span>
+                    </button>
+                    <button class="dropdown-item">
+                        <span><img src="assets/images/setting.svg" alt="Account"></span>
+                        <span>Account settings</span>
+                    </button>
+                    <button class="dropdown-item">
+                        <span><img src="assets/images/credit.svg" alt="Account"></span>
+                        <span>Payment detail</span>
+                    </button>
+                    <button class="dropdown-item">
+                        <span><img src="assets/images/locked.svg" alt="Account"></span>
+                        <span>Security</span>
+                    </button>
+                    <span class="before-last"></span>
+                    <button class="dropdown-item last" (click)="handlelogOut()">
+                        <span><img src="assets/images/logout.svg" alt="Account"></span>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <span class="icon">
+            <i class="fa fa-bars"></i>
+        </span>
+    </div>
+</div>

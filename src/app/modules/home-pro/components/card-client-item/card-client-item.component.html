@@ -1,0 +1,5 @@
+<div class="avatar mx-auto">
+    <img [src]="item.image" class="img-client" />
+</div>
+<p *ngIf="item.header" class="font-weight-bold mt-4 mb-3 header-section">{{item.header}}</p>
+<p class="header-content">{{ 'home.testimonial_'+type | translate }}</p>

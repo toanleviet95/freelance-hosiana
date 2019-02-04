@@ -1,0 +1,217 @@
+<div class="container-fluid relative">
+	<div class="list-message-window">
+		<div class="window-message" *ngFor="let item of listMessage" style.right.px="{{ item.left }}">
+			<div class="header-w-message" [ngClass]="{'unShow': !item.show}">
+				<div class="row m-0">
+					<div class="col-9 p-0" (click)="toggleWindowChat(item.id, item.show)">
+						<span class="status-w-online">
+							<i class="fa fa-circle" *ngIf="item.show || (!item.show && item.unread == 0)"></i>
+							<span class="count-message" *ngIf="!item.show && item.unread != 0">{{ item.unread }}</span>
+						</span>
+						<span class="title-w-message" routerLink="/my-network/profile/1">
+							{{ item.name }}
+						</span>
+					</div>
+					<div class="col-3 p-0">
+						<span class="action-list">
+							<div class="inline-block" *ngIf="item.show" (click)="showAddPerson(item.id, item.showAddPerson)">
+								<span><img src="assets/images/window-plus.png" alt=""></span>
+							</div>
+							<div class="inline-block" ngbDropdown *ngIf="item.show">
+								<span id="setting" ngbDropdownToggle>
+									<img src="assets/images/window-setting.png" alt="">
+								</span>
+								<div ngbDropdownMenu aria-labelledby="setting">
+									<button class="dropdown-item">{{ 'FeedChat.ChangeGroupName' | translate }}</button>
+									<button class="dropdown-item" (click)="showEditYourNickName(member)">{{ 'FeedChat.Member' | translate }}</button>
+									<button class="dropdown-item" (click)="showEditYourNickName(content)">
+										{{ 'FeedChat.EditNickName' | translate }}
+									</button>
+								</div>
+							</div>
+							<div class="inline-block" (click)="removeChat(item.id)" *ngIf="item.show; else closeIfNotShow">
+								<span><img src="assets/images/window-close.png" alt="Close"></span>
+							</div>
+							<ng-template #closeIfNotShow>
+								<div class="inline-block" (click)="removeChat(item.id)">
+									<span><img src="assets/images/close.png" alt="Close"></span>
+								</div>
+							</ng-template>
+						</span>
+					</div>
+					<div class="add-person col-12 p-0" *ngIf="item.showAddPerson">
+						<div class="relative">
+							<ng-select
+								[items]="listConnection"
+								[multiple]="true"
+								bindLabel="name" placeholder="To:">
+								<ng-template ng-label-tmp let-item="item" let-clear="clear">
+									<span class="ng-value-label"><img [src]="item.image" width="20px" height="20px"> {{item.name}}</span>
+									<span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+								</ng-template>
+							
+								<ng-template ng-option-tmp let-item="item">
+									<img [src]="item.image" width="20px" height="20px"> {{item.name}}
+								</ng-template>
+							</ng-select>
+							<button type="button" class="button-add-connection">
+								Done
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-product" *ngIf="item.show">
+				<div class="inner-all-message">
+					<div class="inner-content" *ngIf="!item.newMessage">
+						<div class="inline-block">
+							<img src="assets/images/coca-c.png" style="max-width: 80px;">
+						</div>
+						<div class="inline-block">
+							<h3 class="title-product">VN-HCM-000479</h3>
+							<span class="des-product">Vinhomes Central Park bán…</span>
+							<span class="price-product">$50,000</span>
+						</div>
+					</div>
+					<div style="clear: both;" *ngIf="!item.newMessage"></div>
+					<div class="content-message message-be" *ngIf="!item.newMessage">
+						<span class="text-center time-start-chat">JULY 2, 2018 AT 11:40 AM</span>
+						<div class="list-message">
+							<div class="col-message">
+								<div class="to-user left-m inline-block">
+									<img src="assets/images/01x.png" alt="Thanh Truc" class="avatar">
+								</div>
+								<div class="inline-block right-m from-user">
+									<div class="message-content">
+										<span>
+											đang kiểm stress đọc tin nhắn bà Y mắc cười
+										</span>
+									</div>
+									<div class="message-content">
+										<span>=))))))))</span>
+									</div>
+									<div class="status-message">
+										<div class="inline-block">
+											10:20 <img src="assets/images/seen.png">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-message right">
+								<div class="inline-block right-m">
+									<div class="message-content">
+										<span>Cười gì</span>
+									</div>
+									<div class="message-content">
+										<span>=))))))))))))))))))))))))))))</span>
+									</div>
+									<div class="status-message">
+										<div class="inline-block">
+											10:20 <img src="assets/images/seen.png">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+					</div>
+				</div>
+				<div class="input-message">
+					<textarea rows="1" class="form-control" style="padding-right: 60px;" (click)="seenMessage(item.id)"></textarea>
+					<div class="action-media">
+						<label for="#">
+							<span>
+								<img src="assets/images/image.png" alt="Image or Video" class="image">
+							</span>
+						</label>
+						<label for="#">
+							<span >
+								<img src="assets/images/link.png" alt="Link" class="link">
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="showSidebar" class="sidebar-message">
+			<app-sidebar-message customClass="sidebarRight" (createNewMessage)="handlerNewMessage($event)"></app-sidebar-message>
+		</div>
+	</div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+	<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+		<img src="/assets/images/close-modal.png" alt="Close">
+	</span>
+	<div class="modal-body">
+		<form [formGroup]="formChangeNickName">
+			<h3 class="title-change-nickname">{{ 'FeedChat.EditYourNickName' | translate }}</h3>
+			<p class="des-change">{{ 'FeedChat.EveryOneCanSee' | translate }}</p>
+			<div class="form-list">
+				<input type="text" class="form-control" placeholder="Nhu Nguyen" formControlName="name" value="">
+			</div>
+			<div class="form-button">
+				<button class="button-submit cancel" type="submit">{{ 'App.Cancel' | translate }}</button>
+				<button class="button-submit save" type="submit">{{ 'App.Save' | translate }}</button>
+			</div>
+		</form>
+	</div>
+</ng-template>
+<ng-template #member let-c="close" let-d="dismiss">
+	<span class="close pull-right closeModal" aria-label="Close" (click)="d()">
+		<img src="/assets/images/close-modal.png" alt="Close">
+	</span>
+	<div class="modal-body">
+		<h3 class="title-member">{{ 'FeedChat.Member' | translate }}</h3>
+		<div class="list-member">
+			<div class="inline-block text-left">
+				<div class="col-member">
+					<div class="inline-block">
+						<img src="assets/images/02x.png" alt="Hosiana">
+					</div>
+					<div class="inline-block">
+						<div class="name-member">Nhu Nguyen</div>
+					</div>
+				</div>
+			</div>
+			<div class="inline-block text-right">
+				<div class="col-action">
+					<button>{{ 'App.Remove' | translate }}</button>
+				</div>
+			</div>
+		</div>
+		<div class="list-member">
+			<div class="inline-block text-left">
+				<div class="col-member">
+					<div class="inline-block">
+						<img src="assets/images/02x.png" alt="Hosiana">
+					</div>
+					<div class="inline-block">
+						<div class="name-member">Nhu Nguyen</div>
+					</div>
+				</div>
+			</div>
+			<div class="inline-block text-right">
+				<div class="col-action">
+					<button>{{ 'App.Remove' | translate }}</button>
+				</div>
+			</div>
+		</div>
+		<div class="list-member">
+			<div class="inline-block text-left">
+				<div class="col-member">
+					<div class="inline-block">
+						<img src="assets/images/02x.png" alt="Hosiana">
+					</div>
+					<div class="inline-block">
+						<div class="name-member">Nhu Nguyen</div>
+					</div>
+				</div>
+			</div>
+			<div class="inline-block text-right">
+				<div class="col-action">
+					<button>{{ 'App.Remove' | translate }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>

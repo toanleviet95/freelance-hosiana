@@ -1,0 +1,200 @@
+<div class="container-fluid" [formGroup]="formValues">
+    <div class="container">
+        <form class="form-promote" formGroupName="promotions">
+            <h2>{{'promote_listing.promote_this_listing' | translate}}</h2>
+            <p class="promote-attach-text">{{'promote_listing.promote_this_listing_des' | translate}}</p>
+            <div class="row m-0">
+                <p class="promote-duration-text">{{'promote_listing.duration' | translate}}</p>
+                <div class="row form-content w-100">
+                    <div class="col-12">
+                        <div class="group-swap">
+                            <div class="flex-display">
+                                <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="numberDays">
+                                    <label ngbButtonLabel class="btn-default check-swap">
+                                        <input (change)="handleChangeDay($event)" ngbButton type="radio" value="1"> 1 {{'promote_listing.day' | translate}}
+                                    </label>
+                                    <label ngbButtonLabel class="btn-default check-swap">
+                                        <input (change)="handleChangeDay($event)" ngbButton type="radio" value="7"> 7 {{'promote_listing.days' | translate}}
+                                    </label>
+                                    <label ngbButtonLabel class="btn-default check-swap">
+                                        <input (change)="handleChangeDay($event)" ngbButton type="radio" value="14"> 14 {{'promote_listing.days' | translate}}
+                                    </label>
+                                </div>
+                                <div class="flex-display">
+                                    <div style="margin: 12px 0 0 20px">
+                                        {{'promote_listing.days_of_promotion' | translate}}
+                                    </div>
+                                    <div class="flex-display">
+                                        <div style="margin: 12px 0 0 20px">
+                                            {{ 'promote_listing.days_of_promotion' | translate }}
+                                        </div>
+                                        <div class="input-group">
+                                            <input (click)="d.toggle()" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker">
+                                            <div style="display: initial" class="input-group-append">
+                                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <!-- TODO: RESTYLE -->
+                <div class="row m-0 pt-5">
+                    <div class="row form-content w-100">
+                        <div class="col-12 col-lg-8">
+                            <div class="row table-custom">
+                                <div class="row m-0 titleListAgents">
+                                    <div class="col-6 p-0">
+                                        <span style="margin-left: 80px" class="title-contact">{{'promote_listing.promotion' | translate}}</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <span class="title-contact">{{'promote_listing.price' | translate}}</span>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <span class="title-contact">{{'promote_listing.fee' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 titleListAgents-mobile">
+                                    <div class="col-12 p-0">
+                                        <span class="title-contact">>{{'promote_listing.promotion' | translate}} & {{'promote_listing.fee' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="listAllAgents">
+                                    <div *ngFor="let promotion of promotions | async; let i = index" class="row m-0 divide">
+                                        <div class="col-6 pl-0 flex-display">
+                                            <div class="check">
+                                                <div class="checkbox-section">
+                                                    <label>
+                                                        <input (click)="handleChoosePackage($event)" type="checkbox" value="{{promotion.type}}">
+                                                        <div class="animations">
+                                                            <i class="fa fa-check"></i>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="info-agents">
+                                                <div class="image-avatar">
+                                                    <img *ngIf="promotion.icon" src="{{promotion.icon}}" alt="New Listing" style="max-width: 24px">
+                                                    <img *ngIf="!promotion.icon && i === 0" src="assets/images/launch-02.svg" alt="New Listing" style="max-width: 24px">
+                                                    <img *ngIf="!promotion.icon && i === 1" src="assets/images/promote-pink-02.svg" alt="New Listing" style="max-width: 24px">
+                                                    <img *ngIf="!promotion.icon && i === 2" src="assets/images/discount-02.svg" alt="New Listing" style="max-width: 24px">
+                                                    <img *ngIf="!promotion.icon && i === 3" src="assets/images/border.svg" alt="New Listing" style="max-width: 24px">
+                                                </div>
+                                                <div class="list-info">
+                                                    <p *ngIf="promotion.name" class="name-agents">
+                                                        {{promotion.name}}
+                                                    </p>
+                                                    <p *ngIf="!promotion.name && i === 0" class="name-agents">
+                                                        {{ 'promote_listing.promotion_new_listing' | translate }}
+                                                    </p>
+                                                    <p *ngIf="!promotion.name && i === 1" class="name-agents">
+                                                        {{ 'promote_listing.promotion_booster' | translate }}
+                                                    </p>
+                                                    <p *ngIf="!promotion.name && i === 2" class="name-agents">
+                                                        {{ 'promote_listing.promotion_discounter' | translate }}
+                                                        <input (change)="handleChangeDiscount($event)" class="discount-input" type="number" min="0" max="100" id="discount-percent"
+                                                        name="discount-percent" />
+                                                    &nbsp;%
+                                                    </p>
+                                                    <p *ngIf="!promotion.name && i === 3" class="name-agents">
+                                                        {{ 'promote_listing.promotion_border' | translate }}
+                                                    </p>
+                                                    <p *ngIf="promotion.description" class="contact-agents">
+                                                        {{promotion.description}}
+                                                    </p>
+                                                    <p *ngIf="!promotion.description && i === 0" class="contact-agents">
+                                                        Boost this listing<br />
+                                                        Show customers how many potential clients contact you for this
+                                                        property
+                                                    </p>
+                                                    <p *ngIf="!promotion.description && i === 1" class="contact-agents">
+                                                        Your double the number of potential clients.<br />
+                                                        Enter now the discount you offer, this listing will be displayed in
+                                                        the 1st page
+                                                    </p>
+                                                    <p *ngIf="!promotion.description && i === 2" class="contact-agents">
+                                                        Your double the number of potential clients.<br/>
+                                                        Enter now the discount you offer, this listing will be displayed in the 1st page
+                                                    </p>
+                                                    <p *ngIf="!promotion.description && i === 3" class="contact-agents">
+                                                        Make a difference to your listing<br />
+                                                        Title and pictures are bold and border
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 commission">
+                                            <span *ngIf="promotion.unitCurrency === 'vnd'">đ</span> {{promotion.price | number}}/day
+                                        </div>
+                                        <div class="col-3 p-0 commission">
+                                            <span class="fee-content"><span *ngIf="promotion.unitCurrency === 'vnd'">đ</span> {{promotion.price | number}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-6 pl-0 flex-display">
+                                            <app-toggle-switch></app-toggle-switch>
+                                            <div class="info-agents">
+                                                <div class="list-info">
+                                                    <p class="contact-agents">
+                                                        {{ 'promote_listing.auto_renew_promotion' | translate }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 commission">
+                                            {{ 'promote_listing.total_fees' | translate }}
+                                        </div>
+                                        <div class="col-3 p-0 commission">
+                                            <span class="fee-content">đ {{ totalFee | number }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 preview-card">
+                            <p class="note">{{ 'promote_listing.preview_listing' | translate }}</p>
+                            <!-- <div *ngIf="previewItem.isNew" class="new-02"></div> -->
+                            <div [ngClass]="{'new-02': previewItem.isNew}">
+                                <div class="card view z-depth-2" >
+                                    <img src="{{previewItem.image}}" [ngClass]="{'card-img-border': previewItem.isShowBorder}" class="card-img-top img-fluid img-item" alt="Preview your listing">
+                                    <div *ngIf="previewItem.isHavingGift" class="gift-section">
+                                        <div class="gift"></div>
+                                    </div>
+                                    <div class="type-section">
+                                        <button class="btn-sale" *ngIf="previewItem.type === 'sale'">{{ 'listings_all.service_type_sale' | translate }}</button>
+                                        <button class="btn-rent" *ngIf="previewItem.type === 'rent'">{{ 'listings_all.service_type_rent'  | translate }}</button>
+                                        <button class="btn-swap" *ngIf="previewItem.type === 'swap'">{{ 'listings_all.service_type_swap' | translate }}</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-title">{{previewItem.title}}</p>
+                                        <p class="card-location">
+                                            <span class="location"></span>&nbsp;
+                                            <span>{{previewItem.location}}</span>
+                                        </p>
+                                        <p>
+                                            <span *ngIf="!previewItem.isShowDiscount" class="card-price">
+                                                {{previewItem.price}} {{ 'add_edit_listing.million' | translate }}
+                                            </span>
+                                            <span *ngIf="previewItem.isShowDiscount" class="card-price">
+                                                {{previewItem.priceDiscount}} {{ 'add_edit_listing.million' | translate }}
+                                            </span>
+                                            <span *ngIf="previewItem.isShowDiscount" class="card-discount-price">
+                                                <del>{{previewItem.price}} {{ 'add_edit_listing.million' | translate }}</del>
+                                            </span>
+                                        </p>
+                                        <p *ngIf='previewItem.isShowBooster' class="card-slogan">{{ 'promote_listing.hurry_up' | translate }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

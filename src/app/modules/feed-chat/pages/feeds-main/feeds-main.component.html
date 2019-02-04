@@ -1,0 +1,210 @@
+<main class="main mt-5 sprite-work">
+    <div class="main-info col-12 py-4 mobile-padding-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-9 ">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 col-lg-4  fixed">
+                            <div class="row">
+                                <feedchat-sidebar-info-user ></feedchat-sidebar-info-user>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-8 ">
+                            <div class="row row-except m-0">
+                                <feed-chat-form-create-post [isAnimation]="showPopup" [postSetting]="postSetting" (change)="changeIsAnimation($event)"></feed-chat-form-create-post>
+                                <div class="list-post" [ngClass]="{'show': showPopup}" >
+                                    <div *ngIf="listPostOfCurrentAgency.length > 0; else noContent">
+                                        <div class="new-post">
+                                            <span class="new-post-except">{{ 'Network.NewPost' | translate }}</span>
+                                        </div>
+                                        <div class="col-post" *ngFor="let post of listPostOfCurrentAgency; let i = index">
+                                            <div class="header-post col-12">
+                                                <div class="info-user">
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-12 col-lg-8">
+                                                                <div class="row">
+                                                                    <div class="col-4 rol-11 p-0">
+                                                                        <a href="#">
+                                                                            <img src="/assets/images/01x.png" alt="Thuy Thuy">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-4 rol-89 p-0">
+                                                                        <a href="#" class="title-person">Nghiem Tran Thuy Thuy </a>
+                                                                        <span class="current-job">Sale excutive</span>
+                                                                        <span class="description-recommend">{{ post.time }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="more-options" ngbDropdown>
+                                                                <button ngbDropdownToggle id="dropdownConfig" type="button">
+                                                                    <img src="/assets/images/more-three-dot.png" alt="More">
+                                                                </button>
+
+                                                                <div class="dropdown-menu dropdown-primary mmenu-post" ngbDropdownMenu aria-labelledby="dropdownConfig">
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon add-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.Follow</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon add-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.AddToPool</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon comment-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.Recommend</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon comment-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.RequestARecommendation</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon close-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.RemoveConnection</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon blog-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.BlogThisPerson</span>
+                                                                    </span>
+                                                                    <span class="dropdown-item">
+                                                                        <span class="hav-icon report-icon sprite-network"></span>
+                                                                        <span class="title-action" translate>Network.ReportOrBlog</span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="main-post">
+                                                <div class="col-12">
+                                                    <div class="content-post">
+                                                        <div class="minimize-post">
+                                                            <div [innerHTML]="post.content"></div>
+                                                            <span class="read-more">...{{ 'Network.SeeMore' | translate }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-image row">
+                                                        <img src="{{ post.image }}" alt="{{ post.image }}">
+                                                    </div>
+                                                    <div class="all-action">
+                                                        <div class="count-on-post">
+                                                            <span>{{ post.like }} {{ 'Network.Likes' | translate }}</span>
+                                                            <span>{{ post.comment }} {{ 'Network.Comments' | translate }} </span>
+                                                            <span>{{ post.share }} {{ 'Network.Shares' | translate }}</span>
+                                                        </div>
+                                                        <div class="action-posts action-sprite">
+                                                            <span class="group-action">
+                                                                <span class="like sprite-agency-side"></span>
+                                                                <span>{{ 'Network.Like' | translate }}</span>
+                                                            </span>
+                                                            <span class="group-action">
+                                                                <span class="comment sprite-agency-side"></span>
+                                                                <span>{{ 'Network.Comment' | translate }}</span>
+                                                            </span>
+                                                            <span class="group-action">
+                                                                <span class="share sprite-agency-side"></span>
+                                                                <span>{{ 'Network.Share' | translate }}</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="show-comment" *ngIf="post.show">
+                                                        <div class="row m-0">
+                                                            <div class="inline-block">
+                                                                <a href="javascript:void(0);">
+                                                                    <img src="/assets/images/01.png" alt="Thuy Thuy">
+                                                                </a>
+                                                            </div>
+                                                            <div class="inline-block f91">
+                                                                <input type="text" class="form-control" placeholder="This is my comment">
+                                                                <label for="fileUpload">
+                                                                    <img src="/assets/images/add-image.png">
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0 mt-4">
+                                                            <div class="inline-block">
+                                                                <a href="#">
+                                                                    <img src="/assets/images/01.png" alt="Thuy Thuy">
+                                                                </a>
+                                                            </div>
+                                                            <div class="inline-block f91">
+                                                                <a href="#" class="title-person-comment">Nghiem Tran Thuy Thuy </a>
+                                                                <span class="current-job-comment">Sale excutive</span>
+                                                                <span class="comment-message">
+                                                                    Hi chị Thuy, nhờ chị share giúp em profile của bạn qua email nhé. Cám ơn chị
+                                                                </span>
+                                                                <div class="action-with-post">
+                                                                    <span class="action-like">Like</span>
+                                                                    <span class="action-reply"><span class="pr-3">Reply</span> <span class="count-reply"> 1 Replay</span> </span>
+                                                                    <span class="timer-post">
+                                                                        3 Hour ago
+                                                                    </span>
+                                                                </div>
+                                                                <br>
+                                                                <div class="row m-0">
+                                                                    <div class="inline-block">
+                                                                        <a href="#">
+                                                                            <img src="/assets/images/01.png" alt="Thuy Thuy">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="inline-block f90">
+                                                                        <a href="#" class="title-person-comment">Nghiem Tran Thuy Thuy </a>
+                                                                        <span class="current-job-comment">Sale excutive</span>
+                                                                        <span class="comment-message">
+                                                                            Hi chị Thuy, nhờ chị share giúp em profile của bạn qua email nhé. Cám ơn chị
+                                                                        </span>
+                                                                        <div class="action-with-post">
+                                                                            <span class="action-like">Like</span>
+                                                                            <span class="action-reply"><span class="pr-3">Reply</span> <span class="count-reply"> 1 Replay</span> </span>
+                                                                            <span class="timer-post">
+                                                                                3 Hour ago
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row m-0 mt-3 mb-3">
+                                                                    <div class="inline-block">
+                                                                        <a href="javascript:void(0);">
+                                                                            <img src="/assets/images/01.png" alt="Thuy Thuy">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="inline-block f91">
+                                                                        <input type="text" class="form-control" placeholder="This is my comment">
+                                                                        <label for="fileUpload">
+                                                                            <img src="/assets/images/add-image.png">
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <span class="load-more">
+                                                                {{ 'FeedChat.LoadMoreComment' | translate }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ng-template #noContent>
+                                        <div class="no-content text-center">
+                                            <h3 class="title-no-content">{{ 'FeedChat.NoContent' | translate }}</h3>
+                                            <p class="des-no-content">{{ 'FeedChat.ToGetNewFeed' | translate }}</p>
+                                            <button type="button" class="button-submit">{{ 'FeedChat.FindYourConnection' | translate }}</button>
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12 col-lg-3 ">
+                    <sidebar></sidebar>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="overlay" *ngIf="showPopup" (click)="hideDrop()"></div>
+<app-window-message [showSidebar]="showSidebar"></app-window-message>

@@ -1,0 +1,91 @@
+<main class="py-5 mt-5">
+    <div class="container">
+        <div class="col-12 mobile-padding-0">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-9 mobile-padding-0">
+                    <div class="all-invitations w-100">
+                        <div class="header-invitations">
+                            <div class="pt-4 pl-4 pr-4 pb-2">
+                                <h3 class="title-page" translate>Network.ManageInvitations</h3>
+                                <span class="tab-change" [ngClass]="{'active': activeTab == 1}" (click)="changeTab(1)" translate>Network.Received</span>
+                                <span class="tab-change" [ngClass]="{'active': activeTab == 2}" (click)="changeTab(2)" translate>Network.Sent</span>
+                            </div>
+                        </div>
+                        <div class="main-invitations">
+                            <div *ngIf="activeTab === 1">
+                                <div class="col-invitation" *ngFor="let invitation of listInvitations">
+                                    <div class="p-4">
+                                        <div class="row m-0">
+                                            <div class="col-xs-12 col-sm-9 col-lg-9 mobile-padding-0">
+                                                <div class="row">
+                                                    <div class="col-1 rol-11 mobile-padding-0">
+                                                        <div class="row">
+                                                            <img src="{{ invitation.image }}" alt="User {{ invitation.name }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11 rol-89 mobile-padding-0">
+                                                        <div class="row">
+                                                            <span class="title-user">
+                                                                {{ invitation.name }}
+                                                                <span class="message d-none d-sm-block">{{ invitation.message }}</span>
+                                                            </span>
+                                                            <span class="user-description w-100">
+                                                                {{ invitation.job }}
+                                                            </span>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-lg-3 button-list">
+                                                <div class="arrow">
+                                                    <button class="form-control button-submit deny-invitation" (click)="denyInvitation(invitation.id)" translate>Network.Deny</button>
+                                                    <button class="form-control button-submit accept-invitation" (click)="acceptInvitation(invitation.id)" translate>Network.Accept</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="activeTab === 2">
+                                <div class="col-invitation" *ngFor="let sentInvitation of listInvitationsSent">
+                                    <div class="p-4">
+                                        <div class="row m-0">
+                                            <div class="col-xs-12 col-sm-9 col-lg-9 mobile-padding-0">
+                                                <div class="row">
+                                                    <div class="col-1 rol-11 mobile-padding-0">
+                                                        <div class="row">
+                                                            <img src="{{ sentInvitation.image }}" alt="User {{ sentInvitation.name }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-11 rol-89 mobile-padding-0">
+                                                        <div class="row">
+                                                            <span class="title-user">
+                                                                {{ sentInvitation.name }}
+                                                                <span class="message d-none d-sm-block">{{ sentInvitation.message }}</span>
+                                                            </span>
+                                                            <span class="user-description w-100">
+                                                                {{ sentInvitation.job }}
+                                                            </span>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-lg-3 button-list">
+                                                <div class="arrow">
+                                                    <button class="form-control deny-invitation" (click)="cancelRequest(sentInvitation.id)" translate>Network.CancelRequest</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-3 mobile-padding-0">
+                    <sidebar></sidebar>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

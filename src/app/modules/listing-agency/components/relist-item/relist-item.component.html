@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-1 col-xl-1 checkbox-section">
+		<div class="row">
+			<label for="{{ item.id }}">
+				<input type="checkbox" id="{{ item.id }}" value="{{ item.id }}">
+				<div class="animations">
+					<i class="fa fa-check"></i>
+				</div>
+			</label>
+		</div>
+	</div>
+	<div class="col-10 col-xl-8 pb-3 content-list">
+		<div class="row">
+			<div class="col-12 col-sm-4 col-lg-4 image-feature mobile-padding-right-0">
+				<img src="{{ item.thumb }}" alt="{{ item.title }}">
+			</div>
+			<div class="col-12 col-sm-8 col-lg-8 detail-list">
+				<p class="breadcrum">Commercial > Sale > VNGO-HN-0047</p>
+				<h3 class="title-project">{{ item.title }}</h3>
+				<span class="edit-relist">
+					<i class="fa fa-edit"></i>
+					Edit
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 col-xl-3 float-lg-right">
+		<div class="row pt-3">
+			<div class="col-6 text-center border-right">
+				<p class="mi-date">{{ item.publishedAt | date:'dd/MM/yyyy' }}</p>
+				<span class="title-date">Published on</span>
+			</div>
+			<div class="col-6 text-center pr-0">
+				<p class="mi-date spent">{{ item.expiredAt | date:'dd/MM/yyyy' }}</p>
+				<span class="title-date">Spent Creadits</span>
+			</div>
+		</div>
+	</div>
+</div>

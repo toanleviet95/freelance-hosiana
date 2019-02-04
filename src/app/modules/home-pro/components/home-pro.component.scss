@@ -1,0 +1,53 @@
+header,
+main {
+  font-family: Roboto;
+}
+
+main {
+  padding-bottom: 0 !important;
+  .intro {
+    font-size: 36px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #555555;
+  }
+  .select-industry {
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #555555;
+    margin: 10px 0;
+  }
+  .container-fluid {
+    background-color: #f5f5f5;
+  }
+  .bg-values {
+    background-color: none !important;
+    background: url('/assets/images/home-pro-values-bg.jpg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 460px) {
+  main {
+    .intro {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  main {
+    .intro {
+      font-size: 20px;
+    }
+  }
+}

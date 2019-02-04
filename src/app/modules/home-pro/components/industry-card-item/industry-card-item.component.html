@@ -1,0 +1,11 @@
+<div class="card card-image " style="background-repeat: no-repeat; background-size:cover;" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}" (click)="scroll('target'+elementId)">
+    <!-- Content -->
+    <div class="text-white text-center align-items-center rgba-black-strong py-4 px-4">
+        <div>
+            <div class="oval avatar mx-auto">
+            </div>
+            <p class="card-title pt-2">{{ 'home.role_'+content |  translate }}</p>
+        </div>
+    </div>
+    <!-- Content -->
+</div>

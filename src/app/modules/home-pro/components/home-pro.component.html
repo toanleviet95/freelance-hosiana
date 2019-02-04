@@ -1,0 +1,45 @@
+<app-top-mask></app-top-mask>
+<main class="text-center">
+    <div class="container pd-80">
+        <div class="row m-0">
+            <div class="col-md-12">
+                <p align="justify" class="intro">{{ 'home.take_your_business' |  translate }}</p>
+                <p class="select-industry mb-40">{{ 'home.select_industry' | translate }}</p>
+            </div>
+        </div>
+        <app-industry-cards></app-industry-cards>
+
+    </div>
+    <div class="container-fluid pd-80">
+        <div class="container">
+            <app-card-sections ></app-card-sections>
+        </div>
+    </div>
+    <div class="container pd-80">
+        <app-card-services [color]="'#3acaaa'" [title]="'agency'" [elementId]="1"></app-card-services>
+    </div>
+    <div class="container-fluid pd-80">
+        <div class="container p-0">
+            <app-card-services [color]="'#f5a623'" [title]="'hs'" [elementId]="2"></app-card-services>
+        </div>
+    </div>
+    <div class="container pd-80">
+        <app-card-services [color]="'#3791b6'" [title]="'proj'" [elementId]="3"></app-card-services>
+    </div>
+    <div class="container pd-80">
+        <app-card-services [color]="'#e4375c'" [title]="'broker'" [elementId]="4"></app-card-services>
+    </div>
+    <div class="container-fluid bg-values">
+        <div class="container pd-80 true">
+            <app-card-values></app-card-values>
+        </div>
+    </div>
+    <div class="container pd-80">
+        <app-card-clients></app-card-clients>
+    </div>
+    <div class="container-fluid pd-80">
+        <div class="container">
+            <app-card-differences></app-card-differences>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,176 @@
+<div class="row justify-content-md-center">
+    <div class="col-lg-5 col-xl-5 pl-3 pr-3 col-item-agency" [ngClass]="{'new': item.promotions.new == 1}">
+        <div class="checkbox-section">
+            <label for="{{ item.sku }}">
+                <input type="checkbox" id="{{ item.sku }}" value="{{ item.sku }}">
+                <div class="animations">
+                    <i class="fa fa-check"></i>
+                </div>
+            </label>
+        </div>
+        <div *ngIf="item.isNew" class="new-02"></div>
+        <div class="view z-depth-2 waves-light" [ngClass]="{'new': item.promotions.new == 1}">
+            <img src="{{ item.thumb }}" class="img-fluid img-item">
+            <div class="mask flex-center rgba-black-strong">
+                <div class="white-text sku">{{ item.sku }}</div>
+                <div class="white-text day-left">{{ item.remain }} {{ 'ListingAgency.DaysLeft' | translate }}</div>
+                <div class="clearfix"></div>
+            </div>
+            <div *ngIf="item.promotions.present" class="gift-section">
+                <div class="gift"></div>
+            </div>
+            <div class="type-section">
+                <button class="btn-sale" *ngIf="item.listingService === 1">{{ 'listings_all.sale' | translate }}</button>
+                <button class="btn-rent" *ngIf="item.listingService === 2">{{ 'listings_all.rent' | translate }}</button>
+                <button class="btn-swap" *ngIf="item.listingService === 3">{{ 'listings_all.swap' | translate }}</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-7 col-xl-7">
+        <div class="row">
+            <div class="col-lg-7 col-xl-7">
+                <a href="">
+                    <p class="pb-1 commercial">{{ 'listings_all.commercial' | translate }}</p>
+                </a>
+                <p class="mb-3 font-weight-bold dark-grey-text title">{{ item.title }}</p>
+                <div class="location-at">
+                    <div class="location"></div>
+                    {{ item.address.city }}, {{ item.address.district }}
+                </div>
+                <div class="price-section">
+                    <!-- <span class="price">{{ item.price.secondPrice.price | currency:'VND' }}</span> -->
+                    <span class="price">{{ item.price.secondPrice.price }}</span>
+                    <span class="old-price">
+                        <span class="discount">
+                            {{ item.price.discount > 0 ? '(-'+ item.price.discount +') - ' : '' }}
+                        </span>
+                        <span>
+                            {{ item.price.secondPrice.priceDown }}
+                        </span>
+                    </span>
+                </div>
+                <p class="offered-by">{{ 'listings_all.offered_by' | translate }}
+                    <!-- <a> -->
+                    <strong>{{ item.offerBy.firstName }} {{ item.offerBy.lastName }}</strong>
+                    <!-- </a> -->
+                </p>
+            </div>
+            <div class="col-lg-5 col-xl-5">
+                <div class="right-info">
+                    <div class="view-section">
+                        <span class="count-view">{{ item.views }} {{ 'App.View' | translate }} </span>
+                        <span class="bonus-week">+{{ item.viewOfWeek }} {{ 'listings_all.this_week' | translate }}</span>
+                    </div>
+                    <div class="rating-section">
+                        <span style="margin-right: 15px;">
+                            <div class="tag"><img src="assets/images/tag.svg" alt="Tag"></div>&nbsp;
+                            <span class="count">{{ item.request }}</span>
+                        </span>
+                        <span style="margin-right: 15px;">
+                            <div class="magnifying-glass"><img src="assets/images/magnifying-glass.svg" alt=""></div>&nbsp;
+                            <span class="count">{{ item.search }}</span>
+                        </span>
+                        <span>
+                            <div class="star"><img src="assets/images/star.svg" alt=""></div>
+                            <span class="count">{{ item.favorites }}</span>
+                        </span>
+                        <div class="rating-detail">
+                            <div class="imi-rate">
+                                <div class="bold">{{ item.request }} </div> {{ 'ListingAgency.CustomerRequestDiscount'
+                                | translate }}
+                            </div>
+                            <div class="imi-rate">
+                                <div class="bold">{{ item.search }} </div> {{ 'ListingAgency.CustomerSearch' |
+                                translate }}
+                            </div>
+                            <div class="imi-rate">
+                                <div class="bold">{{ item.favorites }} </div> {{
+                                'ListingAgency.CustomerAddedFavorite' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!-- TODO: UNCOMMENT WHEN API SUPPORT -->
+                    <!-- <div class="customers-section">
+                        <span class="customers-matched">{{ item.customersMatchedCount }} {{
+                            'ListingAgency.CustomersMatched' | translate }}</span>
+                    </div> -->
+
+                    <!-- TODO WAITING API SHARE FIELD -->
+                    <div>
+                        <div class="user-section">
+                            <img src="/assets/images/avatar.png" />
+                            <img src="/assets/images/avatar.png" />
+                            <img src="/assets/images/avatar.png" />
+                            <div class="count-add" *ngIf="item.sharedCount > 3">+{{item.sharedCount - 3}}</div>
+                        </div>
+                        <div class="shared-section">
+                            <span class="shared">{{ 'listings_all.share_to' | translate }} {{item.sharedCount}} {{ 'add_edit_listing.agents' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row flex-wrap mg18">
+            <button type="button" class="btn waves-light" ngbDropdown>
+                <span class="more"></span>&nbsp;
+                <span class="text-btn" ngbDropdownToggle id="dropdownConfig">{{ 'listings_all.more' | translate }}</span>
+                <div class="dropdown-menu menu-action-with-friend" ngbDropdownMenu aria-labelledby="dropdownConfig">
+                    <span class="dropdown-item">
+                        <span class="hav-icon remove-icon sprite-network"></span>
+                        <span class="title-action" translate>ListingAgency.DeleteListing</span>
+                    </span>
+                    <span class="dropdown-item">
+                        <span class="hav-icon edit-icon sprite-network"></span>
+                        <span class="title-action" translate>ListingAgency.EditListing</span>
+                    </span>
+                </div>
+            </button>
+
+            <div class="dropdown" dropdown>
+                <button dropdownToggle type="button" class="btn waves-light">
+                    <span class="promote"></span>&nbsp;
+                    <span class="text-btn">{{ 'add_edit_listing.promote' | translate }}</span>
+                </button>
+                <div class="dropdown-menu dropdown-primary">
+                    <a class="dropdown-item" href="#">{{ 'listings_all.action' | translate }}</a>
+                </div>
+            </div>
+            <button type="button" class="btn waves-light">
+                <span class="star-03"><img src="assets/images/mail.png" alt="Mail" style="max-width:22px;"></span>&nbsp;
+                <span class="text-btn">{{ 'listings_all.offer_agent' | translate }}</span>
+            </button>
+            <div class="dropdown" dropdown>
+                <button type="button" class="btn waves-light" ngbDropdown>
+                    <span class="share"></span>&nbsp;
+                    <span class="text-btn" ngbDropdownToggle id="shareDir">{{ 'listings_all.share' | translate }}</span>
+                    <div ngbDropdownMenu aria-labelledby="dropdownConfig" class="dropdown-menu menu-action-with-friend">
+                        <span class="dropdown-item">
+                            <span class="hav-icon sharefeed-icon sprite-network"></span>
+                            <span class="title-action" translate>ListingAgency.ShareToFeed</span>
+                        </span>
+                        <span class="dropdown-item">
+                            <span class="hav-icon sharefacebook-icon"><i class="fa fa-facebook"></i></span>
+                            <span class="title-action" translate>ListingAgency.ShareOnFacebook</span>
+                        </span>
+                        <span class="dropdown-item">
+                            <span class="hav-icon copylink-icon sprite-network"></span>
+                            <span class="title-action" translate>ListingAgency.CopyLink</span>
+                        </span>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-primary">
+                    <a class="dropdown-item" href="#">{{ 'listings_all.action' | translate }}</a>
+                </div>
+            </div>
+            <button style="border: none" type="button" class="btn btn-pink waves-light orange-bg">
+                <!-- <span class="text-btn">Mark as Sold</span> -->
+                <span class="text-btn" *ngIf="item.listingService === 1">{{ 'listings_all.mark_as_sold' | translate }}</span>
+                <span class="text-btn" *ngIf="item.listingService === 2">{{ 'listings_all.mark_as_rented' | translate }}</span>
+                <span class="text-btn" *ngIf="item.listingService === 3">{{ 'listings_all.mark_as_swapped' | translate }}</span>
+            </button>
+        </div>
+    </div>
+</div>
+<hr />

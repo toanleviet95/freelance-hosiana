@@ -1,0 +1,9 @@
+<main class="py-4 mt-5">
+	<video-banner-page [content]="content"></video-banner-page>
+	<div *ngIf="currentPath === 'education'">
+		<app-pro-education (change_header)="handleHeader($event)"></app-pro-education>
+	</div>
+	<div *ngIf="!currentPath">
+		<app-pro-stories (change_header)="handleHeader($event)" ></app-pro-stories>
+	</div>
+</main>

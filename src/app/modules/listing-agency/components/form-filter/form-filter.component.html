@@ -1,0 +1,61 @@
+<div>
+    <form>
+        <div class="row m-0">
+            <div class="p-2 col-12 col-sm-3 left-none mobile-w-100">
+                <div>
+                    <input type="text" placeholder="{{ 'listings_all.keyword' | translate }}" class="form-control" id="keyword" name="keyword">
+                    <div class="search-icon">
+                        <div class="magnifying-glass"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row">
+                    <div class="p-2 mobile-w-50 col-12 col-sm">
+                        <div>
+                            <select class="form-control" #typeSelect (change)="onSearchChange('type', $event.target.value)" [ngClass]="{'no-value': typeSelect.value == 0}" >
+                                <option *ngFor="let type of listingType" [value]="type.id" [selected]="type.active">{{
+                                    type.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-2 mobile-w-50 col-12 col-sm">
+                        <div>
+                            <select class="form-control" #serviceSelect (change)="onSearchChange('serviceType', $event.target.value)" [ngClass]="{'no-value': serviceSelect.value == 0}">
+                                <option *ngFor="let sType of serviceType" [value]="sType.id" [selected]="sType.active">{{
+                                    sType.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-2 mobile-w-50 col-12 col-sm">
+                        <div>
+                            <select class="form-control" #priceSelect [ngClass]="{'no-value': priceSelect.value == 0}">
+                                <option value="0" disabled selected>{{ 'listings_all.price' | translate }}</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="p-2 mobile-w-50 col-12 col-sm">
+                        <div>
+                            <select class="form-control" #sortSelect [ngClass]="{'no-value': sortSelect.value == 0}">
+                                <option value="0" disabled selected>{{ 'listings_all.sort_by' | translate }}</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-3">
+                <div class="p-2 more-filter mobile-w-100">
+                    <span>{{ 'listings_all.more_filters' | translate }}</span>
+                    <span class="divide"> | </span>
+                    <span>{{ 'listings_all.clear' | translate }} (10)</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

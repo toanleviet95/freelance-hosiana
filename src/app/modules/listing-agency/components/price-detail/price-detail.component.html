@@ -1,0 +1,80 @@
+<div class="container-fluid" [formGroup]="formValues">
+    <div class="container">
+        <form class="form-price" formGroupName="price">
+            <h2>{{'add_edit_listing.price' | translate}}</h2>
+            <select (change)="onChangeCurrency($event.target.value)" formControlName="unitCurrency" class="form-control select-currency">
+                <option value="vnd" selected>VNĐ</option>
+                <option value="usd">USD</option>
+            </select>
+            <div style="clear:both;"></div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row padleftfirst">
+                        <div class="col-12 col-lg-4">
+                            <p>{{'add_edit_listing.price' | translate}}
+                                <span class="required">*</span>
+                            </p>
+                            <input (change)="onChangePrice($event.target.value)" class="form-control" type="text" formControlName="mainPrice" placeholder="{{'add_edit_listing.price_placeholder' | translate}}" />
+                            <span class="currency">{{ langTarget == 'usd' ? ('add_edit_listing.million_dola' | translate) : ('add_edit_listing.million' | translate) }}</span>
+                            <p class="price-transfer pt-2">{{priceInput}} {{priceInputDollar ? ' - ' : '' }} {{priceInputDollar ? (priceInputDollar | number) : ''}} {{priceInputDollar ? '$' : ''}}</p>
+                            <div class="required" *ngIf="formValues['controls']['price']['controls']['mainPrice'].invalid && (formValues['controls']['price']['controls']['mainPrice'].dirty || formValues['controls']['price']['controls']['mainPrice'].touched)">{{'add_edit_listing.price_required' | translate}}</div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <p>{{'add_edit_listing.deposit' | translate}}</p>
+                            <input (change)="onChangeDeposit($event.target.value)" class="form-control" type="number" formControlName="deposit" placeholder="{{'add_edit_listing.deposit_placeholder' | translate}}" />
+                            <span class="currency">{{ langTarget == 'usd' ? ('add_edit_listing.million_dola' | translate) : ('add_edit_listing.million' | translate) }}
+                            </span>
+                            <p class="deposit-transfer pt-2">{{depositInputDollar ? (depositInputDollar | number) + '$' : ''}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="row padleftfirst">
+                        <div class="col-12 col-lg-6">
+                            <p>{{'add_edit_listing.management_fee' | translate}}
+                            </p>
+                            <input (change)="onChangeManageFee($event.target.value)" class="form-control" type="text" placeholder="{{'add_edit_listing.management_fee_placeholder' | translate}}" formControlName="manageFee" />
+                            <span class="currency">{{ langTarget == 'usd' ? ('add_edit_listing.million_dola' | translate) : ('add_edit_listing.million' | translate) }}/{{ 'add_edit_listing.month' | translate }}
+                            </span>
+                            <p class="fee-transfer pt-2">{{manageFeeInputDollar ? (manageFeeInputDollar | number) + '$/month' : ''}}</p>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <p>{{'add_edit_listing.rental_recorded' | translate}}
+                            </p>
+                            <input (change)="onChangeRentalRecorded($event.target.value)" class="form-control" type="text" placeholder="{{'add_edit_listing.rental_recorded_placeholder' | translate}}" formControlName="rentalNext" />
+                            <span class="currency">{{ langTarget == 'usd' ? ('add_edit_listing.million_dola' | translate) : ('add_edit_listing.million' | translate) }}
+                            </span>
+                            <p class="rental-transfer pt-2">{{rentalRecorded ? (rentalRecorded | number) + '$' : ''}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row pl-0 pt-3 pb-2">
+                <div class="checkbox-section">
+                    <label for="f1">
+                        <input type="checkbox" id="f1" value="1" formControlName="includeFee">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{'add_edit_listing.price_includes_management_fee' | translate}}
+                    </label>
+                </div>
+                <div class="checkbox-section">
+                    <label for="f2">
+                        <input type="checkbox" id="f2" value="1" formControlName="loanSupport">
+                        <div class="animations">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        {{'add_edit_listing.loan_acceptec' | translate}}
+                    </label>
+                </div>
+            </div>
+            <div class="exchange-rate">*  {{'add_edit_listing.exchange_rate' | translate}}: 1USD = {{ (exchangeRates | async)?.exchangeRate | number }} VND -
+                {{ (exchangeRates | async)?.startDate | date:'medium' }}</div>
+            <!-- 17/04/2017 at 17:10</div> -->
+        </form>
+    </div>
+</div>

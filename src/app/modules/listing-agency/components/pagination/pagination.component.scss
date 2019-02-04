@@ -1,0 +1,79 @@
+/*.showpage {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0px;
+    color: #555555;
+    .form-control {
+        display: inline-block;
+        width: auto;
+        margin: 0 5px;
+        padding: 2px 7px;
+        height: auto;
+    }
+}
+.rec {
+    border-radius: 2px;
+    padding: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.rec.active {
+    background: #e4375c;
+    color: #fff;
+}
+.bold {
+    font-weight: bold;
+}*/
+.footer {
+  align-items: center;
+  .list-listing {
+    .bold {
+      font-weight: bold;
+    }
+  }
+}
+.select-show {
+  width: 59px;
+  padding: 6px 7px;
+  border: 1px solid #979797;
+  margin: 0 5px;
+  background-position-x: 90%;
+}
+:host ::ng-deep {
+  .pagination {
+    justify-content: center;
+    margin-bottom: 0;
+    .page-link {
+      position: relative;
+      display: block;
+      padding: 4px;
+      margin-left: -1px;
+      margin: 0 2px;
+      line-height: 1.25;
+      border: 0;
+      font-size: 14px;
+      border-radius: 3px;
+      color: #555555;
+     
+    }
+    .page-link:focus {
+      box-shadow: none;
+    }
+    .page-item.active .page-link {
+      background-color: #e4375c;
+      border: 0;
+      color: #fff;
+      padding: 4px 8px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+    .lotus-mobile {
+        padding: 10px 15px;
+        border-bottom: 1px solid;
+    }
+}

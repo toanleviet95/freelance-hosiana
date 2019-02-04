@@ -1,0 +1,13 @@
+<div class="shadow-content">
+	<button (click)="activeModal.close()" class="close">
+		<img src="/assets/images/close-modal.png" alt="Close" title="close">
+	</button>
+	<div class="main-accept">
+		<img src="{{ image }}" alt="{{ user }}">
+		<h3 class="title-invite">{{ user }} {{ 'Network.Requesting' | translate }}</h3>
+		<div class="button-group">
+			<button type="button" class="form-control button-user accept">{{ 'Network.Accept' | translate }}</button>
+			<button type="button" class="form-control button-user deny">{{ 'Network.Deny' | translate }}</button>
+		</div>
+	</div>
+</div>

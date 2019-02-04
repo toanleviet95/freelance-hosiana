@@ -1,0 +1,17 @@
+<div class="row">
+    <section class="team-section text-center" [attr.id]="'target'+elementId">
+        <p class="section-heading">{{ 'home.broker_title' | translate }}</p>
+        <p class="section-description mb-40">{{ 'home.broker_how' |  translate }}</p>
+        <div class="row mobile-margin-0">
+            <div class="col-lg-4 col-md-4 mb-lg-0 mb-40" *ngFor="let item of agents; let i = index">
+                <app-card-section-item [item]="item" [index]="i" title="broker"></app-card-section-item>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-cyan waves-light btn-red become-dependient" type="submit" mdbWavesEffect>
+                {{ 'home.become_a_broker' |  translate }}
+            </button>
+            <!-- <img src="assets/images/become-broker.png" alt="Become Broker"> -->
+        </div>
+    </section>
+</div>

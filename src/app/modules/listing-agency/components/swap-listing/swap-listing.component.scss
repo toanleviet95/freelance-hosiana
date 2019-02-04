@@ -1,0 +1,76 @@
+.form-facilities {
+    padding: 5% 11%;
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .des-swap {
+
+    }
+    .group-swap {
+        margin-top: 15px;
+        .title-gr-swap {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .currency {
+            position: relative;
+            float: right;
+            bottom: 28px;
+            right: 10px;
+            background-color: #ffffff;
+            padding-left: 10px;
+        }
+        .checkbox-section {
+            margin-right: 10px;
+            margin-top: 15px;
+            label {
+                margin-right: 10px;
+                input[type="checkbox"] {
+                    display: none;
+                }
+                .animations {
+                    border-radius: 3px;
+                    border-color: #aaaaaa;
+                    color: #fff;
+                    display:inline-block;
+                    background-color: transparent;
+                    transition: border-color 90ms cubic-bezier(0,0,.2,.1);
+                    border-width: 1px;
+                    border-style: solid;
+
+
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    color: #555555;
+                }
+                .animations > i {
+                    padding: 1px 2px;
+                    color: #fff;
+                    opacity: 0;
+                }
+                input[type="checkbox"]:checked + .animations {
+                    border-color: #E4375C;
+                    background: #E4375C;
+                }
+                input[type="checkbox"]:checked + .animations > i {
+                    opacity: 1;
+                }
+            }
+        }
+        .check-swap {
+            padding: 7px 30px;
+            border: solid 1px #aaaaaa;
+        }
+        .check-swap.active {
+            background: #e4375c;
+            color: #fff;
+            border-color: #e4375c;
+        }
+    }
+}

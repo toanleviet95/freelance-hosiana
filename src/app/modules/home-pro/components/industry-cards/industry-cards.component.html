@@ -1,0 +1,5 @@
+<div class="row m-0">
+    <div style="padding: 0" class="col-md-3" *ngFor="let item of industries">
+        <app-industry-card-item [content]="item.content" [elementId]="item.id" [image]="item.image" [backgroundImage]="item.backgroundImage"></app-industry-card-item>
+    </div>
+</div>

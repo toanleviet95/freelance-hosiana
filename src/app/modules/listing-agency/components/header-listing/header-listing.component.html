@@ -1,0 +1,13 @@
+<div class="header-listing">
+	<div class="container">
+		<div class="list-cate">
+			<span class="cate-f"><a routerLink="/listing-agency" [ngClass]="{'active': active == 'all'}">{{ 'listings_all.all_listings' | translate }} ({{
+					listingTotal?.listing }}) </a></span>
+			<span class="cate-f"><a routerLink="/listing-agency/relist" [ngClass]="{'active': active == 'relist'}">{{ 'listings_all.relist' | translate }} ({{
+					listingTotal?.relist }})
+				</a></span>
+			<span class="cate-f"><a routerLink="/listing-agency/promotion" [ngClass]="{'active': active == 'promotion'}">{{ 'listings_all.promotion' | translate }} 
+					({{ listingTotal?.promotion }})</a></span>
+		</div>
+	</div>
+</div>
